@@ -1,0 +1,17 @@
+atom-material-syntax
+atom-material-ui
+seti-ui
+seti-syntax
+
+language-dotfiles
+language-elixir
+atom-elixir
+language-gettext
+language-babel
+language-docker
+
+svg-preview
+editorconfig
+
+color-picker
+pigments

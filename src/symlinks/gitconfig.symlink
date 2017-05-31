@@ -1,0 +1,19 @@
+[core]
+  editor = $EDITOR
+  excludesfile = ~/.gitignore_global
+  eol = lf
+
+[user]
+	name = Yordis Prieto Lazo
+	email = yordis.prieto@gmail.com
+
+[commit]
+  template = ~/.gitmessage
+
+[push]
+  default = simple
+
+[filter "lfs"]
+  clean = git-lfs clean %f
+  smudge = git-lfs smudge %f
+  required = true
