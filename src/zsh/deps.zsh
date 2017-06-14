@@ -4,5 +4,5 @@ zplug "zsh-users/zsh-completions"
 
 zplug "denysdovhan/spaceship-zsh-theme", as:theme
 
-zplug check || zplug install
-zplug load
+zplug check --verbose || zplug install
+zplug load --verbose
