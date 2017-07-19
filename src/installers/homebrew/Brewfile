@@ -26,6 +26,7 @@ brew 'tree'
 brew 'zplug'
 brew 'cowsay'
 
+brew 'emacs', args: ['with-cocoa', 'with-gnutls']
 # cask 'rubymine'
 cask 'atom'
 cask 'iterm2'
