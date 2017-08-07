@@ -1,6 +1,7 @@
 autoload -U colors && colors
 setopt auto_cd
 setopt prompt_subst
+setopt -o sharehistory
 
 source "$DOTFILES_ROOT/src/zsh/private.zsh"
 source "$DOTFILES_ROOT/src/zsh/variables.zsh"
@@ -18,4 +19,3 @@ if [ -f "${HOME}/Developer/google-cloud-sdk/path.zsh.inc" ]; then source "${HOME
 
 # The next line enables shell command completion for gcloud.
 if [ -f "${HOME}/Developer/google-cloud-sdk/completion.zsh.inc" ]; then source "${HOME}/Developer/google-cloud-sdk/completion.zsh.inc"; fi
-
