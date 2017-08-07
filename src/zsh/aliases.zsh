@@ -44,3 +44,6 @@ alias gemsets='rvm gemset list'
 # Node
 alias y="yarn"
 alias yadev="yarn add --dev"
+
+# VSCode
+alias code="code-insiders"
