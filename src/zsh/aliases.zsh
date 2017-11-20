@@ -6,6 +6,7 @@ alias gst="git status"
 alias gac="git add . && git commit -m"
 alias gap="git add -p ."
 alias gp="git push"
+alias gaf="git push -f"
 alias gco="git checkout"
 alias gb="git branch"
 alias glog="git log --oneline --decorate --graph"
@@ -42,7 +43,7 @@ alias gemset='rvm gemset'
 alias gemsets='rvm gemset list'
 
 # Node
-alias y="yarn"
+alias npm="yarn"
 alias yadev="yarn add --dev"
 
 # VSCode
