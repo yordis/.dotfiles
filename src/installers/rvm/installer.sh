@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-message "Installing RVM"
+# message "Installing RVM"
 
-which -s rvm || curl -sSL https://get.rvm.io | bash -s stable
+# which -s rvm || curl -sSL https://get.rvm.io | bash -s stable
 
-gem install lolcat
+# gem install lolcat
