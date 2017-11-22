@@ -3,12 +3,17 @@ atom-material-ui
 seti-ui
 seti-syntax
 
+atom-beautify
+emmet
+intentions
+
 language-dotfiles
 language-elixir
 atom-elixir
 language-gettext
 language-babel
 language-docker
+atom-typescript
 
 svg-preview
 editorconfig
