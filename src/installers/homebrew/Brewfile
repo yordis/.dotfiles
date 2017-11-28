@@ -42,7 +42,7 @@ cask 'skyfonts'
 cask 'dash'
 # cask 'lingo'
 
-cask 'robomongo'
+cask 'robo-3t'
 cask 'sequel-pro'
 cask 'pgadmin3'
 cask 'keycastr'
