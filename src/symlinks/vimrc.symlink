@@ -16,4 +16,4 @@ syntax on
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'elixir-lang/vim-elixir'
-call vundle#end()  
+call vundle#end()

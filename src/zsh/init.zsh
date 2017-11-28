@@ -2,6 +2,9 @@ autoload -U colors && colors
 setopt auto_cd
 setopt prompt_subst
 
+#autoload -U promptinit; promptinit
+#prompt pure
+
 source "$DOTFILES_ROOT/src/zsh/private.zsh"
 source "$DOTFILES_ROOT/src/zsh/variables.zsh"
 

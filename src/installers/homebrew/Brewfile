@@ -3,6 +3,7 @@ cask_args appdir: '/Applications'
 tap 'homebrew/bundle'
 tap 'caskroom/cask'
 tap 'caskroom/versions'
+tap 'caskroom/fonts'
 
 brew 'go'
 brew 'node'
@@ -27,10 +28,13 @@ brew 'zplug'
 brew 'cowsay'
 
 # brew 'emacs', args: ['with-cocoa', 'with-gnutls']
+
+cask 'font-fira-code'
 # cask 'rubymine'
 cask 'atom'
 cask 'iterm2'
 cask 'sublime-text'
+cask 'visual-studio-code-insiders'
 # cask 'principle'
 cask 'sketch'
 cask 'sketch-toolbox'
