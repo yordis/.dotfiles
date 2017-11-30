@@ -11,6 +11,8 @@ alias gco="git checkout"
 alias gb="git branch"
 alias glog="git log --oneline --decorate --graph"
 alias gamend="git commit --amend"
+alias gfall="git fetch --all"
+alias gpall="git pull --all"
 
 # Docker
 alias dc="docker-compose"
