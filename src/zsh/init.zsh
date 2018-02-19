@@ -1,4 +1,6 @@
 autoload -U colors && colors
+autoload -Uz compinit && compinit
+
 setopt auto_cd
 setopt prompt_subst
 

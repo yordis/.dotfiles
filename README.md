@@ -4,6 +4,7 @@ Run this:
 
 ```sh
 git clone https://github.com/yordis/dotfiles.git ~/.dotfiles
+
 cd ~/.dotfiles
 bin/installers
 bin/symlinks
