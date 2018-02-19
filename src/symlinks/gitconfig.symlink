@@ -2,6 +2,7 @@
   editor = $EDITOR
   excludesfile = ~/.gitignore_global
   eol = lf
+	precomposeUnicode = true
 
 [user]
 	name = Yordis Prieto Lazo
