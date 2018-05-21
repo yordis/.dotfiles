@@ -6,5 +6,5 @@ function get-app-running-on-port() {
 }
 
 function docker-remove-none-images() {
-  docker images |grep none | awk '{print $3}' | xargs docker rmi -f
+  docker images | grep none | awk '{print $3}' | xargs docker rmi -f
 }

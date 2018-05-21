@@ -2,6 +2,7 @@
   editor = $EDITOR
   excludesfile = ~/.gitignore_global
   eol = lf
+	precomposeUnicode = true
 
 [user]
 	name = Yordis Prieto Lazo
@@ -17,3 +18,6 @@
   clean = git-lfs clean %f
   smudge = git-lfs smudge %f
   required = true
+
+[url "git@github.com:"]
+  insteadOf = https://github.com/

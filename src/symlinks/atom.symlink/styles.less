@@ -22,6 +22,7 @@
 
 // style the background and foreground colors on the atom-text-editor-element itself
 atom-text-editor {
+  text-rendering: optimizeLegibility;
   // color: white;
   // background-color: hsl(180, 24%, 12%);
 }
@@ -33,4 +34,9 @@ atom-text-editor::shadow .cursor {
 
 .syntax--punctuation.syntax--definition.syntax--variable.syntax--elixir {
   color: #a074c4;
+}
+
+atom-text-editor.editor .syntax--string.syntax--quoted,
+atom-text-editor.editor .syntax--string.syntax--regexp {
+  -webkit-font-feature-settings: "liga" off, "calt" off;
 }
