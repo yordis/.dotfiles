@@ -10,6 +10,7 @@ brew 'node'
 brew 'erlang'
 brew 'elixir'
 
+brew 'git-flow'
 brew 'yarn'
 brew 'ack'
 brew 'imagemagick'
