@@ -45,6 +45,6 @@ do
   then
     create_symlink_for_folder $src
   else
-     create_symlink_for_file $src
+    create_symlink_for_file $src
   fi
 done
