@@ -9,4 +9,5 @@ export PATH="$PATH:$HOME/.config/yarn/global/node_modules/.bin"
 
 
 [[ -d "$HOME/.mix/escripts" ]] && export PATH="$PATH:$HOME/.mix/escripts"
+[[ -d "$HOME/.cargo/bin" ]] && export PATH="$PATH:$HOME/.cargo/bin"
 [[ -d "$HOME/.rvm" ]] && export PATH="$PATH:$HOME/.rvm/bin"
