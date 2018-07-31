@@ -34,9 +34,6 @@ alias bubo='brew update && brew outdated'
 alias bubc='brew upgrade && brew cleanup'
 alias bubu='bubo && bubc'
 
-# Atom
-alias apm-install="apm install --compatible --packages-file ~/.atom/packages.txt"
-
 # Node
 # alias npm="yarn"
 alias yadev="yarn add --dev"
