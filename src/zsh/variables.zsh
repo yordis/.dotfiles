@@ -8,6 +8,8 @@ export LANG=en_US.UTF-8
 export PATH="/usr/local/bin:$PATH"
 export PATH="$PATH:$(go env GOPATH)/bin"
 export PATH="$PATH:$HOME/.config/yarn/global/node_modules/.bin"
+# Using brew
+# export PATH="$PATH:`yarn global bin`"
 
 
 [[ -d "$HOME/.mix/escripts" ]] && export PATH="$PATH:$HOME/.mix/escripts"
