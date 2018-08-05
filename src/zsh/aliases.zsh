@@ -38,8 +38,5 @@ alias bubu='bubo && bubc'
 # alias npm="yarn"
 alias yadev="yarn add --dev"
 
-# VSCode
-alias code="code-insiders"
-
 # Dev
 alias dev="cd ~/Developer"

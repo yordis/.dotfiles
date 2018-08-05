@@ -4,3 +4,4 @@
 .idea
 .vscode
 *.iml
+.elixir_ls
