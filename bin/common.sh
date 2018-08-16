@@ -19,3 +19,13 @@ error() {
   local color='\033[0;31m'
   echo -e "Dotfiles: $color$1$NO_COLOR"
 }
+
+asdf_install () {
+  LANG=$1
+  VRSN=$2
+  REPO=$3
+
+  asdf plugin-add $LANG $REPO
+  asdf install $LANG $VRSN
+  asdf global $LANG $VRSN
+}
