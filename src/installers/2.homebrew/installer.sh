@@ -7,4 +7,4 @@ brew update && brew upgrade
 
 message "Installing Brew Dependencies"
 
-brew bundle --file="$DOTFILES_ROOT/src/installers/homebrew/Brewfile"
+brew bundle --file="$DOTFILES_ROOT/src/installers/2.homebrew/Brewfile"
