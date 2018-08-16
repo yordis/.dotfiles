@@ -29,6 +29,8 @@ brew 'bash'
 # brew 'tree'
 brew 'zplug'
 brew 'cowsay'
+brew 'coreutils'
+brew 'gpg'
 
 # brew 'emacs', args: ['with-cocoa', 'with-gnutls']
 
