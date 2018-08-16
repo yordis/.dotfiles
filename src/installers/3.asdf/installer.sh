@@ -17,3 +17,4 @@ asdf_install elixir 1.7.2 https://github.com/asdf-vm/asdf-elixir
 asdf_install nodejs 10.8.0 https://github.com/asdf-vm/asdf-nodejs
 asdf_install python 3.7.0 https://github.com/tuvistavie/asdf-python
 asdf_install ruby 2.5.1 https://github.com/asdf-vm/asdf-ruby
+asdf_install rust 1.28.0 https://github.com/code-lever/asdf-rust.git
