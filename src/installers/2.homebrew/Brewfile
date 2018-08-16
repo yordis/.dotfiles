@@ -31,6 +31,8 @@ brew 'zplug'
 brew 'cowsay'
 brew 'coreutils'
 brew 'gpg'
+brew 'autoconf'
+brew 'wxmac'
 
 # brew 'emacs', args: ['with-cocoa', 'with-gnutls']
 
