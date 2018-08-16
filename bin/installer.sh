@@ -14,7 +14,7 @@ find $INSTALLERS_ROOT -name installer.sh | while read installer; do
 
   case $answer in
       [Yy]* ) source "${installer}";;
-      [Nn]* ) message "${file_name} skipped";;
+      [Nn]* ) info "${file_name} skipped";;
       * ) echo "Please answer yes or no.";;
   esac
 done
