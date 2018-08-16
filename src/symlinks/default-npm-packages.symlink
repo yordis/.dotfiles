@@ -5,3 +5,5 @@ http-server
 npm-check-updates
 nodemon
 node-pre-gyp
+gatsby-cli
+ignite-cli
