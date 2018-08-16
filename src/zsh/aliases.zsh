@@ -20,7 +20,7 @@ alias dc="docker-compose"
 alias docker-remove-none-images="docker rmi -f $(docker images | grep "<none>" | awk "{print \$3}")"
 
 # ZSH
-alias reload="source ~/.zshrc"
+alias reload="source $HOME/.zshrc"
 
 # OS
 alias l="ls -lah"
@@ -39,4 +39,4 @@ alias bubu='bubo && bubc'
 alias yadev="yarn add --dev"
 
 # Dev
-alias dev="cd ~/Developer"
+alias dev="cd $HOME/Developer"
