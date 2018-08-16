@@ -5,9 +5,6 @@ setopt auto_cd
 setopt prompt_subst
 setopt -o sharehistory
 
-#autoload -U promptinit; promptinit
-#prompt pure
-
 source "$DOTFILES_ROOT/src/zsh/private.zsh"
 source "$DOTFILES_ROOT/src/zsh/variables.zsh"
 
@@ -20,4 +17,3 @@ source "$DOTFILES_ROOT/src/zsh/keybinding.zsh"
 [[ -f "$HOME/.asdf/asdf.sh" ]] && source "$HOME/.asdf/asdf.sh"
 [[ -s "$HOME/.iterm2_shell_integration.zsh" ]] && source "$HOME/.iterm2_shell_integration.zsh"
 [[ -f "$HOME/.tnsrc" ]] && source "$HOME/.tnsrc"
-[[ -s "$HOME/.cargo/env" ]] && source "$HOME/.cargo/env"
