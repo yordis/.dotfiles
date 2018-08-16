@@ -14,7 +14,7 @@ get_relative_path() {
 create_home_path() {
   local relative_path=$(get_relative_path $1)
 
-  echo "$HOME/.$relative_path"
+  info "$HOME/.$relative_path"
 }
 
 create_symlink_for_file () {
@@ -22,7 +22,7 @@ create_symlink_for_file () {
   local dst=$(create_home_path $src)
 
   ln -s -i "$src" "$dst"
-  echo "Linked $dst -------> $src"
+  info "Linked $dst $src"
 }
 
 create_symlink_for_folder() {
