@@ -7,3 +7,4 @@ nodemon
 node-pre-gyp
 gatsby-cli
 ignite-cli
+eslint
