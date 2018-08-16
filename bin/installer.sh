@@ -10,7 +10,7 @@ find $INSTALLERS_ROOT -name installer.sh | while read installer; do
   relative_path=$(realpath --relative-to=$INSTALLERS_ROOT $installer)
   file_name=${relative_path//[1-9]./}
 
-  read -p "Run $file_name? (y/n) " answer </dev/tty
+  read -p "Run $installer? (y/n) " answer </dev/tty
 
   case $answer in
       [Yy]* ) source "${installer}";;
