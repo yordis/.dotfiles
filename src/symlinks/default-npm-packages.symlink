@@ -1,3 +1,7 @@
 create-react-app
 create-react-native-app
 react-native-cli
+http-server
+npm-check-updates
+nodemon
+node-pre-gyp
