@@ -13,8 +13,7 @@ get_relative_path() {
 
 create_home_path() {
   local relative_path=$(get_relative_path $1)
-
-  info "$HOME/.$relative_path"
+  echo "$HOME/.$relative_path"
 }
 
 create_symlink_for_file () {
