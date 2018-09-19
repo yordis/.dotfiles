@@ -8,3 +8,4 @@ node-pre-gyp
 gatsby-cli
 ignite-cli
 eslint
+webpack-cli
