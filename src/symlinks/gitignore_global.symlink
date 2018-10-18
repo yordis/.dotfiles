@@ -5,3 +5,4 @@
 .vscode
 *.iml
 .elixir_ls
+.tool-versions
