@@ -6,5 +6,4 @@ export ERL_AFLAGS="-kernel shell_history enabled"
 
 export PATH="$PATH:/usr/local/bin"
 export PATH="$PATH:$HOME/.config/yarn/global/node_modules/.bin"
-[[ -d "/usr/local/opt/libxml2/bin" ]] && export PATH="$PATH:/usr/local/opt/libxml2/bin"
 [[ -d "$HOME/.mix/escripts" ]] && export PATH="$PATH:$HOME/.mix/escripts"
