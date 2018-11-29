@@ -23,6 +23,7 @@ alias docker-remove-none-images="docker rmi -f $(docker images | grep "<none>" |
 alias reload="source $HOME/.zshrc"
 
 # OS
+alias super-danger-rm="rm -rf"
 alias l="ls -lah"
 alias ll="ls -lh"
 alias ..="cd .."
