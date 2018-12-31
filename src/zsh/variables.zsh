@@ -4,6 +4,7 @@ export NOKOGIRI_USE_SYSTEM_LIBRARIES=1
 export LANG=en_US.UTF-8
 export ERL_AFLAGS="-kernel shell_history enabled"
 
-export PATH="$PATH:/usr/local/bin"
-export PATH="$PATH:$HOME/.config/yarn/global/node_modules/.bin"
-[[ -d "$HOME/.mix/escripts" ]] && export PATH="$PATH:$HOME/.mix/escripts"
+export PATH="/usr/local/sbin:$PATH"
+export PATH="/usr/local/bin:$PATH"
+export PATH="$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+[[ -d "$HOME/.mix/escripts" ]] && export PATH="$HOME/.mix/escripts:$PATH"
