@@ -17,7 +17,6 @@ alias gpall="git pull --all"
 
 # Docker
 alias dc="docker-compose"
-alias docker-remove-none-images="docker rmi -f $(docker images | grep "<none>" | awk "{print \$3}")"
 
 # ZSH
 alias reload="source $HOME/.zshrc"
@@ -39,7 +38,8 @@ alias bubu='bubo && bubc'
 
 # Node
 # alias npm="yarn"
-alias yadev="yarn add --dev"
+alias yarndep="yarn add --exact"
+alias yadev="yarn add -D --exact"
 
 # Dev
 alias dev="cd $HOME/Developer"
