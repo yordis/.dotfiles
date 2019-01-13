@@ -2,11 +2,11 @@
   editor = $EDITOR
   excludesfile = ~/.gitignore_global
   eol = lf
-	precomposeUnicode = true
+  precomposeUnicode = true
 
 [user]
-	name = Yordis Prieto Lazo
-	email = yordis.prieto@gmail.com
+  name = Yordis Prieto Lazo
+  email = yordis.prieto@gmail.com
 
 [commit]
   template = ~/.gitmessage

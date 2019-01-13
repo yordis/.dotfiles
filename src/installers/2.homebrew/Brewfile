@@ -10,7 +10,11 @@ brew 'git-flow'
 brew 'yarn', args: ['without-node']
 brew 'ack'
 brew 'imagemagick'
+
+# Git Image Diff
 brew 'spaceman-diff'
+brew 'jp2a'
+
 brew 'openssl'
 brew 'libyaml'
 brew 'libffi'
