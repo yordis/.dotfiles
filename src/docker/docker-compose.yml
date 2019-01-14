@@ -1,6 +1,13 @@
 version: '3'
 
 services:
+  email.mailcatcher:
+    image: schickling/mailcatcher:latest
+    restart: always
+    ports:
+      - 1025:1025
+      - 1080:4001
+
   database.postgis:
     image: mdillon/postgis:latest
     restart: always
