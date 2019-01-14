@@ -41,3 +41,20 @@ symlinks into your `$HOME` directory.
 ```sh
 bin/symlinks
 ```
+
+## Docker
+
+You can use `docker-compose` setup from inside `~/.dotfiles/src/docker` folder.
+Read more about `docker-compose` from the official documentation.
+
+I will be using `dc` alias from `zsh` alias config.
+
+### Useful commands
+
+From `~/.dotfiles/src/docker` folder.
+
+- `dc up -d`: runs all the services.
+- `dc stop`: stops all the services.
+- `docker exec -it "CONTAINER_NAME_OR_ID" COMMAND_NAME`: runs a command inside
+  the container. Using `bash` is useful when you want to get into the container
+  and run some bash commands.
