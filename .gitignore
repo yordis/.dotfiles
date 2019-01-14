@@ -1,3 +1,4 @@
 .DS_Store
 src/zsh/private.zsh
+src/docker/mounting
 .idea
