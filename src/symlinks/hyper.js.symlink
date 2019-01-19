@@ -115,13 +115,16 @@ module.exports = {
     // 'hyper-always-on-top',
     // 'hyperlayout',
 
+    /**
+     * Themes
+     */
 
-    // 'verminal',
+    'verminal',
     // 'hyper-one-dark-vivid',
     // 'hyper-snazzy',
     // 'hyper-solarized-dark',
     // 'hyper-chesterish',
-    'hyper-material-theme',
+    // 'hyper-material-theme',
   ],
 
   // in development, you can create a directory under
