@@ -6,7 +6,7 @@ services:
     restart: always
     ports:
       - 1025:1025
-      - 1080:4001
+      - 1080:1080
 
   database.postgis:
     image: mdillon/postgis:latest
@@ -17,3 +17,13 @@ services:
       - ./services/database/postgis/.env
     volumes:
       - ./volumes/postgis:/var/lib/postgresql/data
+
+  redis:
+    image: "redis:alpine"
+    ports:
+      - "6379:6379"
+
+  memcached:
+    image: "memcached:alpine"
+    ports:
+      - "11211:11211"
