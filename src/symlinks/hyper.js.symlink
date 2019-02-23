@@ -100,6 +100,10 @@ module.exports = {
     hypercwd: {
       initialWorkingDirectory: '~/Developer'
     },
+
+    verminal: {
+      fontFamily: '"SF Mono", "Monaco", "Inconsolata", "Fira Mono for Powerline", "Droid Sans Mono", "Source Code Pro", monospace',
+    },
   },
 
   // a list of plugins to fetch and install from npm
