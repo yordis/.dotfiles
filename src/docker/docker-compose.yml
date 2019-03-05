@@ -19,7 +19,7 @@ services:
       - ./volumes/postgis:/var/lib/postgresql/data
 
   database.postgresql:
-    image: postgres
+    image: postgres:latest
     restart: always
     ports:
       - 5432:5432
