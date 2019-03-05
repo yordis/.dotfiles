@@ -12,18 +12,28 @@ services:
     image: mdillon/postgis:latest
     restart: always
     ports:
-      - 5432:5432
+      - 5433:5432
     env_file:
       - ./services/database/postgis/.env
     volumes:
       - ./volumes/postgis:/var/lib/postgresql/data
 
-  redis:
-    image: "redis:alpine"
+  database.postgresql:
+    image: postgres
+    restart: always
     ports:
-      - "6379:6379"
+      - 5432:5432
+    env_file:
+      - ./services/database/postgresql/.env
+    volumes:
+      - ./volumes/postgresql:/var/lib/postgresql/data
+
+  redis:
+    image: 'redis:alpine'
+    ports:
+      - '6379:6379'
 
   memcached:
-    image: "memcached:alpine"
+    image: 'memcached:alpine'
     ports:
-      - "11211:11211"
+      - '11211:11211'
