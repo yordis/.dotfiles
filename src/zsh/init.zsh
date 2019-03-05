@@ -14,6 +14,11 @@ source "$DOTFILES_ROOT/src/zsh/aliases.zsh"
 source "$DOTFILES_ROOT/src/zsh/functions.zsh"
 source "$DOTFILES_ROOT/src/zsh/keybinding.zsh"
 
-[[ -f "$HOME/.asdf/asdf.sh" ]] && source "$HOME/.asdf/asdf.sh"
+
+if [[ -f "$HOME/.asdf/asdf.sh" ]] then
+  source "$HOME/.asdf/asdf.sh"
+  source "$HOME/.asdf/completions/asdf.bash"
+fi
+
 [[ -s "$HOME/.iterm2_shell_integration.zsh" ]] && source "$HOME/.iterm2_shell_integration.zsh"
 [[ -f "$HOME/.tnsrc" ]] && source "$HOME/.tnsrc"
