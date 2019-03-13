@@ -1,3 +1,5 @@
-VERB summary
-
-fixes #NUMBER
+<type>(<scope>): <subject>
+<BLANK LINE>
+<body>
+<BLANK LINE>
+<footer>

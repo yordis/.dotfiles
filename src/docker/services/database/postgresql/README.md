@@ -1,6 +1,6 @@
 # Postgis Service
 
-Creates a PostgreSQL database service with Postgis extensions enabled.
+Creates a PostgreSQL database service.
 
 ## Troubleshooting
 
