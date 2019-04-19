@@ -9,3 +9,4 @@ gatsby-cli
 ignite-cli
 eslint
 webpack-cli
+semantic-git-commit-cli

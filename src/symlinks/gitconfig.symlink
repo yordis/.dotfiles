@@ -5,8 +5,8 @@
   precomposeUnicode = true
 
 [user]
-  name = Yordis Prieto Lazo
-  email = yordis.prieto@gmail.com
+	name = Yordis Prieto Lazo
+	email = yordis.prieto@gmail.com
 
 [commit]
   template = ~/.gitmessage
@@ -15,9 +15,10 @@
   default = simple
 
 [filter "lfs"]
-  clean = git-lfs clean %f
-  smudge = git-lfs smudge %f
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
   required = true
+	process = git-lfs filter-process
 
 [url "git@github.com:"]
   insteadOf = https://github.com/
