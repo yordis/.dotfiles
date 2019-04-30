@@ -38,11 +38,19 @@ services:
       - ./volumes/postgresql:/var/lib/postgresql/data
 
   database.redis:
-    image: 'redis:alpine'
+    image: 'redis:latest'
+    restart: always
     ports:
       - '6379:6379'
 
   database.memcached:
-    image: 'memcached:alpine'
+    image: 'memcached:latest'
+    restart: always
     ports:
       - '11211:11211'
+
+  database.mongodb:
+    image: 'mongo:latest'
+    restart: always
+    ports:
+      - '27017:27017'
