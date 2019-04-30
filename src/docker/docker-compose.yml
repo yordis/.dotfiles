@@ -2,7 +2,7 @@ version: '3'
 
 services:
   opa:
-    image: openpolicyagent/opa:
+    image: openpolicyagent/opa
     ports:
       - 8181:8181
     command:
