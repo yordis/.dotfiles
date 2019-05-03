@@ -8,3 +8,8 @@ function get-app-running-on-port() {
 function docker-remove-none-images() {
   docker images | grep none | awk '{print $3}' | xargs docker rmi -f
 }
+
+function git-prune() {
+  git gc --prune=now
+  git remote prune origin
+}
