@@ -1,6 +1,15 @@
 version: '3'
 
 services:
+  opa:
+    image: openpolicyagent/opa
+    ports:
+      - 8181:8181
+    command:
+      - "run"
+      - "--server"
+      - "--log-level=debug"
+
   email.mailcatcher:
     image: schickling/mailcatcher:latest
     restart: always
