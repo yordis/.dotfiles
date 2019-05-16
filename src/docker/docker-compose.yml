@@ -27,15 +27,11 @@ services:
     volumes:
       - ./volumes/postgis:/var/lib/postgresql/data
 
-  database.postgresql:
-    image: postgres:latest
+  database.dynamodb:
+    image: 'amazon/dynamodb-local:latest'
     restart: always
     ports:
-      - 5432:5432
-    env_file:
-      - ./services/database/postgresql/.env
-    volumes:
-      - ./volumes/postgresql:/var/lib/postgresql/data
+      - '8000:8000'
 
   database.redis:
     image: 'redis:latest'
