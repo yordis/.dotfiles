@@ -1,4 +1,4 @@
-version: '3'
+version: "3"
 
 services:
   opa:
@@ -27,26 +27,36 @@ services:
     volumes:
       - ./volumes/postgis:/var/lib/postgresql/data
 
-  database.dynamodb:
-    image: 'amazon/dynamodb-local:latest'
+  database.postgresql:
+    image: postgres:latest
     restart: always
     ports:
-      - '8000:8000'
+      - 5432:5432
+    env_file:
+      - ./services/database/postgresql/.env
+    volumes:
+      - ./volumes/postgresql:/var/lib/postgresql/data
+
+  database.dynamodb:
+    image: amazon/dynamodb-local:latest
+    restart: always
+    ports:
+      - 8000:8000
 
   database.redis:
-    image: 'redis:latest'
+    image: redis:latest
     restart: always
     ports:
-      - '6379:6379'
+      - 6379:6379
 
   database.memcached:
-    image: 'memcached:latest'
+    image: memcached:latest
     restart: always
     ports:
-      - '11211:11211'
+      - 11211:11211
 
   database.mongodb:
-    image: 'mongo:latest'
+    image: mongo:latest
     restart: always
     ports:
-      - '27017:27017'
+      - 27017:27017
