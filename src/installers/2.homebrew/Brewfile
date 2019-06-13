@@ -11,6 +11,7 @@ brew 'git-flow'
 brew 'yarn', args: ['without-node']
 brew 'ack'
 brew 'imagemagick'
+brew 'leiningen'
 
 # Git Image Diff
 brew 'spaceman-diff'
