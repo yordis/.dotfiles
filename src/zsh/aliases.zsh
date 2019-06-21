@@ -22,6 +22,7 @@ alias dc="docker-compose"
 alias reload="source $HOME/.zshrc"
 
 # OS
+alias my-ip="ipconfig getifaddr en0"
 alias super-danger-rm="rm -rf"
 alias l="ls -lah"
 alias ll="ls -lh"
