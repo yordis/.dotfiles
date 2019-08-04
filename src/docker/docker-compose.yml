@@ -1,14 +1,33 @@
 version: "3"
 
+networks:
+  kafka:
+    driver: bridge
+
 services:
+  zookeeper:
+    image: bitnami/zookeeper:latest
+    ports:
+     - 2181:2181
+    environment:
+      - ALLOW_ANONYMOUS_LOGIN=yes
+
+  kafka:
+    image: bitnami/kafka:latest
+    ports:
+      - 9092
+    environment:
+      - KAFKA_CFG_ZOOKEEPER_CONNECT=zookeeper:2181
+      - ALLOW_PLAINTEXT_LISTENER=yes
+
   opa:
     image: openpolicyagent/opa
     ports:
       - 8181:8181
     command:
-      - "run"
-      - "--server"
-      - "--log-level=debug"
+      - run
+      - --server
+      - --log-level=debug
 
   email.mailcatcher:
     image: schickling/mailcatcher:latest
