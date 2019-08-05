@@ -4,6 +4,8 @@
 
 module.exports = {
   config: {
+    scrollback: Infinity,
+
     webGLRenderer: true,
 
     // default font size in pixels for all tabs
