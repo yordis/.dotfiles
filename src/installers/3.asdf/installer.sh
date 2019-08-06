@@ -2,7 +2,7 @@
 
 message "Installing ASDF"
 
-ASDF_VERSION=v0.5.1
+ASDF_VERSION=master
 ASDF_DIR=$HOME/.asdf
 NODEJS_CHECK_SIGNATURES=no
 
