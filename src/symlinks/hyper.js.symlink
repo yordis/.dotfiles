@@ -4,6 +4,10 @@
 
 module.exports = {
   config: {
+    scrollback: Infinity,
+
+    webGLRenderer: true,
+
     // default font size in pixels for all tabs
     fontSize: 18,
 
@@ -124,8 +128,8 @@ module.exports = {
      * Themes
      */
 
-    'verminal',
-    // 'hyper-one-dark-vivid',
+    // 'verminal',
+    'hyper-one-dark-vivid',
     // 'hyper-snazzy',
     // 'hyper-solarized-dark',
     // 'hyper-chesterish',
