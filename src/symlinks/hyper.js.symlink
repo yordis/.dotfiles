@@ -121,6 +121,7 @@ module.exports = {
     'hyper-pane',
     'hypercwd',
     'hyperlinks',
+    'hyperline',
     // 'hyper-always-on-top',
     // 'hyperlayout',
 
