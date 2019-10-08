@@ -22,8 +22,11 @@ brew 'libyaml'
 brew 'libffi'
 brew 'unrar'
 brew 'wget'
+
 cask 'docker'
 brew 'kubernetes-cli'
+cask 'minikube'
+
 brew 'aws-iam-authenticator'
 # brew 'tmux'
 # brew 'heroku-toolbelt'
