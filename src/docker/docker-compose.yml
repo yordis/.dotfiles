@@ -6,19 +6,25 @@ networks:
 
 services:
   zookeeper:
-    image: bitnami/zookeeper:latest
+    image: confluentinc/cp-zookeeper:latest
+    restart: unless-stopped
     ports:
-     - 2181:2181
+      - 2181:2181
     environment:
-      - ALLOW_ANONYMOUS_LOGIN=yes
+      ZOOKEEPER_CLIENT_PORT: 2181
 
   kafka:
-    image: bitnami/kafka:latest
+    image: confluentinc/cp-kafka:latest
+    restart: unless-stopped
     ports:
-      - 9092
+      - 9092:9092
+    depends_on:
+      - zookeeper
     environment:
-      - KAFKA_CFG_ZOOKEEPER_CONNECT=zookeeper:2181
-      - ALLOW_PLAINTEXT_LISTENER=yes
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+      KAFKA_AUTO_CREATE_TOPICS_ENABLE: "true"
 
   opa:
     image: openpolicyagent/opa
