@@ -38,6 +38,13 @@ services:
       - 1025:1025
       - 1080:1080
 
+  database.eventstore:
+    image: eventstore/eventstore:latest
+    restart: always
+    ports:
+      - 2113:2113
+      - 1113:1113
+
   database.postgis:
     image: mdillon/postgis:latest
     restart: always
