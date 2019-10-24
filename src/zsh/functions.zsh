@@ -13,3 +13,9 @@ function git-prune() {
   git gc --prune=now
   git remote prune origin
 }
+
+function unfuck-master-branch() {
+  git branch $1
+  git reset HEAD~ --hard
+  git checkout $1
+}
