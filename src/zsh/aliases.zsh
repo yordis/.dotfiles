@@ -12,6 +12,7 @@ alias gco="git checkout"
 alias gb="git branch"
 alias glog="git log --oneline --decorate"
 alias gamend="git commit --amend"
+alias gamendadd="git commit --amend --no-edit"
 alias gfall="git fetch --all"
 alias gpall="git pull --all"
 
