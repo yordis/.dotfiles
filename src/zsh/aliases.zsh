@@ -16,11 +16,13 @@ alias gamendadd="git commit --amend --no-edit"
 alias gfall="git fetch --all"
 alias gpall="git pull --all"
 
-# Docker
+# Docker & K8S
 alias dc="docker-compose"
+alias k="kubectl"
 
 # ZSH
 alias reload="source $HOME/.zshrc"
+alias timezsh="time zsh -i -c echo"
 
 # OS
 alias my-ip="ipconfig getifaddr en0"
