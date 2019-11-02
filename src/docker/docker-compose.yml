@@ -1,6 +1,16 @@
 version: "3"
 
 services:
+  verdaccio:
+    image: verdaccio/verdaccio:latest
+    ports:
+      - 4873:4873
+    volumes:
+      - "./volumes/verdaccio/storage:/verdaccio/storage"
+      - "./volumes/verdaccio/plugins:/verdaccio/plugins"
+    environment:
+      - VERDACCIO_PORT=4873
+
   zookeeper:
     image: confluentinc/cp-zookeeper:latest
     restart: unless-stopped
@@ -23,7 +33,7 @@ services:
       KAFKA_AUTO_CREATE_TOPICS_ENABLE: "true"
 
   opa:
-    image: openpolicyagent/opa
+    image: openpolicyagent/opa:latest
     ports:
       - 8181:8181
     command:
