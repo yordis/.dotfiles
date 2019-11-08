@@ -45,6 +45,7 @@ brew 'wxmac'
 brew 'emacs', args: ['with-cocoa', 'with-gnutls']
 
 cask 'font-fira-code'
+cask 'font-hack-nerd-font'
 cask 'jetbrains-toolbox'
 cask 'iterm2'
 cask 'sublime-text'

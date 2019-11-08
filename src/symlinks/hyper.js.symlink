@@ -8,11 +8,10 @@ module.exports = {
 
     webGLRenderer: true,
 
-    // default font size in pixels for all tabs
-    fontSize: 18,
+    fontSize: 22,
 
-    // font family with optional fallbacks
-    fontFamily: 'Menlo, "DejaVu Sans Mono", Consolas, "Lucida Console", monospace',
+    fontFamily:
+      '"Hack Nerd Font", "Operator Mono", Menlo, "DejaVu Sans Mono", Consolas, "Lucida Console", monospace',
 
     // terminal cursor background color and opacity (hex, rgb, hsl, hsv, hwb or cmyk)
     cursorColor: 'rgba(248,28,229,0.8)',
@@ -69,7 +68,7 @@ module.exports = {
       lightBlue: '#0066ff',
       lightMagenta: '#cc00ff',
       lightCyan: '#00ffff',
-      lightWhite: '#ffffff'
+      lightWhite: '#ffffff',
     },
 
     // the shell to run when spawning a new session (i.e. /usr/local/bin/fish)
@@ -102,11 +101,12 @@ module.exports = {
     // for advanced config flags please refer to https://hyper.is/#cfg
 
     hypercwd: {
-      initialWorkingDirectory: '~/Developer'
+      initialWorkingDirectory: '~/Developer',
     },
 
     verminal: {
-      fontFamily: '"SF Mono", "Monaco", "Inconsolata", "Fira Mono for Powerline", "Droid Sans Mono", "Source Code Pro", monospace',
+      fontFamily:
+        '"SF Mono", "Monaco", "Inconsolata", "Fira Mono for Powerline", "Droid Sans Mono", "Source Code Pro", monospace',
     },
   },
 
