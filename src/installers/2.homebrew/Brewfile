@@ -41,6 +41,7 @@ brew 'coreutils'
 brew 'gpg'
 brew 'autoconf'
 brew 'wxmac'
+brew 'asciinema'
 
 brew 'emacs', args: ['with-cocoa', 'with-gnutls']
 
