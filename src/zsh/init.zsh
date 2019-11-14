@@ -14,7 +14,6 @@ source "$DOTFILES_ROOT/src/zsh/aliases.zsh"
 source "$DOTFILES_ROOT/src/zsh/functions.zsh"
 source "$DOTFILES_ROOT/src/zsh/keybinding.zsh"
 
-
 if [[ -f "$HOME/.asdf/asdf.sh" ]] then
   source "$HOME/.asdf/asdf.sh"
   source "$HOME/.asdf/completions/asdf.bash"
@@ -28,6 +27,6 @@ fi
 [[ -f "$HOME/.config/yarn/global/node_modules/tabtab/.completions/sls.zsh" ]] && source "$HOME/.config/yarn/global/node_modules/tabtab/.completions/sls.zsh"
 [[ -f "$HOME/.config/yarn/global/node_modules/tabtab/.completions/slss.zsh" ]] && source "$HOME/.config/yarn/global/node_modules/tabtab/.completions/slss.zsh"
 
-source $(brew --prefix)/etc/bash_completion
-
 if [ $commands[kubectl] ]; then source <(kubectl completion zsh); fi
+
+[[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && source "/usr/local/etc/profile.d/bash_completion.sh"
