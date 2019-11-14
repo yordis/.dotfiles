@@ -27,6 +27,7 @@ cask 'docker'
 brew 'kubernetes-cli'
 cask 'minikube'
 brew 'kubernetes-helm'
+brew 'bash-completion'
 
 brew 'aws-iam-authenticator'
 # brew 'tmux'

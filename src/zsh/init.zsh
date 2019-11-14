@@ -21,10 +21,13 @@ if [[ -f "$HOME/.asdf/asdf.sh" ]] then
 fi
 
 [[ -s "$HOME/.iterm2_shell_integration.zsh" ]] && source "$HOME/.iterm2_shell_integration.zsh"
+
 [[ -f "$HOME/.tnsrc" ]] && source "$HOME/.tnsrc"
 
 [[ -f "$HOME/.config/yarn/global/node_modules/tabtab/.completions/serverless.zsh" ]] && source "$HOME/.config/yarn/global/node_modules/tabtab/.completions/serverless.zsh"
 [[ -f "$HOME/.config/yarn/global/node_modules/tabtab/.completions/sls.zsh" ]] && source "$HOME/.config/yarn/global/node_modules/tabtab/.completions/sls.zsh"
 [[ -f "$HOME/.config/yarn/global/node_modules/tabtab/.completions/slss.zsh" ]] && source "$HOME/.config/yarn/global/node_modules/tabtab/.completions/slss.zsh"
+
+source $(brew --prefix)/etc/bash_completion
 
 if [ $commands[kubectl] ]; then source <(kubectl completion zsh); fi
