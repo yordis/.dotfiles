@@ -5,7 +5,9 @@ tap 'caskroom/cask'
 tap 'caskroom/versions'
 tap 'caskroom/fonts'
 tap 'nektos/tap'
+tap 'aws/tap'
 
+brew 'aws-sam-cli'
 brew 'nektos/tap/act'
 brew 'git-flow'
 brew 'yarn', args: ['without-node']
