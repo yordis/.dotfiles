@@ -7,6 +7,7 @@ tap 'caskroom/fonts'
 tap 'nektos/tap'
 tap 'aws/tap'
 
+brew 'terraform'
 brew 'aws-sam-cli'
 brew 'nektos/tap/act'
 brew 'git-flow'
