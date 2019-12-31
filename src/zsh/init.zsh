@@ -5,28 +5,56 @@ setopt auto_cd
 setopt prompt_subst
 setopt -o sharehistory
 
+echo "Init"
+time
+echo
+
+echo "$DOTFILES_ROOT/src/zsh/path.zsh"
+source "$DOTFILES_ROOT/src/zsh/path.zsh"
+time
+echo
+
+echo "$DOTFILES_ROOT/src/zsh/private.zsh"
 source "$DOTFILES_ROOT/src/zsh/private.zsh"
+time
+echo
+
+echo "$DOTFILES_ROOT/src/zsh/variables.zsh"
 source "$DOTFILES_ROOT/src/zsh/variables.zsh"
+time
+echo
 
-source "$ZPLUG_HOME/init.zsh"
+echo "$DOTFILES_ROOT/src/zsh/zplug.zsh"
 source "$DOTFILES_ROOT/src/zsh/zplug.zsh"
+time
+echo
+
+echo "$DOTFILES_ROOT/src/zsh/aliases.zsh"
 source "$DOTFILES_ROOT/src/zsh/aliases.zsh"
+time
+echo
+
+echo "$DOTFILES_ROOT/src/zsh/functions.zsh"
 source "$DOTFILES_ROOT/src/zsh/functions.zsh"
+time
+echo
+
+echo "$DOTFILES_ROOT/src/zsh/keybinding.zsh"
 source "$DOTFILES_ROOT/src/zsh/keybinding.zsh"
+time
+echo
 
-if [[ -f "$HOME/.asdf/asdf.sh" ]] then
-  source "$HOME/.asdf/asdf.sh"
-  source "$HOME/.asdf/completions/asdf.bash"
-fi
+echo "$HOME/.asdf/asdf.sh"
+[[ -f "$HOME/.asdf/asdf.sh" ]] && source "$HOME/.asdf/asdf.sh"
+time
+echo
 
-[[ -s "$HOME/.iterm2_shell_integration.zsh" ]] && source "$HOME/.iterm2_shell_integration.zsh"
-
+echo "$HOME/.tnsrc"
 [[ -f "$HOME/.tnsrc" ]] && source "$HOME/.tnsrc"
+time
+echo
 
-[[ -f "$HOME/.config/yarn/global/node_modules/tabtab/.completions/serverless.zsh" ]] && source "$HOME/.config/yarn/global/node_modules/tabtab/.completions/serverless.zsh"
-[[ -f "$HOME/.config/yarn/global/node_modules/tabtab/.completions/sls.zsh" ]] && source "$HOME/.config/yarn/global/node_modules/tabtab/.completions/sls.zsh"
-[[ -f "$HOME/.config/yarn/global/node_modules/tabtab/.completions/slss.zsh" ]] && source "$HOME/.config/yarn/global/node_modules/tabtab/.completions/slss.zsh"
-
-if [ $commands[kubectl] ]; then source <(kubectl completion zsh); fi
-
-[[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && source "/usr/local/etc/profile.d/bash_completion.sh"
+echo "$DOTFILES_ROOT/src/zsh/completion.zsh"
+source "$DOTFILES_ROOT/src/zsh/completion.zsh"
+time
+echo
