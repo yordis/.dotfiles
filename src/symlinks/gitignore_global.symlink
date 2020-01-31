@@ -7,3 +7,4 @@
 *.iml
 .elixir_ls
 .tool-versions
+.rakeTasks
