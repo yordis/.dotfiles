@@ -52,6 +52,7 @@ brew 'asciinema'
 
 brew 'emacs', args: ['with-cocoa', 'with-gnutls']
 
+cask 'google-cloud-sdk'
 cask 'font-fira-code'
 cask 'font-hack-nerd-font'
 cask 'jetbrains-toolbox'
@@ -81,7 +82,7 @@ cask 'discord'
 # cask 'gitter'
 # cask 'hipchat'
 # cask 'skype'
-cask 'steam'
+# cask 'steam'
 # cask 'tunnelbear'
 cask 'dropbox'
 # cask 'spectacle'
