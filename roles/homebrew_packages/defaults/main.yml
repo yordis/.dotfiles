@@ -26,7 +26,6 @@ brews:
   - hub
   - bash
   - tree
-  - zplug
   - cowsay
   - coreutils
   - gpg
