@@ -3,3 +3,4 @@ src/zsh/private.zsh
 src/docker/volumes
 src/docker/**/local.env
 .idea
+docker_tmp

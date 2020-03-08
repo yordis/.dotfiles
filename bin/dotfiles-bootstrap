@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+set -e
+
+tags="$1"
+
+if [ -z $tags ]; then
+  tags="all"
+fi
+
+ansible-playbook \
+  --inventory $HOME/dotfiles/inventory.yml \
+  --ask-become-pass \
+  --tags $tags \
+  $HOME/dotfiles/dotfiles.yml

@@ -1,0 +1,63 @@
+- name: Set up local workstation
+  hosts: local
+  roles:
+    - role: asdf
+      tags:
+        - asdf
+    - role: deno
+      tags:
+        - deno
+    - role: docker
+      tags:
+        - docker
+    - role: editorconfig
+      tags:
+        - editorconfig
+    - role: elixir
+      tags:
+        - elixir
+    - role: emacs
+      tags:
+        - emacs
+    - role: erlang
+      tags:
+        - erlang
+    - role: git
+      tags:
+        - git
+    - role: golang
+      tags:
+        - golang
+    - role: homebrew
+      tags:
+        - homebrew
+    - role: homebrew_packages
+      tags:
+        - homebrew_packages
+    - role: hyperterm
+      tags:
+        - hyperterm
+    - role: nodejs
+      tags:
+        - nodejs
+    - role: os
+      tags:
+        - os
+    - role: python
+      tags:
+        - python
+    - role: ruby
+      tags:
+        - ruby
+    - role: rust
+      tags:
+        - rust
+    - role: terraform
+      tags:
+        - terraform
+    - role: vim
+      tags:
+        - vim
+    - role: zsh
+      tags:
+        - zsh

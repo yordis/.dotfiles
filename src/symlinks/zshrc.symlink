@@ -1,3 +1,0 @@
-export DOTFILES_ROOT=~/.dotfiles
-
-source "$DOTFILES_ROOT/src/zsh/init.zsh"
