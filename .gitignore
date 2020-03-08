@@ -1,6 +1,4 @@
 .DS_Store
-roles/docker/src/volumes
-roles/docker/src/**/local.env
 .idea
 *.local
 dotfiles.retry
