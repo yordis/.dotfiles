@@ -1,0 +1,42 @@
+- name: install yarn
+  homebrew:
+    name: yarn
+    state: present
+    install_options: without-node
+
+- name: link global .default-npm-packages file
+  file:
+    src: "{{ dotfiles_directory }}/roles/nodejs/files/default-npm-packages.symlink"
+    dest: "{{ user_home_directory }}/.default-npm-packages"
+    state: link
+
+- name: add NodeJS plugin to asdf
+  command:
+    cmd: asdf plugin-add nodejs https://github.com/asdf-vm/asdf-nodejs
+    creates: "{{ user_home_directory }}/.asdf/plugins/nodejs/bin/install"
+  register: nodejs_add
+  failed_when: nodejs_add == 2
+
+- name: Ensure GPG
+  homebrew:
+    name: gpg
+    state: present
+
+- name: import OpenPGP key
+  command: "bash {{ user_home_directory }}/.asdf/plugins/nodejs/bin/import-release-team-keyring"
+
+- name: install NodeJS versions
+  command:
+    cmd: asdf install nodejs {{ item }}
+    creates: "{{ user_home_directory }}/.asdf/installs/nodejs/{{ item }}/bin/node"
+  loop: "{{ versions }}"
+
+- name: check if global NodeJS version is v{{ global_version }}
+  shell: asdf current nodejs | grep {{ global_version }}
+  register: nodejs_global_version
+  changed_when: no
+  ignore_errors: yes
+
+- name: set global version for NodeJS to v{{ global_version }}
+  command: asdf global nodejs {{ global_version }}
+  when: nodejs_global_version.rc > 0

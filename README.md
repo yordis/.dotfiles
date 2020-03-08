@@ -1,60 +1,41 @@
 # Alchemist Ubi Dotfiles
 
-## Install
+Configure personal workstation using Ansible.
 
-You must clone the repository in the root as `.dotfiles`:
+## Requirements
 
-```sh
-git clone https://github.com/yordis/dotfiles.git ~/.dotfiles
+You may require to install `pip`, visit [installing pip](https://pip.pypa.io/en/stable/installing/)
+for more information. We recommend using latest `pip` and Python 3.
+
+```shell
+pip3 install -U pip
 ```
 
-## Usage
+Install [Ansible](https://www.ansible.com/), visit [installation guide](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html)
+for more information.
 
-You must go to the `.dotfiles` folder to be able to run the scripts
-
-```sh
-cd ~/.dotfiles
+```shell
+pip3 install --user ansible
 ```
 
-### Installers
+## Get Started
 
-Installers are a bunch of scripts that install the necessary software and try
-to setup the environment.
+Clone the repository into `$HOME/.dotfiles` directory.
 
-```sh
-bin/installers
+```shell
+git clone https://github.com/yordis/dotfiles.git $HOME/.dotfiles
 ```
 
-This will run all the `installer.sh` files from inside the `installers` folder.
+## Bootstrap
 
-### Symlinks
+First setup installation run the `dotfiles-bootstrap` command.
 
-Allow you to manage the configuration files from `.dotfiles`. It creates the
-symlinks into your `$HOME` directory.
-
-- **file to file**: add `.symlink` in the **file name** and it will create the
-  symlink.
-
-- **directory to files**: add `.symlink` in the **directory name** and it will
-  **create symlinks for every file inside the directory.**
-
-```sh
-bin/symlinks
+```shell
+./bin/dotfiles-bootstrap
 ```
 
-## Docker
+After that you can run any scripts defined in the `$DOTFILES_ROOT/bin`
 
-You can use `docker-compose` setup from inside `~/.dotfiles/src/docker` folder.
-Read more about `docker-compose` from the official documentation.
-
-I will be using `dc` alias from `zsh` alias config.
-
-### Useful commands
-
-From `~/.dotfiles/src/docker` folder.
-
-- `dc up -d`: runs all the services.
-- `dc stop`: stops all the services.
-- `docker exec -it "CONTAINER_NAME_OR_ID" COMMAND_NAME`: runs a command inside
-  the container. Using `bash` is useful when you want to get into the container
-  and run some bash commands.
+```shell
+dotfiles-bootstrap
+```

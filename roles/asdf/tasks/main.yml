@@ -1,0 +1,14 @@
+- name: clone asdf repository
+  git:
+    repo: git@github.com:asdf-vm/asdf.git
+    dest: "{{ user_home_directory }}/.asdf"
+    version: master
+    depth: "1"
+    update: no
+
+- name: symlink .asdfrc file
+  file:
+    src: "{{ dotfiles_directory }}/roles/asdf/files/asdfrc.symlink"
+    dest: "{{ user_home_directory }}/.asdfrc"
+    state: link
+    force: yes

@@ -1,0 +1,20 @@
+- name: ensuring Homebrew is installed
+  stat:
+    path: /usr/local/bin/brew
+  register: homebrew_check
+
+- name: install Homebrew
+  shell: bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+  when: not homebrew_check.stat.exists
+
+- name: ensuring Homebrew is updated
+  command: brew outdated
+  register: homebrew_outdated_check
+  changed_when: homebrew_outdated_check.rc != 0
+
+- name: update Homebrew
+  homebrew:
+    update_homebrew: yes
+  when:
+    - homebrew_check.stat.exists
+    - homebrew_outdated_check.rc != 0

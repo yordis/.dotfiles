@@ -1,0 +1,2 @@
+user_home_directory: "{{ '~' | expanduser }}"
+dotfiles_directory: "{{ user_home_directory }}/.dotfiles"

@@ -1,0 +1,85 @@
+taps:
+  - nektos/tap
+  - aws/tap
+
+brews:
+  - aws-sam-cli
+  - nektos/tap/act
+  - git-flow
+  - ack
+  - imagemagick
+  - leiningen
+  - github/gh/gh
+  - spaceman-diff
+  - jp2a
+  - openssl
+  - libyaml
+  - libffi
+  - unrar
+  - wget
+  - kubernetes-cli
+  - kubernetes-helm
+  - bash-completion
+  - aws-iam-authenticator
+  # - tmux
+  # - heroku-toolbelt
+  - hub
+  - bash
+  - tree
+  - zplug
+  - cowsay
+  - coreutils
+  - gpg
+  - autoconf
+  - wxmac
+  - asciinema
+
+casks:
+  - slack
+  - discord
+  - dropbox
+  - google-cloud-sdk
+  - font-fira-code
+  - font-hack-nerd-font
+  - jetbrains-toolbox
+  - iterm2
+  - sublime-text
+  - visual-studio-code
+  # - principle
+  - sketch
+  # - sketch-toolbox
+  - sourcetree
+  # - github-desktop
+  - skyfonts
+  # - balsamiq-mockups
+  # - adobe-creative-cloud
+  - dash
+  # - lingo
+  # - robo-3t
+  # - sequel-pro
+  # - pgadmin3
+  - mysqlworkbench
+  - postico
+  # - keycastr
+  - 1password
+  # - gitter
+  # - hipchat
+  # - skype
+  # - steam
+  # - tunnelbear
+  # - spectacle
+  # - utorrent
+  # - divvy
+  - obs
+  - paw
+  # - flux
+  - screenflow
+  # - firefox
+  - google-chrome
+  # - google-chrome-canary
+  # - firefoxnightly
+  # - webkit-nightly
+  # - chromium
+  # - torbrowser
+  # - radio-silence
+  - loopback
