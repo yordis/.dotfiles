@@ -1,0 +1,10 @@
+.DS_Store
+*~
+*.swp
+.idea
+.vscode/*
+!.vscode/launch.json
+*.iml
+.elixir_ls
+.tool-versions
+.rakeTasks

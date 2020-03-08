@@ -1,0 +1,28 @@
+[core]
+  editor = $EDITOR
+  excludesfile = ~/.gitignore_global
+  eol = lf
+  precomposeUnicode = true
+  ignorecase = false
+
+[user]
+  name = Yordis Prieto Lazo
+  email = yordis.prieto@gmail.com
+
+[commit]
+  template = ~/.gitmessage
+
+[push]
+  default = simple
+
+[filter "lfs"]
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  required = true
+  process = git-lfs filter-process
+
+[url "git@github.com:"]
+  insteadOf = https://github.com/
+
+[difftool]
+  prompt = false
