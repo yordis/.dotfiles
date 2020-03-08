@@ -1,0 +1,112 @@
+- name: install the command line developer tools
+  command: xcode-select --install
+  ignore_errors: yes
+
+- name: install software update
+  command: softwareupdate -i -a
+  become: true
+
+- name: enable "Ask for Password" from screensaver
+  command: defaults write com.apple.screensaver askForPassword -int 1
+
+- name: set "Ask for Password" delay from screensaver
+  command: defaults write com.apple.screensaver askForPasswordDelay -int 0
+
+- name: set screenshots directory
+  command: defaults write com.apple.screencapture location -string "{{ user_home_directory }}/Desktop"
+
+- name: disable shadows from screenshots
+  command: defaults write com.apple.screencapture disable-shadow -bool true
+
+- name: show external hard drives on desktop
+  command: defaults write com.apple.finder ShowExternalHardDrivesOnDesktop -bool true
+
+- name: show external hard drives on desktop
+  command: defaults write com.apple.finder ShowHardDrivesOnDesktop -bool true
+
+- name: show mounted servers on desktop
+  command: defaults write com.apple.finder ShowMountedServersOnDesktop -bool true
+
+- name: show removable media on desktop
+  command: defaults write com.apple.finder ShowRemovableMediaOnDesktop -bool true
+
+- name: show all extensions
+  command: defaults write NSGlobalDomain AppleShowAllExtensions -bool true
+
+- name: disable show path bar
+  command: defaults write com.apple.finder ShowPathbar -bool false
+
+- name: search the current folder by default
+  command: defaults write com.apple.finder FXDefaultSearchScope -string "SCcf"
+
+- name: disable the warning when changing a file extension
+  command: defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
+
+- name: keep folders on top when sorting by name
+  command: defaults write com.apple.finder _FXSortFoldersFirst -bool true
+
+- name: avoid creating .DS_Store files on USB volumes
+  command: defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true
+
+- name: avoid creating .DS_Store files on network volumes
+  command: defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
+
+- name: show the $HOME/Library folder
+  command: chflags nohidden {{ user_home_directory }}/Library
+
+- name: don’t automatically rearrange Spaces based on most recent use
+  command: defaults write com.apple.dock mru-spaces -bool false
+
+- name: remove the auto-hiding Dock delay
+  command: defaults write com.apple.dock autohide-delay -float 0
+
+- name: remove the animation when hiding/showing the Dock
+  command: defaults write com.apple.dock autohide-time-modifier -float 0
+
+- name: automatically hide and show the Dock
+  command: defaults write com.apple.dock autohide -bool true
+
+- name: don’t show recent applications in Dock
+  command: defaults write com.apple.dock show-recents -bool false
+
+- name: set Safari’s home page to `about:blank` for faster loading
+  command: defaults write com.apple.Safari HomePage -string "about:blank"
+
+- name: prevent Safari from opening ‘safe’ files automatically after downloading
+  command: defaults write com.apple.Safari AutoOpenSafeDownloads -bool false
+
+- name: hide Safari’s sidebar in Top Sites
+  command: defaults write com.apple.Safari ShowSidebarInTopSites -bool false
+
+- name: enable Safari’s debug menu
+  command: defaults write com.apple.Safari IncludeInternalDebugMenu -bool true
+
+- name: enable the Develop menu and the Web Inspector in Safari
+  command: defaults write com.apple.Safari IncludeDevelopMenu -bool true
+
+- name: warn about fraudulent websites
+  command: defaults write com.apple.Safari WarnAboutFraudulentWebsites -bool true
+
+- name: block pop-up windows from opening automatically
+  command: defaults write com.apple.Safari WebKitJavaScriptCanOpenWindowsAutomatically -bool false
+
+- name: enable "Do Not Track"
+  command: defaults write com.apple.Safari SendDoNotTrackHTTPHeader -bool true
+
+- name: update extensions automatically
+  command: defaults write com.apple.Safari InstallExtensionUpdatesAutomatically -bool true
+
+- name: copy email addresses without name
+  command: defaults write com.apple.mail AddressesIncludeNameOnPasteboard -bool false
+
+- name: prevent Time Machine from prompting to use new hard drives as backup volume
+  command: defaults write com.apple.TimeMachine DoNotOfferNewDisksForBackup -bool true
+
+- name: prevent Photos from opening automatically when devices are plugged in
+  command: defaults -currentHost write com.apple.ImageCapture disableHotPlug -bool true
+
+- name: add iOS Simulator to Launchpad
+  command:
+    cmd: ln -sf "/Applications/Xcode.app/Contents/Developer/Applications/Simulator.app" "/Applications/Simulator.app"
+    warn: false
+  become: true
