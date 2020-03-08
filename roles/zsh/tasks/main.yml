@@ -6,7 +6,7 @@
 - name: check existing shell
   shell: echo $0
   register: current_shell
-  changed_when: False
+  changed_when: no
 
 - name: change the user's shell
   command: chsh -s /bin/zsh
