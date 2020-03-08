@@ -1,0 +1,100 @@
+version: "3"
+
+services:
+  verdaccio:
+    image: verdaccio/verdaccio:latest
+    ports:
+      - 4873:4873
+    volumes:
+      - "./volumes/verdaccio/storage:/verdaccio/storage"
+      - "./volumes/verdaccio/plugins:/verdaccio/plugins"
+    environment:
+      - VERDACCIO_PORT=4873
+
+  zookeeper:
+    image: confluentinc/cp-zookeeper:latest
+    restart: unless-stopped
+    ports:
+      - 2181:2181
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 2181
+
+  kafka:
+    image: confluentinc/cp-kafka:latest
+    restart: unless-stopped
+    ports:
+      - 9092:9092
+    depends_on:
+      - zookeeper
+    environment:
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+      KAFKA_AUTO_CREATE_TOPICS_ENABLE: "true"
+
+  opa:
+    image: openpolicyagent/opa:latest
+    ports:
+      - 8181:8181
+    command:
+      - run
+      - --server
+      - --log-level=debug
+
+  email.mailcatcher:
+    image: schickling/mailcatcher:latest
+    restart: always
+    ports:
+      - 1025:1025
+      - 1080:1080
+
+  database.eventstore:
+    image: eventstore/eventstore:latest
+    restart: always
+    ports:
+      - 2113:2113
+      - 1113:1113
+
+  database.postgis:
+    image: mdillon/postgis:latest
+    restart: always
+    ports:
+      - 5433:5432
+    env_file:
+      - ./services/database/postgis/.env
+    volumes:
+      - ./volumes/postgis:/var/lib/postgresql/data
+
+  database.postgresql:
+    image: postgres:latest
+    restart: always
+    ports:
+      - 5432:5432
+    env_file:
+      - ./services/database/postgresql/.env
+    volumes:
+      - ./volumes/postgresql:/var/lib/postgresql/data
+
+  database.dynamodb:
+    image: amazon/dynamodb-local:latest
+    restart: always
+    ports:
+      - 8000:8000
+
+  database.redis:
+    image: redis:latest
+    restart: always
+    ports:
+      - 6379:6379
+
+  database.memcached:
+    image: memcached:latest
+    restart: always
+    ports:
+      - 11211:11211
+
+  database.mongodb:
+    image: mongo:latest
+    restart: always
+    ports:
+      - 27017:27017
