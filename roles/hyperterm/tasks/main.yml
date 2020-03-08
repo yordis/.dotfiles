@@ -1,10 +1,10 @@
-- name: Install Hyperterm
+- name: install Hyperterm
   homebrew_cask:
     name: hyper
     state: present
     install_options: force
 
-- name: Link .hyper.js config file
+- name: link .hyper.js config file
   file:
     src: "{{ dotfiles_directory }}/roles/hyperterm/files/hyper.js.symlink"
     dest: "{{ user_home_directory }}/.hyper.js"
