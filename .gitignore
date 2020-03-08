@@ -2,8 +2,6 @@
 roles/zsh/src/private.zsh
 roles/docker/src/volumes
 roles/docker/src/**/local.env
-src/docker/volumes
-src/docker/**/local.env
 .idea
 *.local
 dotfiles.retry
