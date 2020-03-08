@@ -1,0 +1,21 @@
+- name: install zsh using Homebrew
+  homebrew:
+    name: zsh
+    state: present
+
+- name: check existing shell
+  shell: echo $0
+  register: current_shell
+  changed_when: False
+
+- name: change the user's shell
+  command: chsh -s /bin/zsh
+  become: true
+  when: current_shell.stdout != "/bin/sh"
+
+- name: link .zshrc config file
+  file:
+    src: "{{ dotfiles_directory }}/roles/zsh/files/zshrc.symlink"
+    dest: "{{ user_home_directory }}/.zshrc"
+    state: link
+    force: yes

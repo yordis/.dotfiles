@@ -1,5 +1,4 @@
 .DS_Store
-roles/zsh/src/private.zsh
 roles/docker/src/volumes
 roles/docker/src/**/local.env
 .idea
