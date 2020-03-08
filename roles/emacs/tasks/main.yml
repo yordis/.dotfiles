@@ -1,0 +1,11 @@
+- name: install Mac Vim
+  homebrew:
+    name: emacs
+    state: present
+    install_options: with-cocoa,with-gnutls
+
+- name: link global .emacs file
+  file:
+    src: "{{ dotfiles_directory }}/roles/emacs/files/emacs.symlink"
+    dest: "{{ user_home_directory }}/.emacs"
+    state: link
