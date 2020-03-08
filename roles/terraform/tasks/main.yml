@@ -1,0 +1,22 @@
+- name: add Terraform plugin to asdf
+  command:
+    cmd: asdf plugin-add terraform https://github.com/Banno/asdf-hashicorp.git
+    creates: "{{ user_home_directory }}/.asdf/plugins/terraform/bin/install"
+  register: terraform_add
+  failed_when: terraform_add == 2
+
+- name: install Terraform versions
+  command:
+    cmd: asdf install terraform {{ item }}
+    creates: "{{ user_home_directory }}/.asdf/installs/terraform/{{ item }}/bin/terraform"
+  loop: "{{ versions }}"
+
+- name: check if global Terraform version is v{{ global_version }}
+  shell: asdf current terraform | grep {{ global_version }}
+  register: terraform_global_version
+  changed_when: no
+  ignore_errors: yes
+
+- name: set global version for Terraform to v{{ global_version }}
+  command: asdf global terraform {{ global_version }}
+  when: terraform_global_version.rc > 0
