@@ -1,0 +1,21 @@
+- name: install Homebrew taps
+  when: homebrew_check.stat.exists
+  loop: "{{ taps }}"
+  homebrew_tap:
+    name: "{{ item }}"
+    state: present
+
+- name: install Homebrew brews
+  when: homebrew_check.stat.exists
+  loop: "{{ brews }}"
+  homebrew:
+    name: "{{ item }}"
+    state: present
+
+- name: install Homebrew casks
+  when: homebrew_check.stat.exists
+  loop: "{{ casks }}"
+  homebrew_cask:
+    name: "{{ item }}"
+    state: present
+    install_options: force,appdir=/Applications
