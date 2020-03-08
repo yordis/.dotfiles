@@ -1,0 +1,10 @@
+- name: install Mac Vim
+  homebrew:
+    name: macvim
+    state: present
+
+- name: link global .vimrc file
+  file:
+    src: "{{ dotfiles_directory }}/roles/vim/files/vimrc.symlink"
+    dest: "{{ user_home_directory }}/.vimrc"
+    state: link
