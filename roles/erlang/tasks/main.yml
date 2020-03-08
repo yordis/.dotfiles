@@ -1,0 +1,22 @@
+- name: add Erlang plugin to asdf
+  command:
+    cmd: asdf plugin-add erlang https://github.com/asdf-vm/asdf-erlang
+    creates: "{{ user_home_directory }}/.asdf/plugins/erlang/bin/install"
+  register: erlang_add
+  failed_when: erlang_add == 2
+
+- name: install Erlang versions
+  command:
+    cmd: asdf install erlang {{ item }}
+    creates: "{{ user_home_directory }}/.asdf/installs/erlang/{{ item }}/bin/erl"
+  loop: "{{ versions }}"
+
+- name: check if global Erlang version is v{{ global_version }}
+  shell: asdf current erlang | grep {{ global_version }}
+  register: erlang_global_version
+  changed_when: no
+  ignore_errors: yes
+
+- name: set global version for Erlang to v{{ global_version }}
+  command: asdf global erlang {{ global_version }}
+  when: erlang_global_version.rc > 0
