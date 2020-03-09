@@ -19,3 +19,7 @@ function unfuck-master-branch() {
   git reset HEAD~ --hard
   git checkout $1
 }
+
+function gpublish() {
+  git push -u origin $(git rev-parse --abbrev-ref HEAD)
+}
