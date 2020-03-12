@@ -1,9 +1,10 @@
-autoload -U colors && colors
-autoload -Uz compinit && compinit
-
 setopt auto_cd
 setopt prompt_subst
 setopt -o sharehistory
+
+autoload -U colors && colors
+autoload -Uz compinit && compinit
+autoload -U promptinit; promptinit
 
 source "$DOTFILES_ROOT_ZSH_ROOT/path.zsh"
 source "$DOTFILES_ROOT_ZSH_ROOT/private.zsh"
