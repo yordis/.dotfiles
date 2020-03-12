@@ -1,13 +1,13 @@
 - name: add Elixir plugin to asdf
   command:
-    cmd: asdf plugin-add elixir https://github.com/asdf-vm/asdf-elixir
+    cmd: "{{ user_home_directory }}/.asdf/bin/asdf plugin-add elixir https://github.com/asdf-vm/asdf-elixir"
     creates: "{{ user_home_directory }}/.asdf/plugins/elixir/bin/install"
   register: elixir_add
   failed_when: elixir_add == 2
 
 - name: install Elixir versions
   command:
-    cmd: asdf install elixir {{ item }}
+    cmd: "{{ user_home_directory }}/.asdf/bin/asdf install elixir {{ item }}"
     creates: "{{ user_home_directory }}/.asdf/installs/elixir/{{ item }}/bin/elixir"
   loop: "{{ versions }}"
 
@@ -18,5 +18,5 @@
   ignore_errors: yes
 
 - name: set global version for Elixir to v{{ global_version }}
-  command: asdf global elixir {{ global_version }}
+  command: "{{ user_home_directory }}/.asdf/bin/asdf global elixir {{ global_version }}"
   when: elixir_global_version.rc > 0

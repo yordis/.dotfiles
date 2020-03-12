@@ -12,7 +12,7 @@
 
 - name: add NodeJS plugin to asdf
   command:
-    cmd: asdf plugin-add nodejs https://github.com/asdf-vm/asdf-nodejs
+    cmd: "{{ user_home_directory }}/.asdf/bin/asdf plugin-add nodejs https://github.com/asdf-vm/asdf-nodejs"
     creates: "{{ user_home_directory }}/.asdf/plugins/nodejs/bin/install"
   register: nodejs_add
   failed_when: nodejs_add == 2
@@ -27,7 +27,7 @@
 
 - name: install NodeJS versions
   command:
-    cmd: asdf install nodejs {{ item }}
+    cmd: "{{ user_home_directory }}/.asdf/bin/asdf install nodejs {{ item }}"
     creates: "{{ user_home_directory }}/.asdf/installs/nodejs/{{ item }}/bin/node"
   loop: "{{ versions }}"
 
@@ -38,5 +38,5 @@
   ignore_errors: yes
 
 - name: set global version for NodeJS to v{{ global_version }}
-  command: asdf global nodejs {{ global_version }}
+  command: "{{ user_home_directory }}/.asdf/bin/asdf global nodejs {{ global_version }}"
   when: nodejs_global_version.rc > 0

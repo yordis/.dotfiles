@@ -6,14 +6,14 @@
 
 - name: add Ruby plugin to asdf
   command:
-    cmd: asdf plugin-add ruby https://github.com/asdf-vm/asdf-ruby
+    cmd: "{{ user_home_directory }}/.asdf/bin/asdf plugin-add ruby https://github.com/asdf-vm/asdf-ruby"
     creates: "{{ user_home_directory }}/.asdf/plugins/ruby/bin/install"
   register: ruby_add
   failed_when: ruby_add == 2
 
 - name: install Ruby versions
   command:
-    cmd: asdf install ruby {{ item }}
+    cmd: "{{ user_home_directory }}/.asdf/bin/asdf install ruby {{ item }}"
     creates: "{{ user_home_directory }}/.asdf/installs/ruby/{{ item }}/bin/ruby"
   loop: "{{ versions }}"
 
@@ -24,5 +24,5 @@
   ignore_errors: yes
 
 - name: set global version for Ruby to v{{ global_version }}
-  command: asdf global ruby {{ global_version }}
+  command: "{{ user_home_directory }}/.asdf/bin/asdf global ruby {{ global_version }}"
   when: ruby_global_version.rc > 0
