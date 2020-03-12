@@ -6,6 +6,7 @@
         - asdf
     - role: deno
       tags:
+        - asdf
         - deno
     - role: docker
       tags:
@@ -15,18 +16,21 @@
         - editorconfig
     - role: elixir
       tags:
+        - asdf
         - elixir
     - role: emacs
       tags:
         - emacs
     - role: erlang
       tags:
+        - asdf
         - erlang
     - role: git
       tags:
         - git
     - role: golang
       tags:
+        - asdf
         - golang
     - role: homebrew
       tags:
@@ -39,21 +43,26 @@
         - hyperterm
     - role: nodejs
       tags:
+        - asdf
         - nodejs
     - role: os
       tags:
         - os
     - role: python
       tags:
+        - asdf
         - python
     - role: ruby
       tags:
+        - asdf
         - ruby
     - role: rust
       tags:
+        - asdf
         - rust
     - role: terraform
       tags:
+        - asdf
         - terraform
     - role: vim
       tags:

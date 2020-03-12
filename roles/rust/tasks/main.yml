@@ -1,13 +1,13 @@
 - name: add Rust plugin to asdf
   command:
-    cmd: asdf plugin-add rust https://github.com/code-lever/asdf-rust.git
+    cmd: "{{ user_home_directory }}/.asdf/bin/asdf plugin-add rust https://github.com/code-lever/asdf-rust.git"
     creates: "{{ user_home_directory }}/.asdf/plugins/rust/bin/install"
   register: rust_add
   failed_when: rust_add == 2
 
 - name: install Rust versions
   command:
-    cmd: asdf install rust {{ item }}
+    cmd: "{{ user_home_directory }}/.asdf/bin/asdf install rust {{ item }}"
     creates: "{{ user_home_directory }}/.asdf/installs/rust/{{ item }}/bin/cargo"
   loop: "{{ versions }}"
 
@@ -18,5 +18,5 @@
   ignore_errors: yes
 
 - name: set global version for Rust to v{{ global_version }}
-  command: asdf global rust {{ global_version }}
+  command: "{{ user_home_directory }}/.asdf/bin/asdf global rust {{ global_version }}"
   when: rust_global_version.rc > 0

@@ -1,13 +1,13 @@
 - name: add Golang plugin to asdf
   command:
-    cmd: asdf plugin-add golang https://github.com/kennyp/asdf-golang.git
+    cmd: "{{ user_home_directory }}/.asdf/bin/asdf plugin-add golang https://github.com/kennyp/asdf-golang.git"
     creates: "{{ user_home_directory }}/.asdf/plugins/golang/bin/install"
   register: golang_add
   failed_when: golang_add == 2
 
 - name: install Golang versions
   command:
-    cmd: asdf install golang {{ item }}
+    cmd: "{{ user_home_directory }}/.asdf/bin/asdf install golang {{ item }}"
     creates: "{{ user_home_directory }}/.asdf/installs/golang/{{ item }}/go/bin/go"
   loop: "{{ versions }}"
 
@@ -18,5 +18,5 @@
   ignore_errors: yes
 
 - name: set global version for Golang to v{{ global_version }}
-  command: asdf global golang {{ global_version }}
+  command: "{{ user_home_directory }}/.asdf/bin/asdf global golang {{ global_version }}"
   when: golang_global_version.rc > 0
