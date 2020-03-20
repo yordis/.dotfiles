@@ -3,6 +3,7 @@ taps:
   - aws/tap
 
 brews:
+  - git-lfs
   - aws-sam-cli
   - nektos/tap/act
   - git-flow
