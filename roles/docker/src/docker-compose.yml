@@ -1,6 +1,14 @@
 version: "3"
 
 services:
+  keycloak:
+    image: quay.io/keycloak/keycloak:latest
+    ports:
+      - 9000:8080
+    environment:
+      KEYCLOAK_USER: admin
+      KEYCLOAK_PASSWORD: admin
+
   verdaccio:
     image: verdaccio/verdaccio:latest
     ports:
