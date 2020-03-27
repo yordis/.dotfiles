@@ -1,0 +1,22 @@
+- name: add Terragrunt plugin to asdf
+  command:
+    cmd: "{{ user_home_directory }}/.asdf/bin/asdf plugin-add terragrunt https://github.com/lotia/asdf-terragrunt.git"
+    creates: "{{ user_home_directory }}/.asdf/plugins/terragrunt/bin/install"
+  register: terragrunt_add
+  failed_when: terragrunt_add == 2
+
+- name: install Terragrunt versions
+  command:
+    cmd: "{{ user_home_directory }}/.asdf/bin/asdf install terragrunt {{ item }}"
+    creates: "{{ user_home_directory }}/.asdf/installs/terragrunt/{{ item }}/bin/terragrunt"
+  loop: "{{ versions }}"
+
+- name: check if global Terragrunt version is v{{ global_version }}
+  shell: asdf current terragrunt | grep {{ global_version }}
+  register: terragrunt_global_version
+  changed_when: no
+  ignore_errors: yes
+
+- name: set global version for Terragrunt to v{{ global_version }}
+  command: "{{ user_home_directory }}/.asdf/bin/asdf global terragrunt {{ global_version }}"
+  when: terragrunt_global_version.rc > 0

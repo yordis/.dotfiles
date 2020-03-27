@@ -64,6 +64,11 @@
       tags:
         - asdf
         - terraform
+        - rust
+    - role: terragrunt
+      tags:
+        - asdf
+        - terragrunt
     - role: vim
       tags:
         - vim
