@@ -8,6 +8,7 @@
 [user]
   name = Yordis Prieto Lazo
   email = yordis.prieto@gmail.com
+	signingkey = 62A51250CDEF857166747ED8EF46CCDA9AD68B60
 
 [commit]
   template = ~/.gitmessage
