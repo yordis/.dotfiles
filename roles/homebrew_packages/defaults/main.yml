@@ -20,7 +20,7 @@ brews:
   - unrar
   - wget
   - kubernetes-cli
-  - kubernetes-helm
+  - helm
   - bash-completion
   - aws-iam-authenticator
   # - tmux
