@@ -3,6 +3,7 @@ taps:
   - aws/tap
 
 brews:
+  - packer
   - openshift-cli
   - drone-cli
   - git-lfs
@@ -37,6 +38,7 @@ brews:
   - asciinema
 
 casks:
+  - virtualbox
   - vagrant
   - ngrok
   - gpg-suite
