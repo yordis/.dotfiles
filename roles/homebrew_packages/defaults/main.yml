@@ -37,6 +37,7 @@ brews:
   - asciinema
 
 casks:
+  - vagrant
   - ngrok
   - gpg-suite
   - slack
