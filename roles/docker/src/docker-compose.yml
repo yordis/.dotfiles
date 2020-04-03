@@ -9,6 +9,11 @@ services:
       KEYCLOAK_USER: admin
       KEYCLOAK_PASSWORD: admin
 
+  grafana:
+    image: grafana/grafana:latest
+    ports:
+      - 9001:3000
+
   verdaccio:
     image: verdaccio/verdaccio:latest
     ports:
