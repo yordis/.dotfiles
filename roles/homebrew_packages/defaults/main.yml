@@ -38,6 +38,7 @@ brews:
   - asciinema
 
 casks:
+  - evernote
   - virtualbox
   - vagrant
   - ngrok
