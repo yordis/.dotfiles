@@ -16,6 +16,19 @@ services:
     ports:
       - 9001:3000
 
+  minio:
+    image: minio/minio:edge
+    command:
+      - server
+      - /data
+    restart: unless-stopped
+    ports:
+      - 9002:9000
+    volumes:
+      - "./volumes/minio/storage:/data"
+    env_file:
+      - ./services/minio/.env
+
   prometheus:
     image: prom/prometheus:latest
     restart: unless-stopped
