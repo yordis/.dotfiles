@@ -3,6 +3,7 @@ version: "3"
 services:
   keycloak:
     image: quay.io/keycloak/keycloak:latest
+    restart: unless-stopped
     ports:
       - 9000:8080
     environment:
@@ -11,11 +12,13 @@ services:
 
   grafana:
     image: grafana/grafana:latest
+    restart: unless-stopped
     ports:
       - 9001:3000
 
   verdaccio:
     image: verdaccio/verdaccio:latest
+    restart: unless-stopped
     ports:
       - 4873:4873
     volumes:
@@ -47,6 +50,7 @@ services:
 
   opa:
     image: openpolicyagent/opa:latest
+    restart: unless-stopped
     ports:
       - 8181:8181
     command:
@@ -56,21 +60,21 @@ services:
 
   email.mailcatcher:
     image: schickling/mailcatcher:latest
-    restart: always
+    restart: unless-stopped
     ports:
       - 1025:1025
       - 1080:1080
 
   database.eventstore:
     image: eventstore/eventstore:latest
-    restart: always
+    restart: unless-stopped
     ports:
       - 2113:2113
       - 1113:1113
 
   database.postgis:
     image: mdillon/postgis:latest
-    restart: always
+    restart: unless-stopped
     ports:
       - 5433:5432
     env_file:
@@ -80,7 +84,7 @@ services:
 
   database.postgresql:
     image: postgres:latest
-    restart: always
+    restart: unless-stopped
     ports:
       - 5432:5432
     env_file:
@@ -90,24 +94,24 @@ services:
 
   database.dynamodb:
     image: amazon/dynamodb-local:latest
-    restart: always
+    restart: unless-stopped
     ports:
       - 8000:8000
 
   database.redis:
     image: redis:latest
-    restart: always
+    restart: unless-stopped
     ports:
       - 6379:6379
 
   database.memcached:
     image: memcached:latest
-    restart: always
+    restart: unless-stopped
     ports:
       - 11211:11211
 
   database.mongodb:
     image: mongo:latest
-    restart: always
+    restart: unless-stopped
     ports:
       - 27017:27017
