@@ -15,6 +15,10 @@ services:
     restart: unless-stopped
     ports:
       - 9001:3000
+    volumes:
+      - ./volumes/grafana/:/var/lib/grafana
+    env_file:
+      - ./services/grafana/.env
 
   minio:
     image: minio/minio:edge
