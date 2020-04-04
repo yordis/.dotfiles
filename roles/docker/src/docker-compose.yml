@@ -16,6 +16,12 @@ services:
     ports:
       - 9001:3000
 
+  prometheus:
+    image: prom/prometheus:latest
+    restart: unless-stopped
+    ports:
+      - 9090:9090
+
   verdaccio:
     image: verdaccio/verdaccio:latest
     restart: unless-stopped
