@@ -27,3 +27,7 @@ function gpublish() {
 function dotfiles-docker() {
   cd "$DOTFILES_ROOT/roles/docker/src"
 }
+
+function dotfiles-dc() {
+  docker-compose -p dotfiles --project-directory "$DOTFILES_ROOT/roles/docker/src" "$@"
+}
