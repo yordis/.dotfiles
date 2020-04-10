@@ -29,5 +29,5 @@ function dotfiles-docker() {
 }
 
 function dotfiles-dc() {
-  docker-compose -p dotfiles --project-directory "$DOTFILES_ROOT/roles/docker/src" "$@"
+  docker-compose --project-name dotfiles --project-directory "$DOTFILES_ROOT/roles/docker/src" "$@"
 }
