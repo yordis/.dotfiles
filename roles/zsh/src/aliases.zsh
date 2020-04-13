@@ -19,6 +19,7 @@ alias gunstage="git reset -q HEAD --"
 alias gdiscard="git checkout --"
 alias guncommit="git reset --mixed HEAD~"
 alias gplease="git push --force-with-lease"
+alias gnomessage="git commit --allow-empty-message -m ''"
 
 # Docker & K8S
 alias dc="docker-compose"
