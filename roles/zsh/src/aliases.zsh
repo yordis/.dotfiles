@@ -30,11 +30,17 @@ alias reload!="source $HOME/.zshrc"
 alias timezsh="time zsh -i -c echo"
 
 # OS
+alias -g ...='../..'
+alias -g ....='../../..'
+alias -g .....='../../../..'
+alias -g ......='../../../../..'
+
 alias my-ip="ipconfig getifaddr en0"
 alias super-danger-rm="rm -rf"
 alias l="ls -lah"
 alias ll="ls -lh"
 alias ..="cd .."
+alias make-dir='mkdir -p'
 alias finder="open"
 alias show-hidden='defaults write com.apple.finder AppleShowAllFiles YES; killall Finder /System/Library/CoreServices/Finder.app'
 alias hide-hidden='defaults write com.apple.finder AppleShowAllFiles NO; killall Finder /System/Library/CoreServices/Finder.app'

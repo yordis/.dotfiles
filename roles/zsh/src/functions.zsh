@@ -31,3 +31,9 @@ function dotfiles-docker() {
 function dotfiles-dc() {
   docker-compose --project-name dotfiles --project-directory "$DOTFILES_ROOT/roles/docker/src" "$@"
 }
+
+
+function gaacnm() {
+  git add .
+  git commit --allow-empty-message -m ''
+}
