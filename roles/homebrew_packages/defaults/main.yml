@@ -1,6 +1,7 @@
 taps:
   - nektos/tap
   - aws/tap
+  - heroku/brew
 
 brews:
   - rbq/homebrew-kubeflow/kfctl
@@ -27,7 +28,7 @@ brews:
   - bash-completion
   - aws-iam-authenticator
   # - tmux
-  - heroku-toolbelt
+  - heroku
   # - hub
   - bash
   # - tree
