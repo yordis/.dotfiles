@@ -5,18 +5,18 @@ taps:
 brews:
   - rbq/homebrew-kubeflow/kfctl
   - packer
-  - openshift-cli
-  - drone-cli
-  - git-lfs
+  # - openshift-cli
+  # - drone-cli
+  # - git-lfs
   - aws-sam-cli
   - nektos/tap/act
-  - git-flow
+  # - git-flow
   - ack
   - imagemagick
-  - leiningen
-  - github/gh/gh
-  - spaceman-diff
-  - jp2a
+  # - leiningen
+  # - github/gh/gh
+  # - spaceman-diff
+  # - jp2a
   - openssl
   - libyaml
   - libffi
@@ -27,50 +27,50 @@ brews:
   - bash-completion
   - aws-iam-authenticator
   # - tmux
-  # - heroku-toolbelt
-  - hub
+  - heroku-toolbelt
+  # - hub
   - bash
-  - tree
-  - cowsay
+  # - tree
+  # - cowsay
   - coreutils
   - gpg
   - autoconf
-  - wxmac
-  - asciinema
+  # - wxmac
+  # - asciinema
 
 casks:
-  - evernote
+  # - evernote
   - virtualbox
   - vagrant
   - ngrok
   - gpg-suite
-  - slack
-  - discord
+  # - slack
+  # - discord
   - dropbox
   - google-cloud-sdk
   - font-fira-code
   - font-hack-nerd-font
   - jetbrains-toolbox
   - iterm2
-  - sublime-text
-  - visual-studio-code
+  # - sublime-text
+  # - visual-studio-code
   # - principle
   - sketch
   # - sketch-toolbox
   - sourcetree
   # - github-desktop
-  - skyfonts
+  # - skyfonts
   # - balsamiq-mockups
   # - adobe-creative-cloud
-  - dash
+  # - dash
   # - lingo
   # - robo-3t
   # - sequel-pro
   # - pgadmin3
-  - mysqlworkbench
-  - postico
+  # - mysqlworkbench
+  # - postico
   # - keycastr
-  - 1password
+  # - 1password
   # - gitter
   # - hipchat
   # - skype
@@ -79,10 +79,10 @@ casks:
   # - spectacle
   # - utorrent
   # - divvy
-  - obs
+  # - obs
   - paw
   # - flux
-  - screenflow
+  # - screenflow
   # - firefox
   - google-chrome
   # - google-chrome-canary
@@ -91,4 +91,4 @@ casks:
   # - chromium
   # - torbrowser
   # - radio-silence
-  - loopback
+  # - loopback

@@ -20,9 +20,9 @@ function unfuck-master-branch() {
   git checkout $1
 }
 
-function gpublish() {
-  git push -u origin $(git rev-parse --abbrev-ref HEAD)
-}
+# function gpublish() {
+#   git push -u origin $(git rev-parse --abbrev-ref HEAD)
+# }
 
 function dotfiles-docker() {
   cd "$DOTFILES_ROOT/roles/docker/src"
