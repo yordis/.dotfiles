@@ -6,6 +6,8 @@ autoload -U colors && colors
 autoload -Uz compinit && compinit
 autoload -U promptinit; promptinit
 
+fpath=($DOTFILES_ROOT_ZSH_ROOT/completions $fpath)
+
 source "$DOTFILES_ROOT_ZSH_ROOT/path.zsh"
 source "$DOTFILES_ROOT_ZSH_ROOT/private.zsh"
 source "$DOTFILES_ROOT_ZSH_ROOT/variables.zsh"
