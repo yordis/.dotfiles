@@ -18,6 +18,16 @@ for more information.
 pip3 install --user ansible
 ```
 
+Verify that `pip3 bin` file is part of your `$PATH`. Use `pip3 list -v` to see
+where `pip3` is installing the packages, and find the `bin` directory and add it
+to your path.
+
+Most likely the following command would work:
+
+```shell
+export PATH="$HOME/Library/Python/3.7/bin:$PATH"
+```
+
 ## Get Started
 
 Clone the repository into `$HOME/.dotfiles` directory.
