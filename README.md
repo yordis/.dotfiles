@@ -31,6 +31,7 @@ git clone https://github.com/yordis/dotfiles.git $HOME/.dotfiles
 First setup installation run the `dotfiles-bootstrap` command.
 
 ```shell
+cd $HOME/.dotfiles
 ./bin/dotfiles-bootstrap
 ```
 
