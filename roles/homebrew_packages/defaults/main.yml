@@ -2,6 +2,7 @@ taps:
   - nektos/tap
   - aws/tap
   - heroku/brew
+  - homebrew/cask-fonts
 
 brews:
   - rbq/homebrew-kubeflow/kfctl
