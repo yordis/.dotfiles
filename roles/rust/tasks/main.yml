@@ -12,7 +12,7 @@
   loop: "{{ versions }}"
 
 - name: check if global Rust version is v{{ global_version }}
-  shell: asdf current rust | grep {{ global_version }}
+  shell: "{{ user_home_directory }}/.asdf/bin/asdf current rust | grep {{ global_version }}"
   register: rust_global_version
   changed_when: no
   ignore_errors: yes

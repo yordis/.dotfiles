@@ -12,7 +12,7 @@
   loop: "{{ versions }}"
 
 - name: check if global Terragrunt version is v{{ global_version }}
-  shell: asdf current terragrunt | grep {{ global_version }}
+  shell: "{{ user_home_directory }}/.asdf/bin/asdf current terragrunt | grep {{ global_version }}"
   register: terragrunt_global_version
   changed_when: no
   ignore_errors: yes

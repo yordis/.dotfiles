@@ -18,7 +18,7 @@
   loop: "{{ versions }}"
 
 - name: check if global Ruby version is v{{ global_version }}
-  shell: asdf current ruby | grep {{ global_version }}
+  shell: "{{ user_home_directory }}/.asdf/bin/asdf current ruby | grep {{ global_version }}"
   register: ruby_global_version
   changed_when: no
   ignore_errors: yes

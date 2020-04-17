@@ -12,7 +12,7 @@
   loop: "{{ versions }}"
 
 - name: check if global Terraform version is v{{ global_version }}
-  shell: asdf current terraform | grep {{ global_version }}
+  shell: "{{ user_home_directory }}/.asdf/bin/asdf current terraform | grep {{ global_version }}"
   register: terraform_global_version
   changed_when: no
   ignore_errors: yes
