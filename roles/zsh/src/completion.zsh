@@ -5,5 +5,6 @@
 [[ -f "$HOME/.config/yarn/global/node_modules/tabtab/.completions/slss.zsh" ]] && source "$HOME/.config/yarn/global/node_modules/tabtab/.completions/slss.zsh"
 
 if [ $commands[kubectl] ]; then source <(kubectl completion zsh); fi
+if [ $commands[kfctl] ]; then source <(kfctl completion zsh); fi
 
 [[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && source "/usr/local/etc/profile.d/bash_completion.sh"
