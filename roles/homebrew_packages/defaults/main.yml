@@ -3,6 +3,7 @@ taps:
   - aws/tap
 
 brews:
+  - rbq/homebrew-kubeflow/kfctl
   - packer
   - openshift-cli
   - drone-cli
