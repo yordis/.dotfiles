@@ -2,7 +2,7 @@
   homebrew:
     name: yarn
     state: present
-    install_options: without-node
+    install_options: ignore-dependencies
 
 - name: link global .default-npm-packages file
   file:
