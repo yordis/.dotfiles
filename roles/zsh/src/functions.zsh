@@ -32,6 +32,9 @@ function dotfiles-dc() {
   docker-compose --project-name dotfiles --project-directory "$DOTFILES_ROOT/roles/docker/src" "$@"
 }
 
+function docker-bash-it() {
+  docker exec -it $1 bash
+}
 
 function gaacnm() {
   git add .
