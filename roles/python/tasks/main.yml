@@ -18,7 +18,7 @@
   loop: "{{ versions }}"
 
 - name: check if global Python version is v{{ global_version }}
-  shell: asdf current python | grep {{ global_version }}
+  shell: "{{ user_home_directory }}/.asdf/bin/asdf current python | grep {{ global_version }}"
   register: python_global_version
   changed_when: no
   ignore_errors: yes

@@ -32,7 +32,7 @@
   loop: "{{ versions }}"
 
 - name: check if global NodeJS version is v{{ global_version }}
-  shell: asdf current nodejs | grep {{ global_version }}
+  shell: "{{ user_home_directory }}/.asdf/bin/asdf current nodejs | grep {{ global_version }}"
   register: nodejs_global_version
   changed_when: no
   ignore_errors: yes
