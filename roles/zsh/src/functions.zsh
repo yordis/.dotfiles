@@ -29,7 +29,11 @@ function dotfiles-docker() {
 }
 
 function dotfiles-dc() {
-  docker-compose --project-name dotfiles --project-directory "$DOTFILES_ROOT/roles/docker/src" "$@"
+  docker-compose \
+    --project-name dotfiles \
+    --project-directory "$DOTFILES_ROOT/roles/docker/src" \
+    --file "$DOTFILES_ROOT/roles/docker/src/docker-compose.yml" \
+    "$@"
 }
 
 function docker-bash-it() {
