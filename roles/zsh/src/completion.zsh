@@ -12,4 +12,8 @@ if [ $commands[kfctl] ]; then
   kfctl completion zsh > $DOTFILES_ROOT_ZSH_ROOT/completions/_kfctl
 fi
 
+if [ $commands[mc] ]; then
+  complete -o nospace -C /usr/local/bin/mc mc
+fi
+
 [[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && source "/usr/local/etc/profile.d/bash_completion.sh"

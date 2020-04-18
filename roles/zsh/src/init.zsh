@@ -5,6 +5,7 @@ setopt -o sharehistory
 autoload -U edit-command-line
 zle -N edit-command-line
 
+autoload -U +X bashcompinit && bashcompinit
 autoload -U colors && colors
 autoload -Uz compinit && compinit
 autoload -U promptinit; promptinit
