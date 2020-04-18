@@ -6,9 +6,8 @@ services:
     restart: unless-stopped
     ports:
       - 9000:8080
-    environment:
-      KEYCLOAK_USER: admin
-      KEYCLOAK_PASSWORD: admin
+    env_file:
+      - ./services/keycloak/.env
 
   grafana:
     image: grafana/grafana:latest
@@ -47,16 +46,16 @@ services:
     volumes:
       - "./volumes/verdaccio/storage:/verdaccio/storage"
       - "./volumes/verdaccio/plugins:/verdaccio/plugins"
-    environment:
-      - VERDACCIO_PORT=4873
+    env_file:
+      - ./services/verdaccio/.env
 
   zookeeper:
     image: confluentinc/cp-zookeeper:latest
     restart: unless-stopped
     ports:
       - 2181:2181
-    environment:
-      ZOOKEEPER_CLIENT_PORT: 2181
+    env_file:
+      - ./services/zookeeper/.env
 
   kafka:
     image: confluentinc/cp-kafka:latest
@@ -65,11 +64,8 @@ services:
       - 9092:9092
     depends_on:
       - zookeeper
-    environment:
-      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
-      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092
-      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
-      KAFKA_AUTO_CREATE_TOPICS_ENABLE: "true"
+    env_file:
+      - ./services/kafka/.env
 
   opa:
     image: openpolicyagent/opa:latest
