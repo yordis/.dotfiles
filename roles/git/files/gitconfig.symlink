@@ -6,13 +6,8 @@
   ignorecase = false
 
 [user]
-  name = Yordis Prieto Lazo
-  email = yordis.prieto@gmail.com
-	signingkey = EF46CCDA9AD68B60
-
-[commit]
-  template = ~/.gitmessage
-  gpgsign = true
+  name = Murat Yorukoglu
+  email = murat.yorukoglu.com
 
 [push]
   default = simple

@@ -1,96 +1,51 @@
 taps:
-  - nektos/tap
   - aws/tap
   - heroku/brew
   - homebrew/cask-fonts
+  - nektos/tap
 
 brews:
-  - rbq/homebrew-kubeflow/kfctl
-  - packer
-  # - openshift-cli
-  # - drone-cli
-  # - git-lfs
-  - aws-sam-cli
-  - nektos/tap/act
-  # - git-flow
   - ack
-  - imagemagick
-  # - leiningen
-  # - github/gh/gh
-  # - spaceman-diff
-  # - jp2a
-  - openssl
-  - libyaml
-  - libffi
-  - unrar
-  - wget
-  - kubernetes-cli
-  - helm
-  - bash-completion
+  - autoconf
   - aws-iam-authenticator
-  # - tmux
-  - heroku
-  # - hub
+  - aws-sam-cli
   - bash
-  # - tree
-  # - cowsay
+  - bash-completion
   - coreutils
   - gpg
-  - autoconf
-  # - wxmac
-  # - asciinema
+  - helm
+  - heroku
+  - imagemagick
+  - kubernetes-cli
+  - libffi
+  - libyaml
+  - nektos/tap/act
+  - openssl
+  - packer
+  - rbq/homebrew-kubeflow/kfctl
+  - unrar
+  - wget
 
 casks:
-  # - evernote
-  - virtualbox
-  - vagrant
-  - ngrok
-  - gpg-suite
-  # - slack
-  # - discord
+  - 1password
   - dropbox
-  - google-cloud-sdk
   - font-fira-code
   - font-hack-nerd-font
-  - jetbrains-toolbox
-  - iterm2
-  # - sublime-text
-  # - visual-studio-code
-  # - principle
-  - sketch
-  # - sketch-toolbox
-  - sourcetree
-  # - github-desktop
-  # - skyfonts
-  # - balsamiq-mockups
-  # - adobe-creative-cloud
-  # - dash
-  # - lingo
-  # - robo-3t
-  # - sequel-pro
-  # - pgadmin3
-  # - mysqlworkbench
-  # - postico
-  # - keycastr
-  # - 1password
-  # - gitter
-  # - hipchat
-  # - skype
-  # - steam
-  # - tunnelbear
-  # - spectacle
-  # - utorrent
-  # - divvy
-  # - obs
-  - paw
-  # - flux
-  # - screenflow
-  # - firefox
   - google-chrome
-  # - google-chrome-canary
-  # - firefoxnightly
-  # - webkit-nightly
-  # - chromium
-  # - torbrowser
-  # - radio-silence
-  # - loopback
+  - google-cloud-sdk
+  - gpg-suite
+  - iterm2
+  - jetbrains-toolbox
+  - ngrok
+  - paw
+  - private-internet-access
+  - sizzy
+  - sketch
+  - sketch-toolbox
+  - slack
+  - sourcetree
+  - steam
+  - transmission
+  - vagrant
+  - virtualbox
+  - visual-studio-code
