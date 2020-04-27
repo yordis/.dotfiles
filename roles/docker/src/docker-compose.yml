@@ -84,14 +84,14 @@ services:
       - 1025:1025
       - 1080:1080
 
-  database.eventstore:
+  database_eventstore:
     image: eventstore/eventstore:latest
     restart: unless-stopped
     ports:
       - 2113:2113
       - 1113:1113
 
-  database.postgis:
+  database_postgis:
     image: mdillon/postgis:latest
     restart: unless-stopped
     ports:
@@ -101,7 +101,7 @@ services:
     volumes:
       - ./volumes/postgis:/var/lib/postgresql/data
 
-  database.postgresql:
+  database_postgresql:
     image: postgres:latest
     restart: unless-stopped
     ports:
@@ -111,25 +111,25 @@ services:
     volumes:
       - ./volumes/postgresql:/var/lib/postgresql/data
 
-  database.dynamodb:
+  database_dynamodb:
     image: amazon/dynamodb-local:latest
     restart: unless-stopped
     ports:
       - 8000:8000
 
-  database.redis:
+  database_redis:
     image: redis:latest
     restart: unless-stopped
     ports:
       - 6379:6379
 
-  database.memcached:
+  database_memcached:
     image: memcached:latest
     restart: unless-stopped
     ports:
       - 11211:11211
 
-  database.mongodb:
+  database_mongodb:
     image: mongo:latest
     restart: unless-stopped
     ports:
