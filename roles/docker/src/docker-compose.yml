@@ -78,11 +78,11 @@ services:
       - --log-level=debug
 
   email_mailcatcher:
-    image: schickling/mailcatcher:latest
+    image: mailhog/mailhog:latest
     restart: unless-stopped
     ports:
       - 1025:1025
-      - 1080:1080
+      - 8025:8025
 
   database_eventstore:
     image: eventstore/eventstore:latest
