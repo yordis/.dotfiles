@@ -2,7 +2,7 @@ version: "3"
 
 services:
   keycloak:
-    image: quay.io/keycloak/keycloak:latest
+    image: jboss/keycloak:latest
     restart: unless-stopped
     ports:
       - 9000:8080
