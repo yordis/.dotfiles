@@ -5,6 +5,7 @@ export NOKOGIRI_USE_SYSTEM_LIBRARIES=1
 export LANG=en_US.UTF-8
 export LC_ALL=$LANG
 export ANSIBLE_NOCOWS=1
+export GPG_TTY=$(tty)
 
 export ERL_AFLAGS="-kernel shell_history enabled"
 
