@@ -45,6 +45,7 @@ brews:
   - asciinema
 
 casks:
+  - cyberduck
   - evernote
   - virtualbox
   - vagrant
