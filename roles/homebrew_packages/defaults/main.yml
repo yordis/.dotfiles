@@ -5,6 +5,7 @@ taps:
   - homebrew/cask-fonts
 
 brews:
+  - jq
   - nmap
   - tmate
   - dive
