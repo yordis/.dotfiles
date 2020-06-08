@@ -1,6 +1,12 @@
 version: "3"
 
 services:
+  docker_registry:
+    image: registry:latest
+    restart: always
+    ports:
+      - 5000:5000
+
   keycloak:
     image: jboss/keycloak:latest
     restart: unless-stopped
