@@ -10,4 +10,4 @@ export PATH="$DOTFILES_ROOT_ZSH_ROOT/bin:$PATH"
 [[ -d "$HOME/.mix/escripts" ]] && export PATH="$HOME/.mix/escripts:$PATH"
 [[ -d "$HOME/.cargo/bin" ]] && export PATH="$HOME/.cargo/bin:$PATH"
 [[ -d "$HOME/.crc/bin" ]] && export PATH="$HOME/.crc/bin:$PATH"
-
+[[ -d "$HOME/Developer/Flutter" ]] && export PATH="$HOME/Developer/Flutter/bin:$PATH"
