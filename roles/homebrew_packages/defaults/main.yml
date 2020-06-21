@@ -5,6 +5,7 @@ taps:
   - homebrew/cask-fonts
 
 brews:
+  - protobuf
   - tilt-dev/tap/tilt
   - jq
   - nmap
