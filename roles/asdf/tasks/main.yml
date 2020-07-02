@@ -4,7 +4,6 @@
     dest: "{{ user_home_directory }}/.asdf"
     version: master
     depth: "1"
-    update: no
 
 - name: symlink .asdfrc file
   file:

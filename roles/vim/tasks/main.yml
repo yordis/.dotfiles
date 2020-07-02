@@ -3,6 +3,13 @@
     name: macvim
     state: present
 
+- name: clone Vundle repository
+  git:
+    repo: git@github.com:VundleVim/Vundle.vim.git
+    dest: "{{ user_home_directory }}/.vim/bundle/Vundle.vim"
+    version: master
+    depth: "1"
+
 - name: link global .vimrc file
   file:
     src: "{{ dotfiles_directory }}/roles/vim/files/vimrc.symlink"
