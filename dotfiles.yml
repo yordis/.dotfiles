@@ -65,6 +65,10 @@
         - asdf
         - terraform
         - rust
+    - role: terraform_docs
+      tags:
+        - asdf
+        - terraform_docs
     - role: terragrunt
       tags:
         - asdf
