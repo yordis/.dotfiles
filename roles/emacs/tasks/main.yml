@@ -2,7 +2,6 @@
   homebrew:
     name: emacs
     state: present
-    install_options: with-cocoa,with-gnutls
 
 - name: link global .emacs file
   file:
