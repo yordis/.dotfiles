@@ -1,6 +1,6 @@
 - name: clone asdf repository
   git:
-    repo: git@github.com:asdf-vm/asdf.git
+    repo: https://github.com/asdf-vm/asdf.git
     dest: "{{ user_home_directory }}/.asdf"
     version: master
     depth: "1"
