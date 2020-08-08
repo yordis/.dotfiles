@@ -12,7 +12,7 @@
 
 [commit]
   template = ~/.gitmessage
-	gpgsign = true
+	# gpgsign = true
 
 [push]
   default = simple
