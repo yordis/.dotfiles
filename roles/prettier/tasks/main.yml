@@ -1,0 +1,12 @@
+- name: link global .prettierrc file
+  file:
+    src: "{{ dotfiles_directory }}/roles/prettier/files/prettierrc.json.symlink"
+    dest: "{{ user_home_directory }}/.prettierrc.json"
+    state: link
+
+- name: install required packages
+  yarn:
+    name: "{{ item }}"
+    global: yes
+    state: latest
+  loop: "{{ required_packages }}"
