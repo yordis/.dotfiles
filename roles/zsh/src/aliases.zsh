@@ -60,3 +60,5 @@ alias yarndev="yarn add -D --exact"
 alias dev="cd $HOME/Developer"
 
 alias read-my-keystrokes="sed -n l"
+
+alias open-pr="gh pr view --web"
