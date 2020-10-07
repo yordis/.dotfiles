@@ -5,11 +5,18 @@
   register: erlang_add
   failed_when: erlang_add == 2
 
+#- name: get openssl path
+#  command: "brew --prefix openssl"
+#  register: openssl_path
+
 - name: install Erlang versions
   command:
     cmd: "{{ user_home_directory }}/.asdf/bin/asdf install erlang {{ item }}"
     creates: "{{ user_home_directory }}/.asdf/installs/erlang/{{ item }}/bin/erl"
   loop: "{{ versions }}"
+#  environment:
+#    CFLAGS: "-O2 -g -fno-stack-check"
+#    KERL_CONFIGURE_OPTIONS: "--disable-hipe --with-ssl={{ openssl_path.stdout }}"
 
 - name: check if global Erlang version is v{{ global_version }}
   shell: "{{ user_home_directory }}/.asdf/bin/asdf current erlang | grep {{ global_version }}"

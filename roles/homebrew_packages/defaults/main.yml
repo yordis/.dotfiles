@@ -27,6 +27,7 @@ brews:
   - spaceman-diff
   - jp2a
   - openssl
+  - fop
   - libyaml
   - libffi
   - unrar
@@ -46,6 +47,13 @@ brews:
   - autoconf
   - wxmac
   - asciinema
+  - automake
+  - readline
+  - libxslt
+  - libtool
+  - unixodbc
+  - unzip
+  - curl
 
 casks:
   - cyberduck
