@@ -33,8 +33,14 @@
 - name: show all extensions
   command: defaults write NSGlobalDomain AppleShowAllExtensions -bool true
 
+- name: set home directory as the new target path
+  command: "defaults write com.apple.finder NewWindowTargetPath -string file://{{ user_home_directory }}/"
+
 - name: disable show path bar
   command: defaults write com.apple.finder ShowPathbar -bool false
+
+- name: remove tash after 30 days
+  command: defaults write com.apple.finder FXRemoveOldTrashItems -bool true
 
 - name: search the current folder by default
   command: defaults write com.apple.finder FXDefaultSearchScope -string "SCcf"
