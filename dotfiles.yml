@@ -79,6 +79,3 @@
     - role: zsh
       tags:
         - zsh
-    - role: prettier
-      tags:
-        - prettier
