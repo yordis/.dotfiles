@@ -29,5 +29,3 @@
   file:
     dest: "{{ dotfiles_directory }}/roles/zsh/src/private.zsh"
     state: touch
-  tags:
-    - only
