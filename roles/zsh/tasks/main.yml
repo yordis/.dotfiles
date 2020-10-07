@@ -24,3 +24,10 @@
     dest: "{{ user_home_directory }}/.zshrc"
     state: link
     force: yes
+
+- name: ensure private.zsh file exists
+  file:
+    dest: "{{ dotfiles_directory }}/roles/zsh/src/private.zsh"
+    state: touch
+  tags:
+    - only
