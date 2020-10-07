@@ -1,0 +1,3 @@
+directories:
+  - "{{ user_home_directory }}/Developer"
+  - "{{ user_home_directory }}/Developer/GoLang"
