@@ -25,7 +25,7 @@ to your path.
 Most likely the following command would work:
 
 ```shell
-export PATH="$HOME/Library/Python/3.7/bin:$PATH"
+export PATH="$HOME/Library/Python/3.8/bin:$PATH"
 ```
 
 ## Get Started
