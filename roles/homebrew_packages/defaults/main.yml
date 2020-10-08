@@ -111,3 +111,5 @@ casks:
   # - torbrowser
   # - radio-silence
   - loopback
+  - graphql-playground
+  - postman
