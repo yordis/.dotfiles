@@ -113,3 +113,4 @@ casks:
   - loopback
   - graphql-playground
   - postman
+  - signal
