@@ -56,6 +56,7 @@ brews:
   - curl
 
 casks:
+  - zoomus
   - cyberduck
   - evernote
   - virtualbox
