@@ -1,3 +1,6 @@
 directories:
   - "{{ user_home_directory }}/Developer"
   - "{{ user_home_directory }}/Developer/GoLang"
+  - "{{ user_home_directory }}/Developer/Yordis"
+  - "{{ user_home_directory }}/Developer/StrawHatTeam"
+  - "{{ user_home_directory }}/Developer/Trashcan"
