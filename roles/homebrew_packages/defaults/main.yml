@@ -114,3 +114,4 @@ casks:
   - graphql-playground
   - postman
   - signal
+  - telegram
