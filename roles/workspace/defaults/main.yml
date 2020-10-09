@@ -4,3 +4,4 @@ directories:
   - "{{ user_home_directory }}/Developer/Yordis"
   - "{{ user_home_directory }}/Developer/StrawHatTeam"
   - "{{ user_home_directory }}/Developer/Trashcan"
+  - "{{ user_home_directory }}/Developer/OpenSource"
