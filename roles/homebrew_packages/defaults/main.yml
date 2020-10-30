@@ -36,7 +36,7 @@ brews:
   - helm
   - bash-completion
   - aws-iam-authenticator
-  # - tmux
+  - tmux
   - heroku
   - hub
   - bash
@@ -56,6 +56,9 @@ brews:
   - curl
 
 casks:
+  - insomnia
+  - insomnia-designer
+  - the-unarchiver
   - zoomus
   - cyberduck
   - evernote
