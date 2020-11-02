@@ -146,7 +146,7 @@ services:
     image: redis:latest
     restart: on-failure
     ports:
-      - 6379:6379
+      - 6380:6379
 
   database_memcached:
     image: memcached:latest
