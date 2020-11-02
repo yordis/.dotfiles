@@ -17,6 +17,7 @@ brews:
   - drone-cli
   - git-lfs
   - aws-sam-cli
+  - awscli
   - azure-cli
   - nektos/tap/act
   - git-flow
