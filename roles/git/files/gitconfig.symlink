@@ -8,11 +8,11 @@
 [user]
   name = Yordis Prieto Lazo
   email = yordis.prieto@gmail.com
-	signingkey = EF46CCDA9AD68B60
+  signingkey = EF46CCDA9AD68B60
 
 [commit]
   template = ~/.gitmessage
-	# gpgsign = true
+  # gpgsign = true
 
 [push]
   default = simple
@@ -33,4 +33,4 @@
   program = gpg
 
 [init]
-	defaultBranch = master
+  defaultBranch = master
