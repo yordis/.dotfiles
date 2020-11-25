@@ -57,6 +57,7 @@ brews:
   - curl
 
 casks:
+  - responsively
   - insomnia
   - insomnia-designer
   - the-unarchiver
