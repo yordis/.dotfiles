@@ -44,3 +44,7 @@ function gaacnm() {
   git add .
   git commit --allow-empty-message -m ''
 }
+
+function touch-r() {
+  mkdir -p "$(dirname "$1")" && touch "$1" ;
+}
