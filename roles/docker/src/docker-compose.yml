@@ -101,12 +101,12 @@ services:
 
   database_eventstore:
     image: docker.pkg.github.com/eventstore/eventstore/eventstore:20.10.1-alpha.0.1-buster-slim
-    command:
-      - --insecure
     restart: on-failure
     ports:
       - 2113:2113
       - 1113:1113
+    env_file:
+      - ./services/eventstore/.env
     volumes:
       - ./volumes/eventstore/data:/var/lib/eventstore
       - ./volumes/eventstore/log:/var/log/eventstore
