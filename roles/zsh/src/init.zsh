@@ -14,7 +14,7 @@ autoload -Uz zkbd
 fpath=($DOTFILES_ROOT_ZSH_ROOT/completions $fpath)
 
 # ¯\_(ツ)_/¯
-ulimit -n 2048
+ulimit -n 4096
 
 source "$DOTFILES_ROOT_ZSH_ROOT/path.zsh"
 source "$DOTFILES_ROOT_ZSH_ROOT/private.zsh"
