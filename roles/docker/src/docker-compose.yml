@@ -27,12 +27,12 @@ services:
     env_file:
       - ./services/grafana/.env
 
-  rancher:
-    image: rancher/rancher:latest
-    restart: on-failure
-    ports:
-      - 80:80
-      - 443:443
+  # rancher:
+  #   image: rancher/rancher:latest
+  #   restart: on-failure
+  #   ports:
+  #     - 80:80
+  #     - 443:443
 
   minio:
     image: minio/minio:edge
