@@ -4,6 +4,7 @@
   eol = lf
   precomposeUnicode = true
   ignorecase = false
+  autocrlf = input
 
 [user]
   name = Yordis Prieto Lazo
