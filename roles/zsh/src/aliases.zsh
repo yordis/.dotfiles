@@ -62,3 +62,7 @@ alias dev="cd $HOME/Developer"
 alias read-my-keystrokes="sed -n l"
 
 alias open-pr="gh pr view --web"
+
+# Kubernetes
+alias k="kubectl"
+alias kcontext="kubectl config current-context"
