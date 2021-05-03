@@ -22,7 +22,7 @@ alias gplease="git push --force-with-lease"
 alias gnomessage="git commit --allow-empty-message -m ''"
 
 # Docker & K8S
-alias dc="docker-compose"
+alias dc="docker compose up"
 alias k="kubectl"
 
 # ZSH
