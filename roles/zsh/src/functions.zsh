@@ -46,10 +46,15 @@ function gaacnm() {
 }
 
 function touch-r() {
-  mkdir -p "$(dirname "$1")" && touch "$1" ;
+  mkdir -p "$(dirname "$1")" && touch "$1"
 }
 
 function kexec {
-  NS=${1:-default};
-  kubectl exec -it -n $NS $(k get pods -n $NS | grep -v NAME | grep ${2} | awk '{print $1}') -- ${3:-sh} "${@:4}";
+  NS=${1:-default}
+  kubectl exec -it -n $NS $(k get pods -n $NS | grep -v NAME | grep ${2} | awk '{print $1}') -- ${3:-sh} "${@:4}"
+}
+
+function elixir-test-watch {
+  local flags="$*"
+  fswatch lib test | mix test --stale --listen-on-stdin $flags
 }
