@@ -58,3 +58,8 @@ function elixir-test-watch {
   local flags="$*"
   fswatch lib test | mix test --stale --listen-on-stdin $flags
 }
+
+function git-delete-merged-branches {
+  local targetbrach=${1:-"master"}
+  git branch --merged | egrep -v "(^\*|$targetbrach)" | xargs git branch -d
+}
