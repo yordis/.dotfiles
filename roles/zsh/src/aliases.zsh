@@ -63,6 +63,8 @@ alias read-my-keystrokes="sed -n l"
 
 alias open-pr="gh pr view --web"
 
+alias pretty-json="python -m json.tool"
+
 # Kubernetes
 alias k="kubectl"
 alias kcontext="kubectl config current-context"
