@@ -60,6 +60,7 @@ brews:
   - curl
 
 casks:
+  - docker
   - responsively
   - insomnia
   - insomnia-designer
