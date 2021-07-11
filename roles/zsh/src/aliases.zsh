@@ -21,6 +21,8 @@ alias guncommit="git reset --mixed HEAD~"
 alias gplease="git push --force-with-lease"
 alias gnomessage="git commit --allow-empty-message -m ''"
 
+alias commit-without-husky="HUSKY_SKIP_HOOKS=true git commit --no-verify"
+
 # Docker & K8S
 alias dc="docker compose"
 alias k="kubectl"

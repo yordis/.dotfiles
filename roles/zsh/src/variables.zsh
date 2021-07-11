@@ -15,3 +15,5 @@ export CPPFLAGS="-I/usr/local/opt/libxml2/include"
 
 # For pkg-config to find libxml2 you may need to set:
 export PKG_CONFIG_PATH="/usr/local/opt/libxml2/lib/pkgconfig"
+
+export GO111MODULE=on
