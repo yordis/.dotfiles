@@ -2,4 +2,5 @@ src/private.zsh
 src/bin/private
 src/completions
 !src/completions/.keep
+.tmp
 !.tmp/.gitkeep
