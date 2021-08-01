@@ -4,6 +4,16 @@ Configure personal workstation using Ansible.
 
 ## Requirements
 
+### Install Nix
+
+Install `nix`:
+
+```sh
+curl -L https://nixos.org/nix/install | sh -s -- --no-daemon  --darwin-use-unencrypted-nix-store-volume
+```
+
+### Prepare pip
+
 You may require to install `pip`, visit [installing pip](https://pip.pypa.io/en/stable/installing/)
 for more information. We recommend using latest `pip` and Python 3.
 
