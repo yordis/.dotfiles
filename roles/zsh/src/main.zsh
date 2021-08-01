@@ -8,7 +8,8 @@ zle -N edit-command-line
 autoload -U +X bashcompinit && bashcompinit
 autoload -U colors && colors
 autoload -Uz compinit && compinit
-autoload -U promptinit; promptinit
+autoload -U promptinit
+promptinit
 autoload -Uz zkbd
 
 fpath=($DOTFILES_ROOT_ZSH_ROOT/completions $fpath)
@@ -26,3 +27,5 @@ source "$DOTFILES_ROOT_ZSH_ROOT/keybinding.zsh"
 [[ -f "$HOME/.asdf/asdf.sh" ]] && source "$HOME/.asdf/asdf.sh"
 [[ -f "$HOME/.tnsrc" ]] && source "$HOME/.tnsrc"
 source "$DOTFILES_ROOT_ZSH_ROOT/completion.zsh"
+[[ -f "$HOME/.asdf/asdf.sh" ]] && source "$HOME/.asdf/asdf.sh"
+[[ -f "$HOME/.nix-profile/etc/profile.d/nix.sh" ]] && source "$HOME/.nix-profile/etc/profile.d/nix.sh"
