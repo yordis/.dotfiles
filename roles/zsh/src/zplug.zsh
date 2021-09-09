@@ -1,4 +1,4 @@
-source "$ZPLUG_HOME/init.zsh"
+. "$ZPLUG_HOME/init.zsh"
 
 zplug "themes/robbyrussell", from:oh-my-zsh, as:theme
 zplug "zsh-users/zsh-syntax-highlighting", defer:3

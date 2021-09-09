@@ -28,7 +28,7 @@ alias dc="docker compose"
 alias k="kubectl"
 
 # ZSH
-alias reload!="source $HOME/.zshrc"
+alias reload!=". $HOME/.zshrc"
 alias timezsh="time zsh -i -c echo"
 
 # OS
