@@ -5,6 +5,7 @@ taps:
   - homebrew/cask-fonts
 
 brews:
+  - kafkacat
   - pre-commit
   - tsung
   - wrk
