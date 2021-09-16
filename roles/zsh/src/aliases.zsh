@@ -20,6 +20,7 @@ alias gdiscard="git checkout --"
 alias guncommit="git reset --mixed HEAD~"
 alias gplease="git push --force-with-lease"
 alias gnomessage="git commit --allow-empty-message -m ''"
+alias gpoh="git push origin HEAD"
 
 alias commit-without-husky="HUSKY_SKIP_HOOKS=true git commit --no-verify"
 
