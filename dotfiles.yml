@@ -82,3 +82,6 @@
     - role: workspace
       tags:
         - workspace
+    - role: nix
+      tags:
+        - nix

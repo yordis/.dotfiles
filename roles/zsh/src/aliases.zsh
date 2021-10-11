@@ -20,6 +20,7 @@ alias gdiscard="git checkout --"
 alias guncommit="git reset --mixed HEAD~"
 alias gplease="git push --force-with-lease"
 alias gnomessage="git commit --allow-empty-message -m ''"
+alias gpoh="git push --set-upstream origin HEAD"
 
 alias commit-without-husky="HUSKY_SKIP_HOOKS=true git commit --no-verify"
 
@@ -28,7 +29,7 @@ alias dc="docker compose"
 alias k="kubectl"
 
 # ZSH
-alias reload!="source $HOME/.zshrc"
+alias reload!=". $HOME/.zshrc"
 alias timezsh="time zsh -i -c echo"
 
 # OS

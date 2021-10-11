@@ -63,3 +63,7 @@ function git-delete-merged-branches {
   local targetbrach=${1:-"master"}
   git branch --merged | egrep -v "(^\*|$targetbrach)" | xargs git branch -d
 }
+
+function file-size {
+  stat -f%z $1
+}
