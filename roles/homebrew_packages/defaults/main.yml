@@ -5,6 +5,7 @@ taps:
   - homebrew/cask-fonts
 
 brews:
+  - hyperfine
   - kafkacat
   - pre-commit
   - tsung
@@ -113,7 +114,7 @@ casks:
   - paw
   # - flux
   - screenflow
-  # - firefox
+  - firefox
   - google-chrome
   # - google-chrome-canary
   # - firefoxnightly
