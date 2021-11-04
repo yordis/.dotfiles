@@ -8,3 +8,4 @@
 .elixir_ls
 .tool-versions
 .rakeTasks
+yarn-error.log
