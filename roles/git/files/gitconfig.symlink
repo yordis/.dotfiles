@@ -1,40 +1,44 @@
 [core]
-  editor = $EDITOR
-  excludesfile = ~/.gitignore_global
-  eol = lf
-  precomposeUnicode = true
-  ignorecase = false
-  autocrlf = input
+editor = $EDITOR
+excludesfile = ~/.gitignore_global
+eol = lf
+precomposeUnicode = true
+ignorecase = false
+autocrlf = input
 
 [user]
-  name = Yordis Prieto Lazo
-  email = yordis.prieto@gmail.com
-  signingkey = EF46CCDA9AD68B60
+name = Yordis Prieto Lazo
+email = yordis.prieto@gmail.com
+#signingkey = EF46CCDA9AD68B60
 
 [commit]
-  template = ~/.gitmessage
-  # gpgsign = true
+template = ~/.gitmessage
+# gpgsign = true
 
 [push]
-  default = simple
+default = simple
 
 [filter "lfs"]
-  clean = git-lfs clean -- %f
-  smudge = git-lfs smudge -- %f
-  required = true
-  process = git-lfs filter-process
+clean = git-lfs clean -- %f
+smudge = git-lfs smudge -- %f
+required = true
+process = git-lfs filter-process
 
 [url "git@github.com:"]
-  insteadOf = https://github.com/
+insteadOf = https://github.com/
 
 [difftool]
-  prompt = false
+prompt = false
 
 [gpg]
-  program = gpg
+program = gpg
+format = ssh
+
+[gpg "ssh"]
+defaultKeyCommand = ssh-add -L
 
 [init]
-  defaultBranch = master
+defaultBranch = master
 
 [pull]
-  rebase = false
+rebase = false
