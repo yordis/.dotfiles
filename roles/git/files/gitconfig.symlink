@@ -13,7 +13,7 @@ email = yordis.prieto@gmail.com
 
 [commit]
 template = ~/.gitmessage
-# gpgsign = true
+gpgsign = true
 
 [push]
 default = simple

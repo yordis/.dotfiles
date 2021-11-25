@@ -5,6 +5,7 @@ taps:
   - homebrew/cask-fonts
 
 brews:
+  - openssh
   - hyperfine
   - kafkacat
   - pre-commit
