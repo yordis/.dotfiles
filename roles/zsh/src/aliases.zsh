@@ -34,6 +34,8 @@ alias reload!=". $HOME/.zshrc"
 alias timezsh="time zsh -i -c echo"
 
 # OS
+alias make-executable="chmod +x"
+
 alias -g ...='../..'
 alias -g ....='../../..'
 alias -g .....='../../../..'
