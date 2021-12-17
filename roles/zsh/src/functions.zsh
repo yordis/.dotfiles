@@ -67,3 +67,7 @@ function git-delete-merged-branches {
 function file-size {
   stat -f%z $1
 }
+
+function git-add-upstream {
+  git remote add upstream $1
+}
