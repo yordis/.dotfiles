@@ -3,13 +3,13 @@ version: "3"
 services:
   docker_registry:
     image: registry:latest
-    restart: always
+    restart: unless-stopped
     ports:
       - 5002:5000
 
   keycloak:
     image: quay.io/keycloak/keycloak:latest
-    restart: on-failure
+    restart: unless-stopped
     ports:
       - 9000:8080
     env_file:
@@ -19,7 +19,7 @@ services:
 
   grafana:
     image: grafana/grafana:latest
-    restart: on-failure
+    restart: unless-stopped
     ports:
       - 9001:3000
     volumes:
@@ -29,7 +29,7 @@ services:
 
   # rancher:
   #   image: rancher/rancher:latest
-  #   restart: on-failure
+  #   restart: unless-stopped
   #   ports:
   #     - 80:80
   #     - 443:443
@@ -39,7 +39,7 @@ services:
     command:
       - server
       - /data
-    restart: on-failure
+    restart: unless-stopped
     ports:
       - 9002:9000
     volumes:
@@ -49,13 +49,13 @@ services:
 
   prometheus:
     image: prom/prometheus:latest
-    restart: on-failure
+    restart: unless-stopped
     ports:
       - 9090:9090
 
   verdaccio:
     image: verdaccio/verdaccio:latest
-    restart: on-failure
+    restart: unless-stopped
     ports:
       - 4873:4873
     volumes:
@@ -66,7 +66,7 @@ services:
 
   zookeeper:
     image: confluentinc/cp-zookeeper:latest
-    restart: on-failure
+    restart: unless-stopped
     ports:
       - 2181:2181
     env_file:
@@ -74,7 +74,7 @@ services:
 
   kafka:
     image: confluentinc/cp-kafka:latest
-    restart: on-failure
+    restart: unless-stopped
     ports:
       - 9092:9092
     depends_on:
@@ -84,7 +84,7 @@ services:
 
   opa:
     image: openpolicyagent/opa:latest
-    restart: on-failure
+    restart: unless-stopped
     ports:
       - 8181:8181
     command:
@@ -94,14 +94,14 @@ services:
 
   email_mailcatcher:
     image: mailhog/mailhog:latest
-    restart: on-failure
+    restart: unless-stopped
     ports:
       - 1026:1025
       - 8026:8025
 
   database_eventstore:
     image: eventstore/eventstore:latest
-    restart: on-failure
+    restart: unless-stopped
     ports:
       - 2113:2113
       - 1113:1113
@@ -113,7 +113,7 @@ services:
 
   database_postgis:
     image: mdillon/postgis:latest
-    restart: on-failure
+    restart: unless-stopped
     ports:
       - 5433:5432
     env_file:
@@ -123,7 +123,7 @@ services:
 
   database_mysql:
     image: mysql:latest
-    restart: on-failure
+    restart: unless-stopped
     ports:
       - 3306:3306
     env_file:
@@ -133,7 +133,7 @@ services:
 
   database_postgresql:
     image: postgres:latest
-    restart: on-failure
+    restart: unless-stopped
     ports:
       - 5434:5432
     env_file:
@@ -143,24 +143,24 @@ services:
 
   database_dynamodb:
     image: amazon/dynamodb-local:latest
-    restart: on-failure
+    restart: unless-stopped
     ports:
       - 8000:8000
 
   database_redis:
     image: redis:latest
-    restart: on-failure
+    restart: unless-stopped
     ports:
       - 6380:6379
 
   database_memcached:
     image: memcached:latest
-    restart: on-failure
+    restart: unless-stopped
     ports:
       - 11211:11211
 
   database_mongodb:
     image: mongo:latest
-    restart: on-failure
+    restart: unless-stopped
     ports:
       - 27017:27017
