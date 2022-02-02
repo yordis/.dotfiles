@@ -5,6 +5,8 @@ taps:
   - homebrew/cask-fonts
 
 brews:
+  - mkcert
+  - nss
   - openssh
   - hyperfine
   - kafkacat
