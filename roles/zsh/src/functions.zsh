@@ -71,3 +71,8 @@ function file-size {
 function git-add-upstream {
   git remote add upstream $1
 }
+
+function yarn-upgrade-with-pnp {
+  yarn set version berry
+  yarn install
+}
