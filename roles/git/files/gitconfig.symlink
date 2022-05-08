@@ -13,7 +13,7 @@ email = yordis.prieto@gmail.com
 
 [commit]
 template = ~/.gitmessage
-gpgsign = true
+#gpgsign = true
 
 [push]
 default = simple
@@ -30,9 +30,9 @@ insteadOf = https://github.com/
 [difftool]
 prompt = false
 
-[gpg]
-program = gpg
-format = ssh
+#[gpg]
+#program = gpg
+#format = ssh
 
 [gpg "ssh"]
 defaultKeyCommand = ssh-add -L
