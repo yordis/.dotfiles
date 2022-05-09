@@ -18,3 +18,8 @@
     dest: "{{ user_home_directory }}/.gitconfig"
     state: link
     force: yes
+
+- name: ensure private.gitconfig file exists
+  file:
+    dest: "{{ dotfiles_directory }}/roles/git/src/private.gitconfig"
+    state: touch

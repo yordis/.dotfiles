@@ -42,3 +42,6 @@ defaultBranch = master
 
 [pull]
 rebase = false
+
+[include]
+path = ~/.dotfiles/roles/git/src/private.gitconfig

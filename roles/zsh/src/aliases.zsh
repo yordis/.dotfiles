@@ -1,4 +1,6 @@
 # GIT
+alias gconfigs="git config -l --show-origin"
+alias geditlocal="git config --local --edit"
 alias g="git"
 alias ga="git add"
 alias gss="git status -s"
