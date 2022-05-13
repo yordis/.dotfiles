@@ -55,7 +55,7 @@ brews:
   - coreutils
   - gpg
   - autoconf
-  - wxmac
+  - wxwidgets
   - asciinema
   - automake
   - readline
