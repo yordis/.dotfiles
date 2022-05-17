@@ -16,14 +16,6 @@
   register: nodejs_add
   failed_when: nodejs_add == 2
 
-- name: Ensure GPG
-  homebrew:
-    name: gpg
-    state: present
-
-- name: import OpenPGP key
-  command: "bash {{ user_home_directory }}/.asdf/plugins/nodejs/bin/import-release-team-keyring"
-
 - name: install NodeJS versions
   command:
     cmd: "{{ user_home_directory }}/.asdf/bin/asdf install nodejs {{ item }}"
