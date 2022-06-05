@@ -1,4 +1,5 @@
 # GIT
+alias gconfigemail="git config --show-origin --get user.email"
 alias gconfigs="git config -l --show-origin"
 alias geditlocal="git config --local --edit"
 alias g="git"
