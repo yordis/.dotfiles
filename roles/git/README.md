@@ -9,6 +9,5 @@
 
     ```.gitconfig
     [includeIf "gitdir:~/Developer/acme/"]
-      [user]
-        email = "yordis.prieto@acme.com"
+      path = "~/Developer/acme/.gitconfig"
     ```
