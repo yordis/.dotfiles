@@ -66,6 +66,7 @@ brews:
   - curl
 
 casks:
+  - fig
   # - docker
   - responsively
   - insomnia
