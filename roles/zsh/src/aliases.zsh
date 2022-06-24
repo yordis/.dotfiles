@@ -26,8 +26,7 @@ alias gplease="git push --force-with-lease"
 alias gnomessage="git commit --allow-empty-message -m ''"
 alias gpoh="git push --set-upstream origin HEAD"
 alias gprm="git pull --rebase origin master"
-alias glc="git push 2>&1 >/dev/null | grep -Eo '(http|https)://[a-zA-Z0-9./?=_%:-]*' | pbcopy"
-alias gpohc="gpoh | glc"
+alias gpohc="gpoh 2>&1 >/dev/null | grep -Eo '(http|https)://[a-zA-Z0-9./?=_%:-]*' | pbcopy"
 
 alias commit-without-husky="HUSKY_SKIP_HOOKS=true git commit --no-verify"
 
