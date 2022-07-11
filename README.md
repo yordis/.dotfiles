@@ -14,7 +14,7 @@ curl -L https://nixos.org/nix/install | sh -s -- --no-daemon  --darwin-use-unenc
 
 ### Prepare pip
 
-You may require to install `pip`, visit [installing pip](https://pip.pypa.io/en/stable/installing/)
+You may require to install `pip`, visit [installing pip](https://pip.pypa.io/en/stable/installation/)
 for more information. We recommend using latest `pip` and Python 3.
 
 ```shell
