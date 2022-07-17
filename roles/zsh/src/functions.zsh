@@ -76,3 +76,24 @@ function yarn-upgrade-with-pnp {
   yarn set version berry
   yarn install
 }
+
+function make-github-org-dir {
+  org_name=$1
+  org_dir=$HOME/Developer/github.com/$org_name
+  echo "creating $org_dir directory"
+  mkdir -p $org_dir
+}
+
+function clone-github-repo {
+  org_and_repo=$1
+  org_name=$(echo $org_and_repo | cut -d'/' -f 1)
+  repo_name=$(echo $org_and_repo | cut -d'/' -f 2)
+  org_dir=$HOME/Developer/github.com/$org_name
+  org_repo_dir=$org_dir/$repo_name
+
+  [ ! -d $org_dir ] && make-github-org-dir $org_name
+
+  cd $org_dir
+  [ ! -d $org_repo_dir ] && gh repo clone $org_and_repo
+  cd $org_repo_dir
+}
