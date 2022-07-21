@@ -5,6 +5,7 @@ taps:
   - homebrew/cask-fonts
 
 brews:
+  - tfsec
   - doctl
   - derailed/k9s/k9s
   - mkcert
