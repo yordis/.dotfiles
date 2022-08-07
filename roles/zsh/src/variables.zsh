@@ -2,6 +2,7 @@ export TERM=xterm-256color
 export ZPLUG_HOME=/usr/local/opt/zplug
 # export EDITOR="$(which vim)"
 export EDITOR="code --wait"
+export REACT_EDITOR=idea
 export NOKOGIRI_USE_SYSTEM_LIBRARIES=1
 export LANG=en_US.UTF-8
 export LC_ALL=$LANG
