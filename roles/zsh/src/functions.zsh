@@ -84,7 +84,7 @@ function make-github-org-dir {
   mkdir -p $org_dir
 }
 
-function clone-github-repo {
+function github-clone-repo {
   org_and_repo=$1
   org_name=$(echo $org_and_repo | cut -d'/' -f 1)
   repo_name=$(echo $org_and_repo | cut -d'/' -f 2)
