@@ -15,3 +15,9 @@
     src: "{{ dotfiles_directory }}/roles/vim/files/vimrc.symlink"
     dest: "{{ user_home_directory }}/.vimrc"
     state: link
+
+- name: link global .ideavimrc file
+  file:
+    src: "{{ dotfiles_directory }}/roles/vim/files/ideavimrc.symlink"
+    dest: "{{ user_home_directory }}/.ideavimrc"
+    state: link
