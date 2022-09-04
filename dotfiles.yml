@@ -1,5 +1,5 @@
 - name: Set up local workstation
-  hosts: local
+  hosts: localhost
   roles:
     - role: asdf
       tags:
