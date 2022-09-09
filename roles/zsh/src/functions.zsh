@@ -20,6 +20,10 @@ function unfuck-master-branch() {
   git checkout $1
 }
 
+function git-remove-merged-branches {
+  git branch --merged >/tmp/merged-branches && \ vi /tmp/merged-branches && xargs git branch -d </tmp/merged-branches
+}
+
 function gpublish() {
   git push -u origin $(git rev-parse --abbrev-ref HEAD)
 }
