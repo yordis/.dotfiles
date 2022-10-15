@@ -28,6 +28,8 @@ export CC=clang
 export CPP="clang -E"
 export KERL_USE_AUTOCONF=0
 
+export DOCKER_BUILDKIT=1
+
 export KERL_CONFIGURE_OPTIONS="--disable-debug \
                                --disable-hipe \
                                --disable-sctp \
