@@ -72,6 +72,7 @@ brews:
   - curl
 
 casks:
+  - alfred
   - fig
   # - docker
   - responsively
