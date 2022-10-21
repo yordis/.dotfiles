@@ -1,12 +1,12 @@
 - name: install zsh using Homebrew
-  homebrew:
+  community.general.homebrew:
     name: zsh
-    state: present
+    state: latest
 
 - name: install zplug using Homebrew
-  homebrew:
+  community.general.homebrew:
     name: zplug
-    state: present
+    state: latest
 
 - name: check existing shell
   shell: echo $0

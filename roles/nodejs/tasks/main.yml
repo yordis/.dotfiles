@@ -1,7 +1,7 @@
 - name: install yarn
   homebrew:
     name: yarn
-    state: present
+    state: latest
 
 - name: link global .default-npm-packages file
   file:

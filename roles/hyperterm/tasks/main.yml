@@ -1,7 +1,7 @@
 - name: install Hyperterm
-  homebrew_cask:
+  community.general.homebrew_cask:
     name: hyper
-    state: present
+    state: latest
     install_options: force
 
 - name: link .hyper.js config file

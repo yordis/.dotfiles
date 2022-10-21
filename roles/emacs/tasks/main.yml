@@ -1,7 +1,7 @@
 - name: install Mac Vim
-  homebrew:
+  community.general.homebrew_cask:
     name: emacs
-    state: present
+    state: latest
 
 - name: link global .emacs file
   file:
