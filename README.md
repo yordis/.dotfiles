@@ -4,14 +4,6 @@ Configure personal workstation using Ansible.
 
 ## Requirements
 
-### Install Nix
-
-Install `nix`:
-
-```sh
-curl -L https://nixos.org/nix/install | sh -s -- --no-daemon  --darwin-use-unencrypted-nix-store-volume
-```
-
 ### Prepare pip
 
 You may require to install `pip`, visit [installing pip](https://pip.pypa.io/en/stable/installation/)
@@ -43,7 +35,7 @@ export PATH="$HOME/Library/Python/3.8/bin:$PATH"
 Clone the repository into `$HOME/.dotfiles` directory.
 
 ```shell
-git clone https://github.com/yordis/dotfiles.git $HOME/.dotfiles
+git clone git@github.com:yordis/.dotfiles.git $HOME/.dotfiles
 ```
 
 ## Bootstrap
@@ -59,4 +51,14 @@ After that you can run any scripts defined in the `$DOTFILES_ROOT/bin`
 
 ```shell
 dotfiles-bootstrap
+```
+
+## Optional
+
+### Install Nix
+
+Install `nix`:
+
+```sh
+curl -L https://nixos.org/nix/install | sh -s -- --no-daemon  --darwin-use-unencrypted-nix-store-volume
 ```
