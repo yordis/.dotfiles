@@ -4,30 +4,21 @@ Configure personal workstation using Ansible.
 
 ## Requirements
 
-### Prepare pip
-
-You may require to install `pip`, visit [installing pip](https://pip.pypa.io/en/stable/installation/)
-for more information. We recommend using latest `pip` and Python 3.
-
-```shell
-pip3 install -U pip
-```
-
 Install [Ansible](https://www.ansible.com/), visit [installation guide](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html)
 for more information.
 
 ```shell
-pip3 install --user ansible
+python3 -m pip install --user ansible
 ```
 
-Verify that `pip3 bin` file is part of your `$PATH`. Use `pip3 list -v` to see
-where `pip3` is installing the packages, and find the `bin` directory and add it
+Verify that the Python `bin` directory is part of your `$PATH`. Use `python3 -m pip list -v`
+to see where `pip` is installing the packages, and find the `bin` directory and add it
 to your path.
 
 Most likely the following command would work:
 
 ```shell
-export PATH="$HOME/Library/Python/3.8/bin:$PATH"
+export PATH="$HOME/Library/Python/3.9/bin:$PATH"
 ```
 
 ## Get Started
