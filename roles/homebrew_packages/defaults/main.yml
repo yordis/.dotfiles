@@ -76,7 +76,7 @@ casks:
   - alfred
   - fig
   - docker
-  - responsively
+  # - responsively
   # - insomnia
   # - insomnia-designer
   - the-unarchiver
