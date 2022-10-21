@@ -75,16 +75,16 @@ casks:
   - viscosity
   - alfred
   - fig
-  # - docker
+  - docker
   - responsively
-  - insomnia
+  # - insomnia
   # - insomnia-designer
   - the-unarchiver
   # - zoom
   - cyberduck
-  - evernote`
+  # - evernote
   - virtualbox
-  - vagrant
+  # - vagrant
   - ngrok
   - gpg-suite
   - slack
@@ -98,9 +98,9 @@ casks:
   - sublime-text
   - visual-studio-code
   # - principle
-  - sketch
+  # - sketch
   # - sketch-toolbox
-  - sourcetree
+  # - sourcetree
   # - github-desktop
   - skyfonts
   # - balsamiq-mockups
@@ -110,8 +110,8 @@ casks:
   # - robo-3t
   # - sequel-pro
   # - pgadmin3
-  - mysqlworkbench
-  - postico
+  # - mysqlworkbench
+  # - postico
   # - keycastr
   - 1password
   # - gitter
@@ -122,10 +122,10 @@ casks:
   # - spectacle
   # - utorrent
   # - divvy
-  - obs
+  # - obs
   - paw
   # - flux
-  - screenflow
+  # - screenflow
   - firefox
   - google-chrome
   # - google-chrome-canary
@@ -134,8 +134,8 @@ casks:
   # - chromium
   # - torbrowser
   # - radio-silence
-  - loopback
+  # - loopback
   - graphql-playground
   - postman
-  - signal
-  - telegram
+  # - signal
+  # - telegram
