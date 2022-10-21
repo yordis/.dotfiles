@@ -82,7 +82,7 @@ casks:
   - the-unarchiver
   # - zoom
   - cyberduck
-  - evernote
+  - evernote`
   - virtualbox
   - vagrant
   - ngrok
