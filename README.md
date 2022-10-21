@@ -4,15 +4,6 @@ Configure personal workstation using Ansible.
 
 ## Requirements
 
-### Prepare pip
-
-You may require to install `pip`, visit [installing pip](https://pip.pypa.io/en/stable/installation/)
-for more information. We recommend using latest `pip` and Python 3.
-
-```shell
-pip3 install -U pip
-```
-
 Install [Ansible](https://www.ansible.com/), visit [installation guide](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html)
 for more information.
 
