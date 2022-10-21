@@ -17,7 +17,7 @@ Install [Ansible](https://www.ansible.com/), visit [installation guide](https://
 for more information.
 
 ```shell
-pip3 install --user ansible
+python3 -m pip install --user ansible
 ```
 
 Verify that `pip3 bin` file is part of your `$PATH`. Use `pip3 list -v` to see
