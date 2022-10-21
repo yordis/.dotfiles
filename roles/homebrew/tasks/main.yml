@@ -6,6 +6,8 @@
 - name: install Homebrew
   shell: bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
   when: not homebrew_check.stat.exists
+  environment:
+    NONINTERACTIVE: 1
 
 - name: ensuring Homebrew is updated
   command: brew outdated
