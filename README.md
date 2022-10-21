@@ -11,14 +11,14 @@ for more information.
 python3 -m pip install --user ansible
 ```
 
-Verify that `pip3 bin` file is part of your `$PATH`. Use `pip3 list -v` to see
-where `pip3` is installing the packages, and find the `bin` directory and add it
+Verify that the Python `bin` directory is part of your `$PATH`. Use `python3 -m pip list -v`
+to see where `pip` is installing the packages, and find the `bin` directory and add it
 to your path.
 
 Most likely the following command would work:
 
 ```shell
-export PATH="$HOME/Library/Python/3.8/bin:$PATH"
+export PATH="$HOME/Library/Python/3.9/bin:$PATH"
 ```
 
 ## Get Started
