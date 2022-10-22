@@ -1,141 +1,277 @@
 taps:
-  # - nektos/tap
-  - aws/tap
-  - heroku/brew
-  - homebrew/cask-fonts
+  - name: nektos/tap
+    state: absent
+  - name: aws/tap
+    state: present
+  - name: heroku/brew
+    state: present
+  - name: homebrew/cask-fonts
+    state: present
 
 brews:
-  - stern
-  - vegeta
-  - tfsec
-  - doctl
-  - flyctl
-  - derailed/k9s/k9s
-  - mkcert
-  - nss
-  - openssh
-  - hyperfine
-  - kafkacat
-  - pre-commit
-  - tsung
-  - wrk
-  - fswatch
-  - protobuf
-  # - tilt-dev/tap/tilt
-  - jq
-  - nmap
-  - tmate
-  - dive
-  # - rbq/homebrew-kubeflow/kfctl
-  - packer
-  - openshift-cli
-  - drone-cli
-  - git-lfs
-  - aws-sam-cli
-  - awscli
-  - azure-cli
-  # - nektos/tap/act
-  - git-flow
-  - ack
-  - imagemagick
-  - leiningen
-  - github/gh/gh
-  - spaceman-diff
-  - jp2a
-  - openssl
-  - fop
-  - libyaml
-  - libffi
-  # - unrar
-  - wget
-  - kubernetes-cli
-  - helm
-  - bash-completion
-  - aws-iam-authenticator
-  - tmux
-  - heroku
-  - hub
-  - bash
-  - tree
-  - cowsay
-  - coreutils
-  - gpg
-  - autoconf
-  - wxwidgets
-  - asciinema
-  - automake
-  - readline
-  - libxslt
-  - libtool
-  - unixodbc
-  - unzip
-  - curl
+  - name: stern
+    state: latest
+  - name: vegeta
+    state: latest
+  - name: tfsec
+    state: latest
+  - name: doctl
+    state: latest
+  - name: flyctl
+    state: latest
+  - name: derailed/k9s/k9s
+    state: latest
+  - name: mkcert
+    state: latest
+  - name: nss
+    state: latest
+  - name: openssh
+    state: latest
+  - name: hyperfine
+    state: latest
+  - name: kafkacat
+    state: latest
+  - name: pre-commit
+    state: latest
+  - name: tsung
+    state: latest
+  - name: wrk
+    state: latest
+  - name: fswatch
+    state: latest
+  - name: protobuf
+    state: latest
+  - name: tilt-dev/tap/tilt
+    state: uninstalled
+  - name: jq
+    state: latest
+  - name: nmap
+    state: latest
+  - name: tmate
+    state: latest
+  - name: dive
+    state: latest
+  - name: rbq/homebrew-kubeflow/kfctl
+    state: uninstalled
+  - name: packer
+    state: latest
+  - name: openshift-cli
+    state: latest
+  - name: drone-cli
+    state: latest
+  - name: git-lfs
+    state: latest
+  - name: aws-sam-cli
+    state: latest
+  - name: awscli
+    state: latest
+  - name: azure-cli
+    state: latest
+  - name: nektos/tap/act
+    state: uninstalled
+  - name: git-flow
+    state: latest
+  - name: ack
+    state: latest
+  - name: imagemagick
+    state: latest
+  - name: leiningen
+    state: latest
+  - name: github/gh/gh
+    state: latest
+  - name: spaceman-diff
+    state: latest
+  - name: jp2a
+    state: latest
+  - name: openssl
+    state: latest
+  - name: fop
+    state: latest
+  - name: libyaml
+    state: latest
+  - name: libffi
+    state: latest
+  - name: unrar
+    state: uninstalled
+  - name: wget
+    state: latest
+  - name: kubernetes-cli
+    state: latest
+  - name: helm
+    state: latest
+  - name: bash-completion
+    state: latest
+  - name: aws-iam-authenticator
+    state: latest
+  - name: tmux
+    state: latest
+  - name: heroku
+    state: latest
+  - name: hub
+    state: latest
+  - name: bash
+    state: latest
+  - name: tree
+    state: latest
+  - name: cowsay
+    state: latest
+  - name: coreutils
+    state: latest
+  - name: gpg
+    state: latest
+  - name: autoconf
+    state: latest
+  - name: wxwidgets
+    state: latest
+  - name: asciinema
+    state: latest
+  - name: automake
+    state: latest
+  - name: readline
+    state: latest
+  - name: libxslt
+    state: latest
+  - name: libtool
+    state: latest
+  - name: unixodbc
+    state: latest
+  - name: unzip
+    state: latest
+  - name: curl
+    state: latest
 
 casks:
-  - viscosity
-  - alfred
-  - fig
-  - docker
-  # - responsively
-  # - insomnia
-  # - insomnia-designer
-  - the-unarchiver
-  # - zoom
-  - cyberduck
-  # - evernote
-  - virtualbox
-  # - vagrant
-  - ngrok
-  - gpg-suite
-  - slack
-  - discord
-  - dropbox
-  - google-cloud-sdk
-  - font-fira-code
-  - font-hack-nerd-font
-  - jetbrains-toolbox
-  - iterm2
-  - sublime-text
-  - visual-studio-code
-  # - principle
-  # - sketch
-  # - sketch-toolbox
-  # - sourcetree
-  # - github-desktop
-  - skyfonts
-  # - balsamiq-mockups
-  # - adobe-creative-cloud
-  - dash
-  # - lingo
-  # - robo-3t
-  # - sequel-pro
-  # - pgadmin3
-  # - mysqlworkbench
-  # - postico
-  # - keycastr
-  - 1password
-  # - gitter
-  # - hipchat
-  # - skype
-  # - steam
-  # - tunnelbear
-  # - spectacle
-  # - utorrent
-  # - divvy
-  # - obs
-  - paw
-  # - flux
-  # - screenflow
-  - firefox
-  - google-chrome
-  # - google-chrome-canary
-  # - firefoxnightly
-  # - webkit-nightly
-  # - chromium
-  # - torbrowser
-  # - radio-silence
-  # - loopback
-  - graphql-playground
-  - postman
-  # - signal
-  # - telegram
+  - name: viscosity
+    state: latest
+  - name: alfred
+    state: latest
+  - name: fig
+    state: latest
+  - name: docker
+    state: latest
+  - name: responsively
+    state: uninstalled
+  - name: insomnia
+    state: uninstalled
+  - name: insomnia-designer
+    state: uninstalled
+  - name: the-unarchiver
+    state: latest
+  - name: zoom
+    state: latest
+  - name: cyberduck
+    state: latest
+  - name: evernote
+    state: uninstalled
+  - name: virtualbox
+    state: latest
+  - name: vagrant
+    state: uninstalled
+  - name: ngrok
+    state: latest
+  - name: gpg-suite
+    state: latest
+  - name: slack
+    state: latest
+  - name: discord
+    state: latest
+  - name: dropbox
+    state: latest
+  - name: google-cloud-sdk
+    state: latest
+  - name: font-fira-code
+    state: latest
+  - name: font-hack-nerd-font
+    state: latest
+  - name: jetbrains-toolbox
+    state: latest
+  - name: iterm2
+    state: latest
+  - name: sublime-text
+    state: latest
+  - name: visual-studio-code
+    state: latest
+  - name: principle
+    state: uninstalled
+  - name: sketch
+    state: uninstalled
+  - name: sketch-toolbox
+    state: uninstalled
+  - name: sourcetree
+    state: uninstalled
+  - name: github-desktop
+    state: uninstalled
+  - name: skyfonts
+    state: latest
+  - name: balsamiq-mockups
+    state: uninstalled
+  - name: adobe-creative-cloud
+    state: uninstalled
+  - name: dash
+    state: latest
+  - name: lingo
+    state: uninstalled
+  - name: robo-3t
+    state: uninstalled
+  - name: sequel-pro
+    state: uninstalled
+  - name: pgadmin3
+    state: uninstalled
+  - name: mysqlworkbench
+    state: uninstalled
+  - name: postico
+    state: uninstalled
+  - name: keycastr
+    state: uninstalled
+  - name: 1password
+    state: latest
+  - name: gitter
+    state: uninstalled
+  - name: hipchat
+    state: uninstalled
+  - name: skype
+    state: uninstalled
+  - name: steam
+    state: uninstalled
+  - name: tunnelbear
+    state: uninstalled
+  - name: spectacle
+    state: uninstalled
+  - name: utorrent
+    state: uninstalled
+  - name: divvy
+    state: uninstalled
+  - name: obs
+    state: uninstalled
+  - name: paw
+    state: latest
+  - name: flux
+    state: uninstalled
+  - name: screenflow
+    state: uninstalled
+  - name: firefox
+    state: latest
+  - name: google-chrome
+    state: latest
+  - name: google-chrome-canary
+    state: uninstalled
+  - name: firefoxnightly
+    state: uninstalled
+  - name: webkit-nightly
+    state: uninstalled
+  - name: chromium
+    state: uninstalled
+  - name: torbrowser
+    state: uninstalled
+  - name: radio-silence
+    state: uninstalled
+  - name: loopback
+    state: uninstalled
+  - name: graphql-playground
+    state: latest
+  - name: postman
+    state: latest
+  - name: signal
+    state: uninstalled
+  - name: telegram
+    state: uninstalled
