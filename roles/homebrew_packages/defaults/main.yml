@@ -147,8 +147,6 @@ casks:
     state: latest
   - name: fig
     state: latest
-  - name: docker
-    state: latest
   - name: responsively
     state: uninstalled
   - name: insomnia
