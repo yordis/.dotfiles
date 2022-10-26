@@ -141,6 +141,8 @@ brews:
     state: latest
 
 casks:
+  - name: notion
+    state: latest
   - name: viscosity
     state: latest
   - name: alfred
