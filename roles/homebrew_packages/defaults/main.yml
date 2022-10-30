@@ -11,6 +11,8 @@ taps:
 brews:
   - name: stern
     state: latest
+  - name: codespell
+    state: latest
   - name: vegeta
     state: latest
   - name: tfsec
