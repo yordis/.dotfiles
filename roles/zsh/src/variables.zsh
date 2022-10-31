@@ -1,3 +1,5 @@
+export UBI_MY_DRIVE_PATH=$HOME/My\ Drive
+
 export TERM=xterm-256color
 export ZPLUG_HOME=/usr/local/opt/zplug
 # export EDITOR="$(which vim)"
