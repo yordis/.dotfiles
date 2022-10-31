@@ -143,6 +143,8 @@ brews:
 casks:
   - name: notion
     state: latest
+  - name: google-drive
+    state: latest
   - name: viscosity
     state: latest
   - name: alfred
