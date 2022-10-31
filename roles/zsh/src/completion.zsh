@@ -16,4 +16,9 @@ if [ $commands[mc] ]; then
   complete -o nospace -C /usr/local/bin/mc mc
 fi
 
+if [ $commands[op] ]; then
+  eval "$(op completion zsh)"
+  compdef _op op
+fi
+
 [[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
