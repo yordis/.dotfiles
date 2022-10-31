@@ -47,4 +47,5 @@ export KERL_CONFIGURE_OPTIONS="--disable-debug \
                                --with-wx-config=/usr/local/bin/wx-config \
                                --without-javac \
                                --without-jinterface \
-                               --without-odbc"
+                               --without-odbc \
+                               --with-ssl=/usr/local/opt/openssl"
