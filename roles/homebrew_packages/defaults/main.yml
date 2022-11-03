@@ -217,6 +217,8 @@ brews:
 casks:
   - name: notion
     state: latest
+  - name: warp
+    state: latest
   - name: 1password/tap/1password-cli
     state: latest
   - name: google-drive
