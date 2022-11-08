@@ -12,6 +12,9 @@ brews:
   - name: stern
     state: latest
     install_options: null
+  - name: typos-cli
+    state: latest
+    install_options: null
   - name: golangci-lint
     state: latest
     install_options: null
