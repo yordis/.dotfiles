@@ -11,6 +11,9 @@
     - role: docker
       tags:
         - docker
+    - role: docker-desktop
+      tags:
+        - docker-desktop
     - role: editorconfig
       tags:
         - editorconfig
