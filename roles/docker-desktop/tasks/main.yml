@@ -1,0 +1,28 @@
+- name: ensure kubernetes directory exists
+  file:
+    dest: "{{ user_home_directory }}/Developer/docker-desktop/kubernetes/local-storage-sc"
+    state: directory
+
+- name: install Ansible Galaxy collections
+  community.general.ansible_galaxy_install:
+    type: collection
+    name: kubernetes.core
+
+- name: install kubernetes python package
+  ansible.builtin.pip:
+    name: kubernetes
+
+- name: apply local storage storageclass
+  kubernetes.core.k8s:
+    state: present
+    context: docker-desktop
+    definition:
+      apiVersion: storage.k8s.io/v1
+      kind: StorageClass
+      metadata:
+        name: local-storage
+      provisioner: docker.io/hostpath
+      parameters:
+        path: "{{ user_home_directory }}/Developer/docker-desktop/kubernetes/local-storage-sc"
+      reclaimPolicy: Retain
+      volumeBindingMode: Immediate
