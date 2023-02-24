@@ -25,4 +25,5 @@
       parameters:
         path: "{{ user_home_directory }}/Developer/docker-desktop/kubernetes/local-storage-sc"
       reclaimPolicy: Retain
+      allowVolumeExpansion: true
       volumeBindingMode: Immediate
