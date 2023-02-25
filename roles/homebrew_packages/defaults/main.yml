@@ -9,6 +9,9 @@ taps:
     state: present
 
 brews:
+  - name: certigo
+    state: latest
+    install_options: null
   - name: stern
     state: latest
     install_options: null
