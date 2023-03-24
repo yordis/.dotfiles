@@ -28,3 +28,5 @@ ulimit -n 4096
 [[ -f "$HOME/.tnsrc" ]] && . "$HOME/.tnsrc"
 . "$DOTFILES_ROOT_ZSH_ROOT/completion.zsh"
 [[ -f "$HOME/.nix-profile/etc/profile.d/nix.sh" ]] && . "$HOME/.nix-profile/etc/profile.d/nix.sh"
+
+unset ASDF_RUBY_VERSION
