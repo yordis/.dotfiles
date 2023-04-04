@@ -151,7 +151,7 @@ services:
     image: redis:latest
     restart: unless-stopped
     ports:
-      - 6380:6379
+      - 6379:6379
 
   database_memcached:
     image: memcached:latest
@@ -177,7 +177,7 @@ services:
     volumes:
       - ./volumes/opensearch:/usr/share/opensearch/data
 
-  opensearch-dashboards:
+  opensearch_dashboards:
     image: opensearchproject/opensearch-dashboards:latest
     ports:
       - 5601:5601
