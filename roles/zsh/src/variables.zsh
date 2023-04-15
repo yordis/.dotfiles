@@ -1,5 +1,6 @@
 export UBI_MY_DRIVE_PATH=$HOME/My\ Drive
 
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/adoptopenjdk-16.jdk/Contents/Home/
 export TERM=xterm-256color
 export ZPLUG_HOME=/usr/local/opt/zplug
 # export EDITOR="$(which vim)"
