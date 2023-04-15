@@ -28,6 +28,10 @@ function gpublish() {
   git push -u origin $(git rev-parse --abbrev-ref HEAD)
 }
 
+function dotfiles-edit() {
+  code "$DOTFILES_ROOT"
+}
+
 function dotfiles-docker() {
   cd "$DOTFILES_ROOT/roles/docker/src"
 }

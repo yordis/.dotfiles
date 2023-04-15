@@ -237,7 +237,7 @@ casks:
   - name: alfred
     state: latest
   - name: fig
-    state: latest
+    state: uninstalled
   - name: responsively
     state: uninstalled
   - name: insomnia
