@@ -1,6 +1,24 @@
+export JAVA_HOME=$(/usr/libexec/java_home)
+
+export PATH="/usr/local/opt/libxml2/bin:$PATH"
+export PATH="/usr/local/sbin:$PATH"
+export PATH="/usr/local/bin:$PATH"
+export PATH="$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+export PATH="$HOME/.dotfiles/bin:$PATH"
+export GOPATH="$HOME/Developer/GoLang"
+export PATH="$GOPATH/bin:$PATH"
+export PATH="$DOTFILES_ROOT_ZSH_ROOT/bin/private:$PATH"
+export PATH="$DOTFILES_ROOT_ZSH_ROOT/bin:$PATH"
+[[ -d "$HOME/.mix/escripts" ]] && export PATH="$HOME/.mix/escripts:$PATH"
+[[ -d "$HOME/.cargo/bin" ]] && export PATH="$HOME/.cargo/bin:$PATH"
+[[ -d "$HOME/.crc/bin" ]] && export PATH="$HOME/.crc/bin:$PATH"
+[[ -d "$HOME/Developer/Flutter" ]] && export PATH="$HOME/Developer/Flutter/bin:$PATH"
+[[ -d "$HOME/.deno/bin" ]] && export PATH="$HOME/.deno/bin:$PATH"
+[[ -d "$HOME/.radicle/bin:$PATH" ]] && export PATH="$HOME/.radicle/bin:$PATH"
+export PATH="${JAVA_HOME}/bin:$PATH"
+
 export UBI_MY_DRIVE_PATH=$HOME/My\ Drive
 
-export JAVA_HOME=/Library/Java/JavaVirtualMachines/adoptopenjdk-16.jdk/Contents/Home/
 export TERM=xterm-256color
 export ZPLUG_HOME=/usr/local/opt/zplug
 # export EDITOR="$(which vim)"

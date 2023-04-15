@@ -17,7 +17,6 @@ fpath=($DOTFILES_ROOT_ZSH_ROOT/completions $fpath)
 # ¯\_(ツ)_/¯
 ulimit -n 4096
 
-. "$DOTFILES_ROOT_ZSH_ROOT/path.zsh"
 . "$DOTFILES_ROOT_ZSH_ROOT/private.zsh"
 . "$DOTFILES_ROOT_ZSH_ROOT/variables.zsh"
 . "$DOTFILES_ROOT_ZSH_ROOT/zplug.zsh"
