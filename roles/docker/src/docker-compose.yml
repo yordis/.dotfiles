@@ -1,17 +1,30 @@
 version: "3"
 
 services:
+  nats:
+    image: nats:latest
+    ports:
+      - "8222:8222"
+      - "4222:4222"
+    command: >-
+      --http_port 8222
+      --port 4222
+      --jetstream
+      --store_dir /data
+    volumes:
+      - ./volumes/nats/data:/data
+
   docker_registry:
     image: registry:latest
     restart: unless-stopped
     ports:
-      - 5002:5000
+      - "5002:5000"
 
   keycloak:
     image: quay.io/keycloak/keycloak:latest
     restart: unless-stopped
     ports:
-      - 9000:8080
+      - "9000:8080"
     env_file:
       - ./services/keycloak/.env
     depends_on:
@@ -21,7 +34,7 @@ services:
     image: grafana/grafana:latest
     restart: unless-stopped
     ports:
-      - 9001:3000
+      - "9001:3000"
     volumes:
       - ./volumes/grafana/:/var/lib/grafana
     env_file:
@@ -41,7 +54,7 @@ services:
       - /data
     restart: unless-stopped
     ports:
-      - 9002:9000
+      - "9002:9000"
     volumes:
       - "./volumes/minio/storage:/data"
     env_file:
@@ -51,13 +64,13 @@ services:
     image: prom/prometheus:latest
     restart: unless-stopped
     ports:
-      - 9090:9090
+      - "9090:9090"
 
   verdaccio:
     image: verdaccio/verdaccio:latest
     restart: unless-stopped
     ports:
-      - 4873:4873
+      - "4873:4873"
     volumes:
       - "./volumes/verdaccio/storage:/verdaccio/storage"
       - "./volumes/verdaccio/plugins:/verdaccio/plugins"
@@ -68,7 +81,7 @@ services:
     image: confluentinc/cp-zookeeper:latest
     restart: unless-stopped
     ports:
-      - 2181:2181
+      - "2181:2181"
     env_file:
       - ./services/zookeeper/.env
 
@@ -76,7 +89,7 @@ services:
     image: confluentinc/cp-kafka:latest
     restart: unless-stopped
     ports:
-      - 9092:9092
+      - "9092:9092"
     depends_on:
       - zookeeper
     env_file:
@@ -86,7 +99,7 @@ services:
     image: openpolicyagent/opa:latest
     restart: unless-stopped
     ports:
-      - 8181:8181
+      - "8181:8181"
     command:
       - run
       - --server
@@ -96,15 +109,15 @@ services:
     image: mailhog/mailhog:latest
     restart: unless-stopped
     ports:
-      - 1026:1025
-      - 8026:8025
+      - "1026:1025"
+      - "8026:8025"
 
   database_eventstore:
     image: eventstore/eventstore:latest
     restart: unless-stopped
     ports:
-      - 2113:2113
-      - 1113:1113
+      - "2113:2113"
+      - "1113:1113"
     env_file:
       - ./services/eventstore/.env
     volumes:
@@ -115,7 +128,7 @@ services:
     image: mdillon/postgis:latest
     restart: unless-stopped
     ports:
-      - 5433:5432
+      - "5433:5432"
     env_file:
       - ./services/database/postgis/.env
     volumes:
@@ -125,7 +138,7 @@ services:
     image: mysql:latest
     restart: unless-stopped
     ports:
-      - 3306:3306
+      - "3306:3306"
     env_file:
       - ./services/database/mysql/.env
     volumes:
@@ -135,7 +148,7 @@ services:
     image: postgres:latest
     restart: unless-stopped
     ports:
-      - 5432:5432
+      - "5432:5432"
     env_file:
       - ./services/database/postgresql/.env
     volumes:
@@ -145,43 +158,57 @@ services:
     image: amazon/dynamodb-local:latest
     restart: unless-stopped
     ports:
-      - 8000:8000
+      - "8000:8000"
 
   database_redis:
     image: redis:latest
     restart: unless-stopped
     ports:
-      - 6380:6379
+      - "6379:6379"
 
   database_memcached:
     image: memcached:latest
     restart: unless-stopped
     ports:
-      - 11211:11211
+      - "11211:11211"
 
   database_mongodb:
     image: mongo:latest
     restart: unless-stopped
     ports:
-      - 27017:27017
+      - "27017:27017"
 
   opensearch:
     image: opensearchproject/opensearch:latest
     restart: unless-stopped
     ports:
-      - 9200:9200
-      - 9600:9600
+      - "9200:9200"
+      - "9600:9600"
     environment:
       - discovery.type=single-node
       - plugins.security.disabled=true
     volumes:
       - ./volumes/opensearch:/usr/share/opensearch/data
 
-  opensearch-dashboards:
+  opensearch_dashboards:
     image: opensearchproject/opensearch-dashboards:latest
     ports:
-      - 5601:5601
+      - "5601:5601"
     expose:
       - "5601"
     environment:
       OPENSEARCH_HOSTS: '["https://opensearch:9200"]'
+
+  supertokens:
+    image: registry.supertokens.io/supertokens/supertokens-postgresql:latest
+    ports:
+      - "3567:3567"
+    environment:
+      POSTGRESQL_CONNECTION_URI: "postgresql://postgres:postgres@database_postgresql:5432/supertokens"
+    restart: unless-stopped
+    healthcheck:
+      test: >
+        bash -c 'exec 3<>/dev/tcp/127.0.0.1/3567 && echo -e "GET /hello HTTP/1.1\r\nhost: 127.0.0.1:3567\r\nConnection: close\r\n\r\n" >&3 && cat <&3 | grep "Hello"'
+      interval: 10s
+      timeout: 5s
+      retries: 5

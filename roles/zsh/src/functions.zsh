@@ -111,3 +111,7 @@ function k8s-dashboard-proxy {
 function decode64 {
   echo $1 | base64 --decode
 }
+
+function encode64 {
+  echo $1 | base64
+}

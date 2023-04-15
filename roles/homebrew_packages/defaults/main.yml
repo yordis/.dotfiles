@@ -9,6 +9,9 @@ taps:
     state: present
 
 brews:
+  - name: ory/tap/cli
+    state: latest
+    install_options: null
   - name: certigo
     state: latest
     install_options: null
