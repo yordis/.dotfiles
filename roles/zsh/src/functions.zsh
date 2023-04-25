@@ -117,7 +117,7 @@ function decode64 {
 }
 
 function encode64 {
-  echo $1 | base64
+  echo -n $1 | base64
 }
 
 function k8s-grafana-proxy {
