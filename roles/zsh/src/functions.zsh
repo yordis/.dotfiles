@@ -120,9 +120,27 @@ function encode64 {
   echo -n $1 | base64
 }
 
-function k8s-grafana-proxy {
+function k8s-proxy-srv {
   local context=$1
   local namespace=$2
-  local grafana_pod=$(kubectl --context $context get pods -n $namespace -o name | grep grafana)
-  kubectl port-forward --context $context $grafana_pod 8080:3000 -n $namespace
+  local service_name=$3
+  local service_port=$4
+
+  echo "$context $namespace $service_name $service_port"
+
+  local service=$(kubectl --context $context get service -n $namespace -o name | grep $service_name)
+
+  kubectl port-forward --context $context $service 8080:$service_port -n $namespace
+}
+
+function k8s-proxy-grafana {
+  local context=$1
+  local namespace=$2
+  k8s-proxy-srv $context $namespace argocd-server 3000
+}
+
+function k8s-proxy-argocd {
+  local context=$1
+  local namespace=$2
+  k8s-proxy-srv $context $namespace argocd-server 80
 }
