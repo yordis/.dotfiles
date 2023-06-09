@@ -18,6 +18,9 @@ brews:
   - name: certigo
     state: latest
     install_options: null
+  - name: argocd
+    state: latest
+    install_options: null
   - name: stern
     state: latest
     install_options: null
