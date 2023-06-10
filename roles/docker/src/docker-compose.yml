@@ -1,6 +1,16 @@
 version: "3"
 
 services:
+  browserless:
+    image: browserless/chrome:latest
+    restart: always
+    ports:
+      - "3005:3000"
+    env_file:
+      - ./services/browserless/.env
+    volumes:
+      - ./volumes/browserless/data:/data
+
   inngest:
     image: "inngest/inngest:latest"
     command:
