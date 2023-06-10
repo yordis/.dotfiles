@@ -65,6 +65,17 @@ services:
   #     - 80:80
   #     - 443:443
 
+  minio_console:
+    image: minio/console:latest
+    command:
+      - server
+    ports:
+      - "9093:9090"
+    environment:
+      CONSOLE_PBKDF_PASSPHRASE: SECRET
+      CONSOLE_PBKDF_SALT: SECRET
+      CONSOLE_MINIO_SERVER: "http://localhost:9002"
+
   minio:
     image: minio/minio:edge
     command:
