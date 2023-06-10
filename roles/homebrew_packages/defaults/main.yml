@@ -12,6 +12,9 @@ brews:
   - name: stripe/stripe-cli/stripe
     state: latest
     install_options: null
+  - name: minio/stable/mc
+    state: latest
+    install_options: null
   - name: ory/tap/cli
     state: latest
     install_options: null
