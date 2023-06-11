@@ -1,6 +1,16 @@
 version: "3"
 
 services:
+  appsmith:
+    image: index.docker.io/appsmith/appsmith-ce
+    container_name: appsmith
+    ports:
+      - "5680:80"
+      - "56443:443"
+    volumes:
+      - ./volumes/appsmith/stacks:/appsmith-stacks
+    restart: unless-stopped
+
   browserless:
     image: browserless/chrome:latest
     restart: always
