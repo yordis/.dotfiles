@@ -7,9 +7,10 @@ ignorecase = false
 autocrlf = input
 
 [user]
-name = Yordis Prieto Lazo
+name = Yordis Prieto
 email = yordis.prieto@gmail.com
 signingkey = 0C84BA03E450BB23
+signingoff = true
 
 [commit]
 template = ~/.gitmessage
