@@ -1,6 +1,7 @@
 export JAVA_HOME=$(/usr/libexec/java_home)
 
 export PATH="/usr/local/opt/libxml2/bin:$PATH"
+export PATH="/usr/local/opt/libpq/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
 export PATH="/usr/local/bin:$PATH"
 export PATH="$HOME/.config/yarn/global/node_modules/.bin:$PATH"
@@ -33,11 +34,12 @@ export GPG_TTY=$(tty)
 export ERL_AFLAGS="-kernel shell_history enabled"
 
 # For compilers to find libxml2 you may need to set:
-export LDFLAGS="-L/usr/local/opt/libxml2/lib"
-export CPPFLAGS="-I/usr/local/opt/libxml2/include"
+export LDFLAGS="-L/usr/local/opt/libxml2/lib -L/usr/local/opt/libpq/lib"
+export CPPFLAGS="-I/usr/local/opt/libxml2/include -I/usr/local/opt/libpq/include"
 
 # For pkg-config to find libxml2 you may need to set:
 export PKG_CONFIG_PATH="/usr/local/opt/libxml2/lib/pkgconfig"
+export PKG_CONFIG_PATH="$PKG_CONFIG_PATH:/usr/local/opt/libpq/lib/pkgconfig"
 
 export GO111MODULE=on
 
