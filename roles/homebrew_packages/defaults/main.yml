@@ -9,6 +9,9 @@ taps:
     state: present
 
 brews:
+  - name: kubeseal
+    state: latest
+    install_options: null
   - name: stripe/stripe-cli/stripe
     state: latest
     install_options: null
