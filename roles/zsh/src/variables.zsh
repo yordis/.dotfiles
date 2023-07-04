@@ -1,7 +1,11 @@
 export JAVA_HOME=$(/usr/libexec/java_home)
 
-export GOPATH=$(asdf where golang)/packages
-export GOROOT=$(asdf where golang)/go
+if [[ -f "$HOME/.asdf/bin/asdf" ]]; then
+  export GOPATH=$($HOME/.asdf/bin/asdf where golang)/packages
+  export GOROOT=$($HOME/.asdf/bin/asdf where golang)/go
+else
+  export GOPATH="$HOME/Developer/GoLang"
+fi
 
 export PATH="/usr/local/opt/libxml2/bin:$PATH"
 export PATH="/usr/local/opt/libpq/bin:$PATH"
