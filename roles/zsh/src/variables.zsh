@@ -1,12 +1,14 @@
 export JAVA_HOME=$(/usr/libexec/java_home)
 
+export GOPATH=$(asdf where golang)/packages
+export GOROOT=$(asdf where golang)/go
+
 export PATH="/usr/local/opt/libxml2/bin:$PATH"
 export PATH="/usr/local/opt/libpq/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
 export PATH="/usr/local/bin:$PATH"
 export PATH="$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 export PATH="$HOME/.dotfiles/bin:$PATH"
-export GOPATH="$HOME/Developer/GoLang"
 export PATH="$GOPATH/bin:$PATH"
 export PATH="$DOTFILES_ROOT_ZSH_ROOT/bin/private:$PATH"
 export PATH="$DOTFILES_ROOT_ZSH_ROOT/bin:$PATH"
