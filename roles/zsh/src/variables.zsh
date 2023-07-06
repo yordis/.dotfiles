@@ -1,12 +1,12 @@
+[[ -d "$HOME/.asdf/plugins/golang" ]] && . "$HOME/.asdf/plugins/golang/set-env.zsh"
+
+# if [[ -f "$HOME/.asdf/bin/asdf" ]]; then
+#   export GOPATH=$($HOME/.asdf/bin/asdf where golang)/packages
+# else
+#   export GOPATH="$HOME/Developer/GoLang"
+# fi
+
 export JAVA_HOME=$(/usr/libexec/java_home)
-
-if [[ -f "$HOME/.asdf/bin/asdf" ]]; then
-  export GOPATH=$($HOME/.asdf/bin/asdf where golang)/packages
-  export GOROOT=$($HOME/.asdf/bin/asdf where golang)/go
-else
-  export GOPATH="$HOME/Developer/GoLang"
-fi
-
 export PATH="/usr/local/opt/libxml2/bin:$PATH"
 export PATH="/usr/local/opt/libpq/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
