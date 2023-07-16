@@ -28,7 +28,7 @@ alias gpoh="git push --set-upstream origin HEAD"
 alias gprm="git pull --rebase origin master"
 alias gpohc="gpoh 2>&1 >/dev/null | grep -Eo '(http|https)://[a-zA-Z0-9./?=_%:-]*' | pbcopy"
 alias gprcreate="gh pr create --fill --draft && gh pr view --web"
-alias gprrcreate="gh pr create --fill --draft && gh pr view --web"
+alias gprrcreate="gh pr create --fill && gh pr view --web"
 
 alias commit-without-husky="HUSKY_SKIP_HOOKS=true git commit --no-verify"
 
