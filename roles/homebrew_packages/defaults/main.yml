@@ -236,6 +236,8 @@ brews:
     install_options: null
 
 casks:
+  - name: meld
+    state: latest
   - name: notion
     state: latest
   - name: warp
