@@ -1,12 +1,18 @@
-export JAVA_HOME=$(/usr/libexec/java_home)
+[[ -d "$HOME/.asdf/plugins/golang" ]] && . "$HOME/.asdf/plugins/golang/set-env.zsh"
 
+# if [[ -f "$HOME/.asdf/bin/asdf" ]]; then
+#   export GOPATH=$($HOME/.asdf/bin/asdf where golang)/packages
+# else
+#   export GOPATH="$HOME/Developer/GoLang"
+# fi
+
+export JAVA_HOME=$(/usr/libexec/java_home)
 export PATH="/usr/local/opt/libxml2/bin:$PATH"
 export PATH="/usr/local/opt/libpq/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
 export PATH="/usr/local/bin:$PATH"
 export PATH="$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 export PATH="$HOME/.dotfiles/bin:$PATH"
-export GOPATH="$HOME/Developer/GoLang"
 export PATH="$GOPATH/bin:$PATH"
 export PATH="$DOTFILES_ROOT_ZSH_ROOT/bin/private:$PATH"
 export PATH="$DOTFILES_ROOT_ZSH_ROOT/bin:$PATH"
