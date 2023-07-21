@@ -12,7 +12,7 @@ autoload -U promptinit
 promptinit
 autoload -Uz zkbd
 
-fpath=($DOTFILES_ROOT_ZSH_ROOT/completions $fpath)
+fpath+=$DOTFILES_ROOT_ZSH_ROOT/completions
 
 # ¯\_(ツ)_/¯
 ulimit -n 4096
