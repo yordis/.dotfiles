@@ -2,8 +2,8 @@ version: "3"
 
 services:
   appsmith:
-    image: index.docker.io/appsmith/appsmith-ce
     container_name: appsmith
+    image: index.docker.io/appsmith/appsmith-ce
     ports:
       - "5680:80"
       - "56443:443"
@@ -12,6 +12,7 @@ services:
     restart: unless-stopped
 
   browserless:
+    container_name: browserless
     image: browserless/chrome:latest
     restart: always
     ports:
@@ -22,6 +23,7 @@ services:
       - ./volumes/browserless/data:/data
 
   inngest:
+    container_name: inngest
     image: "inngest/inngest:latest"
     command:
       - inngest
@@ -30,6 +32,7 @@ services:
       - "8288:8288"
 
   nats:
+    container_name: nats
     image: nats:latest
     ports:
       - "8222:8222"
@@ -42,13 +45,15 @@ services:
     volumes:
       - ./volumes/nats/data:/data
 
-  docker_registry:
+  docker-registry:
+    container_name: docker-registry
     image: registry:latest
     restart: unless-stopped
     ports:
       - "5002:5000"
 
   keycloak:
+    container_name: keycloak
     image: quay.io/keycloak/keycloak:latest
     restart: unless-stopped
     ports:
@@ -56,9 +61,10 @@ services:
     env_file:
       - ./services/keycloak/.env
     depends_on:
-      - database_mysql
+      - mysql
 
   grafana:
+    container_name: grafana
     image: grafana/grafana:latest
     restart: unless-stopped
     ports:
@@ -75,18 +81,18 @@ services:
   #     - 80:80
   #     - 443:443
 
-  minio_console:
+  minio-console:
+    container_name: minio-console
     image: minio/console:latest
     command:
       - server
     ports:
       - "9093:9090"
-    environment:
-      CONSOLE_PBKDF_PASSPHRASE: SECRET
-      CONSOLE_PBKDF_SALT: SECRET
-      CONSOLE_MINIO_SERVER: "http://localhost:9002"
+    env_file:
+      - ./services/minio-console/.env
 
   minio:
+    container_name: minio
     image: minio/minio:edge
     command:
       - server
@@ -95,28 +101,31 @@ services:
     ports:
       - "9002:9000"
     volumes:
-      - "./volumes/minio/storage:/data"
+      - ./volumes/minio/storage:/data
     env_file:
       - ./services/minio/.env
 
   prometheus:
+    container_name: prometheus
     image: prom/prometheus:latest
     restart: unless-stopped
     ports:
       - "9090:9090"
 
   verdaccio:
+    container_name: verdaccio
     image: verdaccio/verdaccio:latest
     restart: unless-stopped
     ports:
       - "4873:4873"
     volumes:
-      - "./volumes/verdaccio/storage:/verdaccio/storage"
-      - "./volumes/verdaccio/plugins:/verdaccio/plugins"
+      - ./volumes/verdaccio/storage:/verdaccio/storage
+      - ./volumes/verdaccio/plugins:/verdaccio/plugins
     env_file:
       - ./services/verdaccio/.env
 
   zookeeper:
+    container_name: zookeeper
     image: confluentinc/cp-zookeeper:latest
     restart: unless-stopped
     ports:
@@ -125,6 +134,7 @@ services:
       - ./services/zookeeper/.env
 
   kafka:
+    container_name: kafka
     image: confluentinc/cp-kafka:latest
     restart: unless-stopped
     ports:
@@ -135,6 +145,7 @@ services:
       - ./services/kafka/.env
 
   opa:
+    container_name: opa
     image: openpolicyagent/opa:latest
     restart: unless-stopped
     ports:
@@ -144,14 +155,16 @@ services:
       - --server
       - --log-level=debug
 
-  email_mailcatcher:
+  mailhog:
+    container_name: mailhog
     image: mailhog/mailhog:latest
     restart: unless-stopped
     ports:
       - "1026:1025"
       - "8026:8025"
 
-  database_eventstore:
+  eventstore:
+    container_name: eventstore
     image: eventstore/eventstore:latest
     restart: unless-stopped
     ports:
@@ -163,61 +176,69 @@ services:
       - ./volumes/eventstore/data:/var/lib/eventstore
       - ./volumes/eventstore/log:/var/log/eventstore
 
-  database_postgis:
+  postgis:
+    container_name: postgis
     image: mdillon/postgis:latest
     restart: unless-stopped
     ports:
       - "5433:5432"
     env_file:
-      - ./services/database/postgis/.env
+      - ./services/postgis/.env
     volumes:
       - ./volumes/postgis:/var/lib/postgresql/data
 
-  database_mysql:
+  mysql:
+    container_name: mysql
     image: mysql:latest
     restart: unless-stopped
     ports:
       - "3306:3306"
     env_file:
-      - ./services/database/mysql/.env
+      - ./services/mysql/.env
     volumes:
       - ./volumes/mysql:/var/lib/mysql
 
-  database_postgresql:
+  postgresql:
+    container_name: postgresql
     image: postgres:latest
     restart: unless-stopped
     ports:
       - "5432:5432"
     env_file:
-      - ./services/database/postgresql/.env
+      - ./services/postgresql/.env
     volumes:
       - ./volumes/postgresql:/var/lib/postgresql/data
 
-  database_dynamodb:
+  dynamodb-local:
+    container_name: dynamodb-local
     image: amazon/dynamodb-local:latest
     restart: unless-stopped
     ports:
       - "8000:8000"
 
-  database_redis:
+  redis:
+    container_name: redis
     image: redis:latest
     restart: unless-stopped
     ports:
       - "6379:6379"
 
-  database_memcached:
+  memcached:
+    container_name: memcached
     image: memcached:latest
     restart: unless-stopped
     ports:
       - "11211:11211"
 
-  database_mongodb:
+  mongodb:
+    container_name: mongodb
     image: mongo:latest
     restart: unless-stopped
     ports:
       - "27017:27017"
 
   opensearch:
+    container_name: opensearch
     image: opensearchproject/opensearch:latest
     restart: unless-stopped
     ports:
@@ -229,7 +250,8 @@ services:
     volumes:
       - ./volumes/opensearch:/usr/share/opensearch/data
 
-  opensearch_dashboards:
+  opensearch-dashboards:
+    container_name: opensearch-dashboards
     image: opensearchproject/opensearch-dashboards:latest
     ports:
       - "5601:5601"
@@ -239,11 +261,12 @@ services:
       OPENSEARCH_HOSTS: '["https://opensearch:9200"]'
 
   supertokens:
+    container_name: supertokens
     image: registry.supertokens.io/supertokens/supertokens-postgresql:latest
     ports:
       - "3567:3567"
-    environment:
-      POSTGRESQL_CONNECTION_URI: "postgresql://postgres:postgres@database_postgresql:5432/supertokens"
+    env_file:
+      - ./services/supertokens/.env
     restart: unless-stopped
     healthcheck:
       test: >
@@ -251,3 +274,37 @@ services:
       interval: 10s
       timeout: 5s
       retries: 5
+
+  temporal:
+    container_name: temporal
+    image: temporalio/auto-setup:1.21.4
+    ports:
+      - "7233:7233"
+    depends_on:
+      - postgresql
+    env_file:
+      - ./services/temporal/.env
+    volumes:
+      - ./volumes/temporal/dynamicconfig:/etc/temporal/config/dynamicconfig
+    labels:
+      kompose.volume.type: configMap
+
+  temporal-admin-tools:
+    container_name: temporal-admin-tools
+    image: temporalio/admin-tools:1.21.4
+    depends_on:
+      - temporal
+    env_file:
+      - ./services/temporal-admin-tools/.env
+    stdin_open: true
+    tty: true
+
+  temporal-ui:
+    container_name: temporal-ui
+    depends_on:
+      - temporal
+    env_file:
+      - ./services/temporal-ui/.env
+    image: temporalio/ui:2.17.0
+    ports:
+      - "8080:8080"
