@@ -30,6 +30,7 @@ alias gpohc="gpoh 2>&1 >/dev/null | grep -Eo '(http|https)://[a-zA-Z0-9./?=_%:-]
 alias gprcreate="gh pr create --fill --draft && gh pr view --web"
 alias gprrcreate="gh pr create --fill && gh pr view --web"
 
+alias tctl-docker="docker exec temporal-admin-tools tctl"
 alias commit-without-husky="HUSKY_SKIP_HOOKS=true git commit --no-verify"
 
 # Docker & K8S
