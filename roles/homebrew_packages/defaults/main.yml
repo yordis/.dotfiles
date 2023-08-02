@@ -120,7 +120,7 @@ brews:
   - name: git-lfs
     state: latest
     install_options: null
-  - name: aws-sam-cli
+  - name: aws/tap/aws-sam-cli
     state: latest
     install_options: null
   - name: awscli
