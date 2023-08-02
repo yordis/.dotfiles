@@ -12,6 +12,9 @@ brews:
   - name: kubeseal
     state: latest
     install_options: null
+  - name: clusterctl
+    state: latest
+    install_options: null
   - name: stripe/stripe-cli/stripe
     state: latest
     install_options: null
