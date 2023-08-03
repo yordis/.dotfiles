@@ -317,7 +317,7 @@ services:
     depends_on:
       - postgresql
     volumes:
-      - ./volumes/temporal/dynamicconfig:/etc/temporal/config/dynamicconfig
+      - ./services/temporal/dynamicconfig:/etc/temporal/config/dynamicconfig
     environment:
       DB: postgresql
       DB_PORT: 5432
