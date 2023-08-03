@@ -17,10 +17,20 @@ services:
     restart: always
     ports:
       - "3005:3000"
-    env_file:
-      - ./services/browserless/.env
     volumes:
       - ./volumes/browserless/data:/data
+    environment:
+      WORKSPACE_DIR: /data/workspace
+      DEBUG: browserless:*
+      MAX_CONCURRENT_SESSIONS: 10
+      CONNECTION_TIMEOUT: 60000
+      MAX_QUEUE_LENGTH: 20
+      PREBOOT_CHROME: true
+      DEMO_MODE: false
+      HOST: 0.0.0.0
+      ENABLE_DEBUGGER: false
+      PORT: 3000
+      WORKSPACE_DELETE_EXPIRED: true
 
   inngest:
     container_name: inngest
@@ -58,10 +68,16 @@ services:
     restart: unless-stopped
     ports:
       - "9000:8080"
-    env_file:
-      - ./services/keycloak/.env
     depends_on:
       - mysql
+    environment:
+      KEYCLOAK_USER: admin
+      KEYCLOAK_PASSWORD: admin
+      DB_VENDOR: MYSQL
+      DB_ADDR: mysql
+      DB_DATABASE: keycloak
+      DB_USER: admin
+      DB_PASSWORD: password
 
   grafana:
     container_name: grafana
@@ -71,8 +87,6 @@ services:
       - "9001:3000"
     volumes:
       - ./volumes/grafana/:/var/lib/grafana
-    env_file:
-      - ./services/grafana/.env
 
   # rancher:
   #   image: rancher/rancher:latest
@@ -88,8 +102,10 @@ services:
       - server
     ports:
       - "9093:9090"
-    env_file:
-      - ./services/minio-console/.env
+    environment:
+      CONSOLE_PBKDF_PASSPHRASE: SECRET
+      CONSOLE_PBKDF_SALT: SECRET
+      CONSOLE_MINIO_SERVER: http://minio:9002
 
   minio:
     container_name: minio
@@ -102,8 +118,9 @@ services:
       - "9002:9000"
     volumes:
       - ./volumes/minio/storage:/data
-    env_file:
-      - ./services/minio/.env
+    environment:
+      MINIO_ACCESS_KEY: AKIAIOSFODNN7EXAMPLE
+      MINIO_SECRET_KEY: wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
 
   prometheus:
     container_name: prometheus
@@ -121,8 +138,8 @@ services:
     volumes:
       - ./volumes/verdaccio/storage:/verdaccio/storage
       - ./volumes/verdaccio/plugins:/verdaccio/plugins
-    env_file:
-      - ./services/verdaccio/.env
+    environment:
+      VERDACCIO_PORT: 4873
 
   zookeeper:
     container_name: zookeeper
@@ -130,8 +147,8 @@ services:
     restart: unless-stopped
     ports:
       - "2181:2181"
-    env_file:
-      - ./services/zookeeper/.env
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 2181
 
   kafka:
     container_name: kafka
@@ -141,8 +158,11 @@ services:
       - "9092:9092"
     depends_on:
       - zookeeper
-    env_file:
-      - ./services/kafka/.env
+    environment:
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+      KAFKA_AUTO_CREATE_TOPICS_ENABLE: true
 
   opa:
     container_name: opa
@@ -170,11 +190,18 @@ services:
     ports:
       - "2113:2113"
       - "1113:1113"
-    env_file:
-      - ./services/eventstore/.env
     volumes:
       - ./volumes/eventstore/data:/var/lib/eventstore
       - ./volumes/eventstore/log:/var/log/eventstore
+    environment:
+      EVENTSTORE_CLUSTER_SIZE: 1
+      EVENTSTORE_RUN_PROJECTIONS: All
+      EVENTSTORE_START_STANDARD_PROJECTIONS: true
+      EVENTSTORE_EXT_TCP_PORT: 1113
+      EVENTSTORE_HTTP_PORT: 2113
+      EVENTSTORE_INSECURE: true
+      EVENTSTORE_ENABLE_EXTERNAL_TCP: true
+      EVENTSTORE_ENABLE_ATOM_PUB_OVER_HTTP: true
 
   postgis:
     container_name: postgis
@@ -182,10 +209,11 @@ services:
     restart: unless-stopped
     ports:
       - "5433:5432"
-    env_file:
-      - ./services/postgis/.env
     volumes:
       - ./volumes/postgis:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
 
   mysql:
     container_name: mysql
@@ -193,10 +221,13 @@ services:
     restart: unless-stopped
     ports:
       - "3306:3306"
-    env_file:
-      - ./services/mysql/.env
     volumes:
       - ./volumes/mysql:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: keycloak
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: password
 
   postgresql:
     container_name: postgresql
@@ -204,10 +235,11 @@ services:
     restart: unless-stopped
     ports:
       - "5432:5432"
-    env_file:
-      - ./services/postgresql/.env
     volumes:
       - ./volumes/postgresql:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
 
   dynamodb-local:
     container_name: dynamodb-local
@@ -265,8 +297,6 @@ services:
     image: registry.supertokens.io/supertokens/supertokens-postgresql:latest
     ports:
       - "3567:3567"
-    env_file:
-      - ./services/supertokens/.env
     restart: unless-stopped
     healthcheck:
       test: >
@@ -274,37 +304,46 @@ services:
       interval: 10s
       timeout: 5s
       retries: 5
+    environment:
+      POSTGRESQL_CONNECTION_URI: postgresql://postgres:postgres@postgresql:5432/supertokens
 
   temporal:
     container_name: temporal
     image: temporalio/auto-setup:1.21.4
+    labels:
+      kompose.volume.type: configMap
     ports:
       - "7233:7233"
     depends_on:
       - postgresql
-    env_file:
-      - ./services/temporal/.env
     volumes:
       - ./volumes/temporal/dynamicconfig:/etc/temporal/config/dynamicconfig
-    labels:
-      kompose.volume.type: configMap
+    environment:
+      DB: postgresql
+      DB_PORT: 5432
+      POSTGRES_USER: postgres
+      POSTGRES_PWD: postgres
+      POSTGRES_SEEDS: postgresql
+      DYNAMIC_CONFIG_FILE_PATH: config/dynamicconfig/development-sql.yaml
 
   temporal-admin-tools:
     container_name: temporal-admin-tools
     image: temporalio/admin-tools:1.21.4
-    depends_on:
-      - temporal
-    env_file:
-      - ./services/temporal-admin-tools/.env
     stdin_open: true
     tty: true
+    depends_on:
+      - temporal
+    environment:
+      TEMPORAL_ADDRESS: temporal:7233
+      TEMPORAL_CLI_ADDRESS: temporal:7233
 
   temporal-ui:
     container_name: temporal-ui
-    depends_on:
-      - temporal
-    env_file:
-      - ./services/temporal-ui/.env
     image: temporalio/ui:2.17.0
     ports:
       - "8080:8080"
+    depends_on:
+      - temporal
+    environment:
+      TEMPORAL_ADDRESS: temporal:7233
+      TEMPORAL_CORS_ORIGINS: http://localhost:3000
