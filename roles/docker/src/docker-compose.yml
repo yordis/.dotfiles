@@ -348,3 +348,19 @@ services:
     environment:
       TEMPORAL_ADDRESS: temporal:7233
       TEMPORAL_CORS_ORIGINS: http://localhost:3000
+
+  n8n:
+    container_name: n8n
+    image: docker.n8n.io/n8nio/n8n
+    restart: always
+    ports:
+      - "5678:5678"
+    environment:
+      - N8N_HOST=n8n.127.0.0.1.nip.io
+      - N8N_PORT=5678
+      - N8N_PROTOCOL=http
+      - NODE_ENV=production
+      - WEBHOOK_URL=http://n8n.127.0.0.1.nip.io/
+      - GENERIC_TIMEZONE=America/New_York
+    volumes:
+      - ./volumes/n8n/.n8n:/home/node/.n8n
