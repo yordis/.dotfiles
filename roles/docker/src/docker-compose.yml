@@ -421,5 +421,11 @@ services:
     volumes:
       - ./services/tempo.yaml:/etc/tempo.yaml
     ports:
-      - "8000:8000"
+      - "8460:8000"
       - "55681:55681"
+
+  wadm:
+    image: ghcr.io/wasmcloud/wadm:latest
+    environment:
+      WADM_NATS_HOST: nats
+      WADM_REDIS_HOST: redis
