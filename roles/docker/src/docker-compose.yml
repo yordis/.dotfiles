@@ -429,3 +429,17 @@ services:
     environment:
       WADM_NATS_HOST: nats
       WADM_REDIS_HOST: redis
+
+  wasmcloud:
+    container_name: wasmcloud-host
+    image: wasmcloud/wasmcloud_host:latest
+    ports:
+      - "4000:4000"
+      - "3080-3089:8080-8089" # Allows exposing examples on ports 8080-8089
+    environment:
+      RUST_LOG: debug,hyper=info
+      WASMCLOUD_RPC_HOST: nats
+      WASMCLOUD_CTL_HOST: nats
+      WASMCLOUD_PROV_RPC_HOST: nats
+      OTEL_TRACES_EXPORTER: otlp
+      OTEL_EXPORTER_OTLP_ENDPOINT: http://tempo:55681
