@@ -1,5 +1,5 @@
 [core]
-editor = vim
+editor = code --wait
 excludesfile = ~/.gitignore_global
 eol = lf
 precomposeUnicode = true
