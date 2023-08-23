@@ -406,7 +406,7 @@ services:
     image: grafana/tempo:latest
     command: ["-config.file=/etc/tempo.yaml"]
     volumes:
-      - ./services/tempo.yaml:/etc/tempo.yaml
+      - ./services/tempo/tempo.yaml:/etc/tempo.yaml
     ports:
       - "8460:8000"
       - "55681:55681"
