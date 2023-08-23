@@ -430,3 +430,35 @@ services:
       WASMCLOUD_PROV_RPC_HOST: nats
       OTEL_TRACES_EXPORTER: otlp
       OTEL_EXPORTER_OTLP_ENDPOINT: http://tempo:55681
+
+  spicedb:
+    container_name: spicedb
+    image: authzed/spicedb:latest
+    command: serve
+    restart: always
+    ports:
+      - "8880:8080"
+      - "9890:9090"
+      - "50051:50051"
+    depends_on:
+      - spicedb-migrate
+      - postgresql
+    environment:
+      SPICEDB_GRPC_PRESHARED_KEY: foobar
+      SPICEDB_DATASTORE_ENGINE: postgres
+      SPICEDB_DATASTORE_CONN_URI: postgres://postgres:postgres@postgresql:5432/spicedb
+      SPICEDB_METRICS_ENABLED: true
+      SPICEDB_OTEL_PROVIDER: otlpgrpc
+      SPICEDB_OTEL_SAMPLE_RATIO: 1
+      OTEL_EXPORTER_OTLP_ENDPOINT: http://otel-collector:4317
+
+  spicedb-migrate:
+    container_name: spicedb-migrate
+    image: authzed/spicedb:latest
+    command: help
+    restart: on-failure
+    depends_on:
+      - postgresql
+    environment:
+      SPICEDB_DATASTORE_ENGINE: postgres
+      SPICEDB_DATASTORE_CONN_URI: postgres://postgres:postgres@postgresql:5432/spicedb
