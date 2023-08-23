@@ -94,6 +94,7 @@ services:
       GF_AUTH_ANONYMOUS_ENABLED: true
       GF_AUTH_ANONYMOUS_ORG_ROLE: Admin
       GF_AUTH_DISABLE_LOGIN_FORM: true
+      GF_FEATURE_TOGGLES_ENABLE: traceqlEditor
 
   # rancher:
   #   image: rancher/rancher:latest
@@ -133,8 +134,14 @@ services:
     container_name: prometheus
     image: prom/prometheus:latest
     restart: unless-stopped
+    command:
+      - --config.file=/etc/prometheus.yaml
+      - --web.enable-remote-write-receiver
+      - --enable-feature=exemplar-storage
     ports:
       - "9090:9090"
+    volumes:
+      - ./services/prometheus/prometheus.yaml:/etc/prometheus.yaml
 
   verdaccio:
     container_name: verdaccio
@@ -407,9 +414,14 @@ services:
     command: ["-config.file=/etc/tempo.yaml"]
     volumes:
       - ./services/tempo/tempo.yaml:/etc/tempo.yaml
+      - ./volumes/tempo:/tmp/tempo
     ports:
-      - "8460:8000"
-      - "55681:55681"
+      - "14268:14268" # jaeger ingest
+      - "3200:3200" # tempo
+      - "9095:9095" # tempo grpc
+      - "4317:4317" # otlp grpc
+      - "4318:4318" # otlp http
+      - "9411:9411" # zipkin
 
   wadm:
     image: ghcr.io/wasmcloud/wadm:latest
@@ -462,3 +474,13 @@ services:
     environment:
       SPICEDB_DATASTORE_ENGINE: postgres
       SPICEDB_DATASTORE_CONN_URI: postgres://postgres:postgres@postgresql:5432/spicedb
+
+  cadvisor:
+    container_name: cadvisor
+    image: google/cadvisor:latest
+    ports:
+      - "8680:8080"
+    volumes:
+      - /var/lib/docker/:/var/lib/docker:ro
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - /sys:/sys:ro
