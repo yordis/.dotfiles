@@ -66,19 +66,20 @@ services:
   keycloak:
     container_name: keycloak
     image: quay.io/keycloak/keycloak:latest
+    command: start-dev
     restart: unless-stopped
     ports:
       - "9000:8080"
     depends_on:
-      - mysql
+      - postgresql
     environment:
-      KEYCLOAK_USER: admin
-      KEYCLOAK_PASSWORD: admin
-      DB_VENDOR: MYSQL
-      DB_ADDR: mysql
+      KEYCLOAK_ADMIN: admin
+      KEYCLOAK_ADMIN_PASSWORD: admin
+      DB_VENDOR: POSTGRES
+      DB_ADDR: postgresql
       DB_DATABASE: keycloak
-      DB_USER: admin
-      DB_PASSWORD: password
+      DB_USER: postgres
+      DB_PASSWORD: postgres
 
   grafana:
     container_name: grafana
@@ -220,20 +221,6 @@ services:
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
-
-  mysql:
-    container_name: mysql
-    image: mysql:latest
-    restart: unless-stopped
-    ports:
-      - "3306:3306"
-    volumes:
-      - ./volumes/mysql:/var/lib/mysql
-    environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: keycloak
-      MYSQL_USER: admin
-      MYSQL_PASSWORD: password
 
   postgresql:
     container_name: postgresql
@@ -417,7 +404,7 @@ services:
   tempo:
     container_name: tempo
     image: grafana/tempo:latest
-    command: [ "-config.file=/etc/tempo.yaml" ]
+    command: ["-config.file=/etc/tempo.yaml"]
     volumes:
       - ./services/tempo.yaml:/etc/tempo.yaml
     ports:
