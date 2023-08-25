@@ -1,7 +1,12 @@
 version: '3'
 
 tasks:
-  cow:
+  dotfiles-docker-dir:
     silent: true
     cmds:
-      - echo "moo"
+      - cd "$DOTFILES_ROOT/roles/docker/src"
+
+  dotfiles-edit:
+    silent: true
+    cmds:
+      - code "$DOTFILES_ROOT"
