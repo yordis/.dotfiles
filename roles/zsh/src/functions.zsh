@@ -32,7 +32,7 @@ function dotfiles-edit() {
   code "$DOTFILES_ROOT"
 }
 
-function dotfiles-docker() {
+function dotfiles-docker-dir() {
   cd "$DOTFILES_ROOT/roles/docker/src"
 }
 
