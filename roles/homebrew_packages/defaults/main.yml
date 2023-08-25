@@ -7,8 +7,14 @@ taps:
     state: present
   - name: homebrew/cask-fonts
     state: present
+  - name: spectralops/tap
+    state: present
 
 brews:
+  - name: teller
+    state: latest
+    install_options: null
+  - name: k6
   - name: kubeseal
     state: latest
     install_options: null
