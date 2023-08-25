@@ -2,5 +2,6 @@ version: '3'
 
 tasks:
   cow:
+    silent: true
     cmds:
       - echo "moo"

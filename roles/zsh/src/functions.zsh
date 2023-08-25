@@ -1,7 +1,3 @@
-function ubi {
-  task --taskfile $HOME/.taskfile.yaml $@
-}
-
 function get-app-running-on-port() {
   local port=$1
   local rstring=$2
