@@ -85,3 +85,6 @@
     - role: workspace
       tags:
         - workspace
+    - role: taskfile
+      tags:
+        - taskfile

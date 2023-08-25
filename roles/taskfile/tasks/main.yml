@@ -1,0 +1,13 @@
+- name: link global taskfile.yaml file
+  file:
+    src: "{{ dotfiles_directory }}/roles/taskfile/files/taskfile.yaml.symlink"
+    dest: "{{ user_home_directory }}/.taskfile.yaml"
+    state: link
+    force: yes
+
+- name: install Homebrew brews
+  when: homebrew_check.stat.exists
+  community.general.homebrew:
+    name: go-task/tap/go-task
+    state: latest
+    install_options: null
