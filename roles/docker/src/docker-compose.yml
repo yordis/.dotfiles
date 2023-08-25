@@ -434,16 +434,12 @@ services:
     environment:
       SPICEDB_GRPC_PRESHARED_KEY: foobar
       SPICEDB_DATASTORE_ENGINE: postgres
-      SPICEDB_DATASTORE_CONN_URI: postgres://postgres:postgres@postgresql:5432/spicedb
-      SPICEDB_METRICS_ENABLED: true
-      SPICEDB_OTEL_PROVIDER: otlpgrpc
-      SPICEDB_OTEL_SAMPLE_RATIO: 1
-      OTEL_EXPORTER_OTLP_ENDPOINT: http://otel-collector:4317
+      SPICEDB_DATASTORE_CONN_URI: postgres://postgres:postgres@postgresql:5432/spicedb?sslmode=disable
 
   spicedb-migrate:
     container_name: spicedb-migrate
     image: authzed/spicedb:latest
-    command: help
+    command: migrate head
     restart: on-failure
     depends_on:
       - postgresql
