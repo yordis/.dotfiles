@@ -456,3 +456,12 @@ services:
       - /var/lib/docker/:/var/lib/docker:ro
       - /var/run/docker.sock:/var/run/docker.sock:ro
       - /sys:/sys:ro
+
+  sftp:
+    container_name: sftp
+    image: atmoz/sftp
+    volumes:
+      - ./volumes/sftp/upload:/home/foo/upload
+    ports:
+      - "2222:22"
+    command: foo:pass:1001
