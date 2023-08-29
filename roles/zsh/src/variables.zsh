@@ -21,7 +21,8 @@ export PATH="$DOTFILES_ROOT_ZSH_ROOT/bin:$PATH"
 [[ -d "$HOME/.crc/bin" ]] && export PATH="$HOME/.crc/bin:$PATH"
 [[ -d "$HOME/Developer/Flutter" ]] && export PATH="$HOME/Developer/Flutter/bin:$PATH"
 [[ -d "$HOME/.deno/bin" ]] && export PATH="$HOME/.deno/bin:$PATH"
-[[ -d "$HOME/.radicle/bin:$PATH" ]] && export PATH="$HOME/.radicle/bin:$PATH"
+[[ -d "$HOME/.radicle/bin" ]] && export PATH="$HOME/.radicle/bin:$PATH"
+[[ -d "$HOME/.cosmo/bin" ]] && export PATH="$HOME/.cosmo/bin:${PATH}"
 export PATH="${JAVA_HOME}/bin:$PATH"
 
 export UBI_MY_DRIVE_PATH=$HOME/My\ Drive
