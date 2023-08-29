@@ -47,13 +47,16 @@ services:
       - "8222:8222"
       - "4222:4222"
       - "6222:6222"
+      - "8874:8874"
     command: >-
       --http_port 8222
       --port 4222
       --jetstream
       --store_dir /data
+      --config /nats-server.conf
     volumes:
       - ./volumes/nats/data:/data
+      - ./services/nats/nats-server.conf:/nats-server.conf
 
   docker-registry:
     container_name: docker-registry
@@ -400,6 +403,7 @@ services:
       - "9411:9411" # zipkin
 
   wadm:
+    container_name: wadm
     image: ghcr.io/wasmcloud/wadm:latest
     environment:
       WADM_NATS_HOST: nats
