@@ -10,11 +10,13 @@ autocrlf = input
 name = Yordis Prieto
 email = yordis.prieto@gmail.com
 signingkey = 0C84BA03E450BB23
-signingoff = true
 
 [commit]
 template = ~/.gitmessage
 gpgsign = true
+
+[format]
+signOff = true
 
 [push]
 default = simple
