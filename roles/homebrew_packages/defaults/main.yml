@@ -282,7 +282,7 @@ casks:
     state: latest
   - name: vagrant
     state: uninstalled
-  - name: ngrok
+  - name: ngrok/ngrok/ngrok
     state: latest
   - name: gpg-suite
     state: latest
