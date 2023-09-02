@@ -20,6 +20,7 @@ signOff = true
 
 [push]
 default = simple
+autoSetupRemote = true
 
 [filter "lfs"]
 clean = git-lfs clean -- %f
