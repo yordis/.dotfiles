@@ -1,6 +1,11 @@
 version: '3'
 
 tasks:
+  help:
+    silent: true
+    cmds:
+      - $DOTFILES_ROOT/roles/zsh/src/bin/ubi --list-all
+
   dotfiles-docker-dir:
     silent: true
     cmds:
