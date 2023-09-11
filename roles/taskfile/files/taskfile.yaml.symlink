@@ -15,3 +15,14 @@ tasks:
     silent: true
     cmds:
       - code "$DOTFILES_ROOT"
+
+  dotfiles-dc:
+    silent: true
+    aliases:
+      - dc
+    cmds:
+      - >-
+        docker compose
+        --project-directory "$DOTFILES_ROOT/roles/docker/src"
+        --file "$DOTFILES_ROOT/roles/docker/src/docker-compose.yml"
+        {{.CLI_ARGS}}
