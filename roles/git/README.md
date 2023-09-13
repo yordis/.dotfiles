@@ -11,3 +11,10 @@
     [includeIf "gitdir:~/Developer/acme/"]
       path = "~/Developer/acme/.gitconfig"
     ```
+
+3. Add the `user` section to the organization's `.gitconfig` file, for example:
+
+    ```.gitconfig
+    [user]
+    email = "yordis@acme.com"
+    ```
