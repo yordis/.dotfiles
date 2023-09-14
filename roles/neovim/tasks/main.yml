@@ -14,3 +14,10 @@
     src: "{{ dotfiles_directory }}/roles/neovim/src"
     dest: "{{ user_home_directory }}/.config/nvim"
     state: link
+
+- name: install packer
+  git:
+    repo: https://github.com/wbthomason/packer.nvim
+    dest: "{{ user_home_directory }}/.local/share/nvim/site/pack/packer/start/packer.nvim"
+    version: master
+    depth: "1"
