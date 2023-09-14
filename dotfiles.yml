@@ -88,3 +88,6 @@
     - role: taskfile
       tags:
         - taskfile
+    - role: neovim
+      tags:
+        - neovim

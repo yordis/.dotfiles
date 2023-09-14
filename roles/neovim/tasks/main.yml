@@ -1,0 +1,16 @@
+- name: install neovim
+  community.general.homebrew:
+    name: neovim
+    state: latest
+
+- name: ensure .config directory exists
+  file:
+    path: "{{ user_home_directory }}/.config"
+    recurse: yes
+    state: directory
+
+- name: link src dir to nvim config dir
+  file:
+    src: "{{ dotfiles_directory }}/roles/neovim/src"
+    dest: "{{ user_home_directory }}/.config/nvim"
+    state: link
