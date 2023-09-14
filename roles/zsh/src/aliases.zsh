@@ -82,3 +82,6 @@ alias pretty-json="python -m json.tool"
 # Kubernetes
 alias k="kubectl"
 alias kcontext="kubectl config current-context"
+
+alias vim="nvim"
+alias vi="nvim"
