@@ -1,4 +1,4 @@
-- name: install Mac Vim
+- name: install emacs
   community.general.homebrew_cask:
     name: emacs
     state: latest
