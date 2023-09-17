@@ -21,7 +21,7 @@ services:
     container_name: zitadel
     restart: 'always'
     image: 'ghcr.io/zitadel/zitadel:latest'
-    command: 'start-from-init --masterkey "JuYLmMDXBljOuUghsNgnoB3AaEEFGOLY" --tlsMode disabled'
+    command: 'start-from-init --config /zitadel/defaults.yaml --masterkey "JuYLmMDXBljOuUghsNgnoB3AaEEFGOLY" --tlsMode disabled'
     environment:
       ZITADEL_DATABASE_COCKROACH_HOST: cockroach
       ZITADEL_EXTERNALSECURE: false
@@ -30,6 +30,8 @@ services:
         condition: 'service_healthy'
     ports:
       - '8780:8080'
+    volumes:
+      - ./services/zitadel:/zitadel
 
   appsmith:
     container_name: appsmith
