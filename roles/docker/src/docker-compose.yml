@@ -14,6 +14,8 @@ services:
     ports:
       - '9099:8080'
       - '26257:26257'
+    volumes:
+      - ./volumes/cockroach/data:/cockroach/cockroach-data
 
   zitadel:
     container_name: zitadel
