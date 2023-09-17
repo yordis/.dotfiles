@@ -1,6 +1,34 @@
 version: "3"
 
 services:
+  cockroach:
+    container_name: cockroach
+    restart: 'always'
+    image: 'cockroachdb/cockroach:v22.2.2'
+    command: 'start-single-node --insecure'
+    healthcheck:
+      test: [ "CMD", "curl", "-f", "http://localhost:8080/health?ready=1" ]
+      interval: '10s'
+      timeout: '30s'
+      retries: 5
+    ports:
+      - '9099:8080'
+      - '26257:26257'
+
+  zitadel:
+    container_name: zitadel
+    restart: 'always'
+    image: 'ghcr.io/zitadel/zitadel:latest'
+    command: 'start-from-init --masterkey "JuYLmMDXBljOuUghsNgnoB3AaEEFGOLY" --tlsMode disabled'
+    environment:
+      ZITADEL_DATABASE_COCKROACH_HOST: cockroach
+      ZITADEL_EXTERNALSECURE: false
+    depends_on:
+      cockroach:
+        condition: 'service_healthy'
+    ports:
+      - '8780:8080'
+
   appsmith:
     container_name: appsmith
     image: index.docker.io/appsmith/appsmith-ce
