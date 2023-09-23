@@ -35,10 +35,13 @@ alias commit-without-husky="HUSKY_SKIP_HOOKS=true git commit --no-verify"
 
 # Docker & K8S
 alias dc="docker compose"
+alias dcpsf="docker compose ps --format='table {{.Names}}\t{{.Ports}}\t{{.Status}}'"
 alias k="kubectl"
 
 # ZSH
 alias reload!=". $HOME/.zshrc"
+alias reload-alias!=". $DOTFILES_ROOT_ZSH_ROOT/aliases.zsh"
+alias reload-funcs!=". $DOTFILES_ROOT_ZSH_ROOT/aliases.zsh"
 alias timezsh="time zsh -i -c echo"
 
 # OS
