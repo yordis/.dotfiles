@@ -11,6 +11,9 @@ taps:
     state: present
 
 brews:
+  - name: wasm-tools
+    state: latest
+    install_options: null
   - name: teller
     state: latest
     install_options: null
