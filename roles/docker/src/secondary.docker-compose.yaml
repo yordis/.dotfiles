@@ -1,6 +1,20 @@
 version: "3"
 
 services:
+  octobot:
+    container_name: octobot
+    image: drakkarsoftware/octobot:stable
+    volumes:
+      - ./volumes/octobot/logs:/octobot/logs
+      - ./volumes/octobot/backtesting:/octobot/backtesting
+      - ./volumes/octobot/tentacles:/octobot/tentacles
+      - ./volumes/octobot/user:/octobot/user
+    expose:
+      - 5001
+    restart: always
+    ports:
+      - "5001:5001"
+
   appsmith:
     container_name: appsmith
     image: index.docker.io/appsmith/appsmith-ce
