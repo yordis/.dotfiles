@@ -33,16 +33,6 @@ services:
     volumes:
       - ./services/zitadel:/zitadel
 
-  appsmith:
-    container_name: appsmith
-    image: index.docker.io/appsmith/appsmith-ce
-    ports:
-      - "5680:80"
-      - "56443:443"
-    volumes:
-      - ./volumes/appsmith/stacks:/appsmith-stacks
-    restart: unless-stopped
-
   browserless:
     container_name: browserless
     image: browserless/chrome:latest
@@ -63,15 +53,6 @@ services:
       PORT: 3000
       WORKSPACE_DELETE_EXPIRED: true
 
-  inngest:
-    container_name: inngest
-    image: "inngest/inngest:latest"
-    command:
-      - inngest
-      - dev
-    ports:
-      - "8288:8288"
-
   nats:
     container_name: nats
     image: nats:latest
@@ -90,65 +71,6 @@ services:
       - ./volumes/nats/data:/data
       - ./services/nats/nats-server.conf:/nats-server.conf
 
-  docker-registry:
-    container_name: docker-registry
-    image: registry:latest
-    restart: unless-stopped
-    ports:
-      - "5002:5000"
-
-  keycloak:
-    container_name: keycloak
-    image: quay.io/keycloak/keycloak:latest
-    command: start-dev
-    restart: unless-stopped
-    ports:
-      - "9000:8080"
-    depends_on:
-      - postgresql
-    environment:
-      KEYCLOAK_ADMIN: admin
-      KEYCLOAK_ADMIN_PASSWORD: admin
-      DB_VENDOR: POSTGRES
-      DB_ADDR: postgresql
-      DB_DATABASE: keycloak
-      DB_USER: postgres
-      DB_PASSWORD: postgres
-
-  grafana:
-    container_name: grafana
-    image: grafana/grafana:latest
-    restart: unless-stopped
-    ports:
-      - "9001:3000"
-    volumes:
-      - ./services/grafana/datasources.yaml:/etc/grafana/provisioning/datasources/datasources.yaml
-      - ./volumes/grafana/:/var/lib/grafana
-    environment:
-      GF_AUTH_ANONYMOUS_ENABLED: true
-      GF_AUTH_ANONYMOUS_ORG_ROLE: Admin
-      GF_AUTH_DISABLE_LOGIN_FORM: true
-      GF_FEATURE_TOGGLES_ENABLE: traceqlEditor
-
-  # rancher:
-  #   image: rancher/rancher:latest
-  #   restart: unless-stopped
-  #   ports:
-  #     - 80:80
-  #     - 443:443
-
-  minio-console:
-    container_name: minio-console
-    image: minio/console:latest
-    command:
-      - server
-    ports:
-      - "9093:9090"
-    environment:
-      CONSOLE_PBKDF_PASSPHRASE: SECRET
-      CONSOLE_PBKDF_SALT: SECRET
-      CONSOLE_MINIO_SERVER: http://minio:9002
-
   minio:
     container_name: minio
     image: minio/minio:edge
@@ -163,65 +85,6 @@ services:
     environment:
       MINIO_ACCESS_KEY: AKIAIOSFODNN7EXAMPLE
       MINIO_SECRET_KEY: wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
-
-  prometheus:
-    container_name: prometheus
-    image: prom/prometheus:latest
-    restart: unless-stopped
-    command:
-      - --config.file=/etc/prometheus.yaml
-      - --web.enable-remote-write-receiver
-      - --enable-feature=exemplar-storage
-    ports:
-      - "9090:9090"
-    volumes:
-      - ./services/prometheus/prometheus.yaml:/etc/prometheus.yaml
-
-  verdaccio:
-    container_name: verdaccio
-    image: verdaccio/verdaccio:latest
-    restart: unless-stopped
-    ports:
-      - "4873:4873"
-    volumes:
-      - ./volumes/verdaccio/storage:/verdaccio/storage
-      - ./volumes/verdaccio/plugins:/verdaccio/plugins
-    environment:
-      VERDACCIO_PORT: 4873
-
-  zookeeper:
-    container_name: zookeeper
-    image: confluentinc/cp-zookeeper:latest
-    restart: unless-stopped
-    ports:
-      - "2181:2181"
-    environment:
-      ZOOKEEPER_CLIENT_PORT: 2181
-
-  kafka:
-    container_name: kafka
-    image: confluentinc/cp-kafka:latest
-    restart: unless-stopped
-    ports:
-      - "9092:9092"
-    depends_on:
-      - zookeeper
-    environment:
-      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
-      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092
-      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
-      KAFKA_AUTO_CREATE_TOPICS_ENABLE: true
-
-  opa:
-    container_name: opa
-    image: openpolicyagent/opa:latest
-    restart: unless-stopped
-    ports:
-      - "8181:8181"
-    command:
-      - run
-      - --server
-      - --log-level=debug
 
   mailhog:
     container_name: mailhog
@@ -251,18 +114,6 @@ services:
       EVENTSTORE_ENABLE_EXTERNAL_TCP: true
       EVENTSTORE_ENABLE_ATOM_PUB_OVER_HTTP: true
 
-  postgis:
-    container_name: postgis
-    image: mdillon/postgis:latest
-    restart: unless-stopped
-    ports:
-      - "5433:5432"
-    volumes:
-      - ./volumes/postgis:/var/lib/postgresql/data
-    environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
-
   postgresql:
     container_name: postgresql
     image: postgres:latest
@@ -277,47 +128,12 @@ services:
 
   redis:
     container_name: redis
-    image: redis:latest
+    image: redis/redis-stack-server:latest
     restart: unless-stopped
     ports:
       - "6379:6379"
-
-  memcached:
-    container_name: memcached
-    image: memcached:latest
-    restart: unless-stopped
-    ports:
-      - "11211:11211"
-
-  mongodb:
-    container_name: mongodb
-    image: mongo:latest
-    restart: unless-stopped
-    ports:
-      - "27017:27017"
-
-  opensearch:
-    container_name: opensearch
-    image: opensearchproject/opensearch:latest
-    restart: unless-stopped
-    ports:
-      - "9200:9200"
-      - "9600:9600"
-    environment:
-      - discovery.type=single-node
-      - plugins.security.disabled=true
     volumes:
-      - ./volumes/opensearch:/usr/share/opensearch/data
-
-  opensearch-dashboards:
-    container_name: opensearch-dashboards
-    image: opensearchproject/opensearch-dashboards:latest
-    ports:
-      - "5601:5601"
-    expose:
-      - "5601"
-    environment:
-      OPENSEARCH_HOSTS: '["https://opensearch:9200"]'
+      - ./volumes/redis/data:/data
 
   temporal:
     container_name: temporal
@@ -361,100 +177,6 @@ services:
       TEMPORAL_ADDRESS: temporal:7233
       TEMPORAL_CORS_ORIGINS: http://localhost:3000
 
-  n8n:
-    container_name: n8n
-    image: docker.n8n.io/n8nio/n8n
-    ports:
-      - "5678:5678"
-    environment:
-      N8N_HOST: n8n.127.0.0.1.nip.io
-      N8N_PORT: 5678
-      N8N_PROTOCOL: http
-      NODE_ENV: production
-      WEBHOOK_URL: http://n8n.127.0.0.1.nip.io/
-      GENERIC_TIMEZONE: America/New_York
-    volumes:
-      - ./volumes/n8n/.n8n:/home/node/.n8n
-
-  rudder-server:
-    container_name: rudder-server
-    depends_on:
-      - postgresql
-      - statsd-exporter
-      - rudder-transformer
-    image: rudderlabs/rudder-server:latest # latest version that matches 0.*.*
-    entrypoint: sh -c '/wait-for db:5432 -- /rudder-server'
-    ports:
-      - "8082:8080"
-    environment:
-      JOBS_DB_HOST: postgresql
-      JOBS_DB_USER: postgres
-      JOBS_DB_PASSWORD: postgres
-      JOBS_DB_PORT: 5432
-      JOBS_DB_DB_NAME: jobsdb
-      DEST_TRANSFORM_URL: http://rudder-transformer:9073
-      CONFIG_BACKEND_URL: https://api.rudderstack.com
-      WORKSPACE_TOKEN: ${RUDDER_STACK_WORKSPACE_TOKEN}
-      STATSD_SERVER_URL: metrics-exporter:9125
-      RSERVER_GATEWAY_WEBHOOK_SOURCE_LIST_FOR_PARSING_PARAMS: Shopify
-    #      RSERVER_BACKEND_CONFIG_CONFIG_FROM_FILE: true
-    #      RSERVER_BACKEND_CONFIG_CONFIG_JSONPATH: <workspace_config_filepath_in_container> # For ex., /etc/rudderstack/workspaceConfig.json
-    # Uncomment the following lines to mount workspaceConfig file
-    # volumes:
-    #   - <absolute_path_to_workspace_config>:<workspace_config_filepath_in_container> # Value for <workspace_config_filepath_in_container> should be same as the value provided for RSERVER_BACKEND_CONFIG_CONFIG_JSONPATH
-  rudder-transformer:
-    container_name: rudder-transformer
-    image: rudderstack/rudder-transformer:latest
-    ports:
-      - "9073:9090"
-    depends_on:
-      - statsd-exporter
-    environment:
-      STATSD_SERVER_HOST: statsd-exporter
-      STATSD_SERVER_PORT: 9125
-
-  statsd-exporter:
-    container_name: statsd-exporter
-    image: prom/statsd-exporter:v0.22.4
-    ports:
-      - "9102:9102"
-
-  tempo:
-    container_name: tempo
-    image: grafana/tempo:latest
-    command: ["-config.file=/etc/tempo.yaml"]
-    volumes:
-      - ./services/tempo/tempo.yaml:/etc/tempo.yaml
-      - ./volumes/tempo:/tmp/tempo
-    ports:
-      - "14268:14268" # jaeger ingest
-      - "3200:3200" # tempo
-      - "9095:9095" # tempo grpc
-      - "4317:4317" # otlp grpc
-      - "4318:4318" # otlp http
-      - "9411:9411" # zipkin
-
-  wadm:
-    container_name: wadm
-    image: ghcr.io/wasmcloud/wadm:latest
-    environment:
-      WADM_NATS_HOST: nats
-      WADM_REDIS_HOST: redis
-
-  wasmcloud:
-    container_name: wasmcloud-host
-    image: wasmcloud/wasmcloud_host:latest
-    ports:
-      - "4000:4000"
-      - "3080-3089:8080-8089" # Allows exposing examples on ports 8080-8089
-    environment:
-      RUST_LOG: debug,hyper=info
-      WASMCLOUD_RPC_HOST: nats
-      WASMCLOUD_CTL_HOST: nats
-      WASMCLOUD_PROV_RPC_HOST: nats
-      OTEL_TRACES_EXPORTER: otlp
-      OTEL_EXPORTER_OTLP_ENDPOINT: http://tempo:55681
-
   spicedb:
     container_name: spicedb
     image: authzed/spicedb:latest
@@ -482,22 +204,3 @@ services:
     environment:
       SPICEDB_DATASTORE_ENGINE: postgres
       SPICEDB_DATASTORE_CONN_URI: postgres://postgres:postgres@postgresql:5432/spicedb
-
-  cadvisor:
-    container_name: cadvisor
-    image: google/cadvisor:latest
-    ports:
-      - "8680:8080"
-    volumes:
-      - /var/lib/docker/:/var/lib/docker:ro
-      - /var/run/docker.sock:/var/run/docker.sock:ro
-      - /sys:/sys:ro
-
-  sftp:
-    container_name: sftp
-    image: atmoz/sftp
-    volumes:
-      - ./volumes/sftp/upload:/home/foo/upload
-    ports:
-      - "2222:22"
-    command: foo:pass:1001
