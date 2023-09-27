@@ -106,8 +106,6 @@ services:
     restart: unless-stopped
     ports:
       - "9000:8080"
-    depends_on:
-      - postgresql
     environment:
       KEYCLOAK_ADMIN: admin
       KEYCLOAK_ADMIN_PASSWORD: admin
@@ -151,8 +149,6 @@ services:
   rudder-server:
     container_name: rudder-server
     depends_on:
-      - postgresql
-      - statsd-exporter
       - rudder-transformer
     image: rudderlabs/rudder-server:latest # latest version that matches 0.*.*
     entrypoint: sh -c '/wait-for db:5432 -- /rudder-server'
@@ -180,8 +176,6 @@ services:
     image: rudderstack/rudder-transformer:latest
     ports:
       - "9073:9090"
-    depends_on:
-      - statsd-exporter
     environment:
       STATSD_SERVER_HOST: statsd-exporter
       STATSD_SERVER_PORT: 9125
