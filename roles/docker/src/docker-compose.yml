@@ -1,6 +1,14 @@
 version: "3"
 
 volumes:
+  postgresql-data:
+    driver: local
+  minio-data:
+    driver: local
+  nats-data:
+    driver: local
+  redis-data:
+    driver: local
   eventstore-data:
     driver: local
   cockroach-data:
@@ -74,7 +82,7 @@ services:
       --store_dir /data
       --config /nats-server.conf
     volumes:
-      - ./volumes/nats/data:/data
+      - nats-data:/data
       - ./services/nats/nats-server.conf:/nats-server.conf
 
   minio:
@@ -87,7 +95,7 @@ services:
     ports:
       - "9002:9000"
     volumes:
-      - ./volumes/minio/storage:/data
+      - minio-data:/data
     environment:
       MINIO_ACCESS_KEY: AKIAIOSFODNN7EXAMPLE
       MINIO_SECRET_KEY: wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
@@ -126,19 +134,19 @@ services:
     ports:
       - "5432:5432"
     volumes:
-      - ./volumes/postgresql:/var/lib/postgresql/data
+      - postgresql-data:/var/lib/postgresql/data
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
 
   redis:
     container_name: redis
-    image: redis/redis-stack-server:latest
+    image: redis/redis-stack:latest
     restart: unless-stopped
     ports:
       - "6379:6379"
     volumes:
-      - ./volumes/redis/data:/data
+      - redis-data:/data
 
   temporal:
     container_name: temporal
