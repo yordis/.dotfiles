@@ -256,6 +256,8 @@ brews:
 casks:
   - name: meld
     state: latest
+  - name: rancher
+    state: latest
   - name: notion
     state: latest
   - name: warp
