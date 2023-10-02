@@ -1,5 +1,11 @@
 version: "3"
 
+volumes:
+  eventstore-data:
+    driver: local
+  cockroach-data:
+    driver: local
+
 services:
   cockroach:
     container_name: cockroach
@@ -15,7 +21,7 @@ services:
       - '9099:8080'
       - '26257:26257'
     volumes:
-      - ./volumes/cockroach/data:/cockroach/cockroach-data
+      - cockroach-data:/cockroach/cockroach-data
 
   zitadel:
     container_name: zitadel
@@ -102,8 +108,7 @@ services:
       - "2113:2113"
       - "1113:1113"
     volumes:
-      - ./volumes/eventstore/data:/var/lib/eventstore
-      - ./volumes/eventstore/log:/var/log/eventstore
+      - eventstore-data:/var/lib/eventstore
     environment:
       EVENTSTORE_CLUSTER_SIZE: 1
       EVENTSTORE_RUN_PROJECTIONS: All
