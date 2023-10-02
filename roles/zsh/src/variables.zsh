@@ -17,7 +17,10 @@ export PATH="/usr/local/bin:$PATH"
 export PATH="$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 export PATH="$HOME/.dotfiles/bin:$PATH"
 export PATH="$GOPATH/bin:$PATH"
-[[ -d "$HOME/.rd/bin" ]] && export PATH="$HOME/.rd/bin:$PATH"
+
+if [[ "$RANCHER_ENABLED" == "true" ]]; then
+  [[ -d "$HOME/.rd/bin" ]] && export PATH="$HOME/.rd/bin:$PATH"
+fi
 [[ -d "$HOME/.mix/escripts" ]] && export PATH="$HOME/.mix/escripts:$PATH"
 [[ -d "$HOME/.cargo/bin" ]] && export PATH="$HOME/.cargo/bin:$PATH"
 [[ -d "$HOME/.crc/bin" ]] && export PATH="$HOME/.crc/bin:$PATH"
