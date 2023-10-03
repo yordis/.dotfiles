@@ -1,2 +1,3 @@
 ExternalSecure: false
 ExternalPort: 8780
+ExternalDomain: zitadel.ubi.orb.local
