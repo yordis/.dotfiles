@@ -151,7 +151,7 @@ services:
 
   temporal:
     container_name: temporal
-    image: temporalio/auto-setup:1.21.4
+    image: temporalio/auto-setup:latest
     labels:
       kompose.volume.type: configMap
     ports:
@@ -171,7 +171,7 @@ services:
 
   temporal-admin-tools:
     container_name: temporal-admin-tools
-    image: temporalio/admin-tools:1.21.4
+    image: temporalio/admin-tools:latest
     stdin_open: true
     tty: true
     depends_on:
@@ -182,14 +182,16 @@ services:
 
   temporal-ui:
     container_name: temporal-ui
-    image: temporalio/ui:2.17.0
+    image: temporalio/ui:latest
     ports:
       - "8080:8080"
     depends_on:
       - temporal
     environment:
       TEMPORAL_ADDRESS: temporal:7233
-      TEMPORAL_CORS_ORIGINS: http://localhost:3000
+      TEMPORAL_CORS_ORIGINS: http://temporal-ui.ubi.orb.local
+      TEMPORAL_CSRF_COOKIE_INSECURE: true
+
 
   spicedb:
     container_name: spicedb
