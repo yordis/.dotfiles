@@ -4,10 +4,6 @@
     - role: asdf
       tags:
         - asdf
-    - role: deno
-      tags:
-        - asdf
-        - deno
     - role: docker
       tags:
         - docker
@@ -17,24 +13,12 @@
     - role: editorconfig
       tags:
         - editorconfig
-    - role: elixir
-      tags:
-        - asdf
-        - elixir
     - role: emacs
       tags:
         - emacs
-    - role: erlang
-      tags:
-        - asdf
-        - erlang
     - role: git
       tags:
         - git
-    - role: golang
-      tags:
-        - asdf
-        - golang
     - role: homebrew
       tags:
         - homebrew
