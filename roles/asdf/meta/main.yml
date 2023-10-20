@@ -1,2 +1,3 @@
 dependencies:
-  - role: zsh
+  - role: workspace
+#  - role: zsh

@@ -1,3 +1,7 @@
+#- name: get openssl path
+#  command: "brew --prefix openssl"
+#  register: openssl_path
+
 - name: clone asdf repository
   git:
     repo: https://github.com/asdf-vm/asdf.git
@@ -11,3 +15,27 @@
     dest: "{{ user_home_directory }}/.asdfrc"
     state: link
     force: yes
+
+- name: add plugins
+  loop: "{{ plugins }}"
+  command:
+    cmd: "{{ user_home_directory }}/.asdf/bin/asdf plugin-add {{ item.name }} {{ item.url }}"
+    creates: "{{ user_home_directory }}/.asdf/plugins/{{ item.name }}/bin/install"
+  register: plugin_add
+  failed_when: plugin_add == 2
+
+#- name: install Elixir versions
+#  command:
+#    cmd: "{{ user_home_directory }}/.asdf/bin/asdf install elixir {{ item }}"
+#    creates: "{{ user_home_directory }}/.asdf/installs/elixir/{{ item }}/bin/elixir"
+#  loop: "{{ versions }}"
+#
+#- name: check if global Elixir version is v{{ global_version }}
+#  shell: "{{ user_home_directory }}/.asdf/bin/asdf current elixir | grep {{ global_version }}"
+#  register: elixir_global_version
+#  changed_when: no
+#  ignore_errors: yes
+#
+#- name: set global version for Elixir to v{{ global_version }}
+#  command: "{{ user_home_directory }}/.asdf/bin/asdf global elixir {{ global_version }}"
+#  when: elixir_global_version.rc > 0

@@ -11,6 +11,9 @@ taps:
     state: present
 
 brews:
+  - name: yarn
+    state: latest
+    install_options: null
   - name: wasm-tools
     state: latest
     install_options: null
@@ -21,6 +24,8 @@ brews:
     state: latest
     install_options: null
   - name: k6
+    state: latest
+    install_options: null
   - name: kubeseal
     state: latest
     install_options: null
@@ -135,7 +140,7 @@ brews:
   - name: git-lfs
     state: latest
     install_options: null
-  - name: aws/tap/aws-sam-cli
+  - name: aws-sam-cli
     state: latest
     install_options: null
   - name: awscli
@@ -159,7 +164,7 @@ brews:
   - name: leiningen
     state: latest
     install_options: null
-  - name: github/gh/gh
+  - name: gh
     state: latest
     install_options: null
   - name: spaceman-diff
@@ -389,7 +394,7 @@ casks:
   - name: radio-silence
     state: uninstalled
   - name: loopback
-    state: uninstalled
+    state: latest
   - name: graphql-playground
     state: latest
   - name: postman

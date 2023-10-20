@@ -1,0 +1,36 @@
+plugins:
+  - name: elixir
+    url: https://github.com/asdf-vm/asdf-elixir
+  - name: erlang
+    url: https://github.com/asdf-vm/asdf-erlang
+  - name: golang
+    url: https://github.com/kennyp/asdf-golang.git
+  - name: deno
+    url: https://github.com/asdf-community/asdf-deno.git
+  - name: nodejs
+    url: https://github.com/asdf-vm/asdf-nodejs
+  - name: terragrunt
+    url: https://github.com/lotia/asdf-terragrunt.git
+  - name: terraform-docs
+    url: https://github.com/looztra/asdf-terraform-docs
+  - name: terraform
+    url: https://github.com/Banno/asdf-hashicorp.git
+  - name: python
+    url: https://github.com/danhper/asdf-python
+  - name: ruby
+    url: https://github.com/asdf-vm/asdf-ruby
+
+versions:
+  - name: elixir
+    version: 1.15.6
+  - name: erlang
+    version: 24.1.2
+    #  environment:
+    #    CFLAGS: "-O2 -g -fno-stack-check"
+    #    KERL_CONFIGURE_OPTIONS: "--disable-hipe --with-ssl={{ openssl_path.stdout }}"
+  - name: deno
+    version: 1.37.2
+
+#globals:
+#  - name: elixir
+#    version: 1.15.6
