@@ -1,12 +1,13 @@
 require("ubi.set")
 require("ubi.remap")
+require("ubi.packer")
 
 -- DO NOT INCLUDE THIS
 -- vim.opt.rtp:append("~/personal/streamer-tools")
 -- DO NOT INCLUDE THIS
 
 local augroup = vim.api.nvim_create_augroup
-local ThePrimeagenGroup = augroup('ThePrimeagen', {})
+local UbiGroup = augroup('Ubi', {})
 
 local autocmd = vim.api.nvim_create_autocmd
 local yank_group = augroup('HighlightYank', {})
@@ -27,7 +28,7 @@ autocmd('TextYankPost', {
 })
 
 autocmd({"BufWritePre"}, {
-    group = ThePrimeagenGroup,
+    group = UbiGroup,
     pattern = "*",
     command = [[%s/\s\+$//e]],
 })
