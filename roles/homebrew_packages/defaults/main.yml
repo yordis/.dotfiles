@@ -13,250 +13,169 @@ taps:
 brews:
   - name: yarn
     state: latest
-    install_options: null
   - name: wasm-tools
     state: latest
-    install_options: null
   - name: teller
     state: latest
-    install_options: null
   - name: kubectx
     state: latest
-    install_options: null
   - name: k6
     state: latest
-    install_options: null
   - name: kubeseal
     state: latest
-    install_options: null
   - name: k6
     state: latest
-    install_options: null
   - name: clusterctl
     state: latest
-    install_options: null
   - name: stripe/stripe-cli/stripe
     state: latest
-    install_options: null
   - name: minio/stable/mc
     state: latest
-    install_options: null
   - name: ory/tap/cli
     state: latest
-    install_options: null
   - name: certigo
     state: latest
-    install_options: null
   - name: argocd
     state: latest
-    install_options: null
   - name: stern
     state: latest
-    install_options: null
   - name: typos-cli
     state: latest
-    install_options: null
   - name: golangci-lint
     state: latest
-    install_options: null
   - name: go
     state: uninstalled
     install_options: ignore-dependencies
   - name: codespell
     state: latest
-    install_options: null
   - name: vegeta
     state: latest
-    install_options: null
   - name: tfsec
     state: latest
-    install_options: null
   - name: doctl
     state: latest
-    install_options: null
   - name: flyctl
     state: latest
-    install_options: null
   - name: derailed/k9s/k9s
     state: latest
-    install_options: null
   - name: mkcert
     state: latest
-    install_options: null
   - name: nss
     state: latest
-    install_options: null
   - name: openssh
     state: latest
-    install_options: null
   - name: hyperfine
     state: latest
-    install_options: null
   - name: kafkacat
     state: latest
-    install_options: null
   - name: pre-commit
     state: latest
-    install_options: null
   - name: tsung
     state: latest
-    install_options: null
   - name: wrk
     state: latest
-    install_options: null
   - name: fswatch
     state: latest
-    install_options: null
   - name: protobuf
     state: latest
-    install_options: null
   - name: tilt-dev/tap/tilt
     state: uninstalled
-    install_options: null
   - name: jq
     state: latest
-    install_options: null
   - name: nmap
     state: latest
-    install_options: null
   - name: tmate
     state: latest
-    install_options: null
   - name: dive
     state: latest
-    install_options: null
   - name: rbq/homebrew-kubeflow/kfctl
     state: uninstalled
-    install_options: null
   - name: packer
     state: latest
-    install_options: null
   - name: openshift-cli
     state: latest
-    install_options: null
   - name: drone-cli
     state: latest
-    install_options: null
   - name: git-lfs
     state: latest
-    install_options: null
   - name: aws-sam-cli
     state: latest
-    install_options: null
   - name: awscli
     state: latest
-    install_options: null
   - name: azure-cli
     state: latest
-    install_options: null
   - name: nektos/tap/act
     state: uninstalled
-    install_options: null
   - name: git-flow
     state: latest
-    install_options: null
   - name: ack
     state: latest
-    install_options: null
   - name: imagemagick
     state: latest
-    install_options: null
   - name: leiningen
     state: latest
-    install_options: null
   - name: gh
     state: latest
-    install_options: null
   - name: spaceman-diff
     state: latest
-    install_options: null
   - name: jp2a
     state: latest
-    install_options: null
   - name: openssl
     state: latest
-    install_options: null
   - name: fop
     state: latest
-    install_options: null
   - name: libyaml
     state: latest
-    install_options: null
   - name: libffi
     state: latest
-    install_options: null
   - name: unrar
     state: uninstalled
-    install_options: null
   - name: wget
     state: latest
-    install_options: null
   - name: kubernetes-cli
     state: latest
-    install_options: null
   - name: helm
     state: latest
-    install_options: null
   - name: bash-completion
     state: latest
-    install_options: null
   - name: aws-iam-authenticator
     state: latest
-    install_options: null
   - name: tmux
     state: latest
-    install_options: null
   - name: heroku
     state: latest
-    install_options: null
   - name: hub
     state: latest
-    install_options: null
   - name: bash
     state: latest
-    install_options: null
   - name: tree
     state: latest
-    install_options: null
   - name: cowsay
     state: latest
-    install_options: null
   - name: coreutils
     state: latest
-    install_options: null
   - name: gpg
     state: latest
-    install_options: null
   - name: autoconf
     state: latest
-    install_options: null
   - name: wxwidgets
     state: latest
-    install_options: null
   - name: asciinema
     state: latest
-    install_options: null
   - name: automake
     state: latest
-    install_options: null
   - name: readline
     state: latest
-    install_options: null
   - name: libxslt
     state: latest
-    install_options: null
   - name: libtool
     state: latest
-    install_options: null
   - name: unixodbc
     state: latest
-    install_options: null
   - name: unzip
     state: latest
-    install_options: null
   - name: curl
     state: latest
-    install_options: null
 
 casks:
   - name: emacs

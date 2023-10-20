@@ -11,7 +11,7 @@
   community.general.homebrew:
     name: "{{ item.name }}"
     state: "{{ item.state }}"
-    install_options: "{{ item.install_options }}"
+    install_options: "{{ item.install_options | default([]) }}"
 
 - name: install Homebrew casks
   when: homebrew_check.stat.exists

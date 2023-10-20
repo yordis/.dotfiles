@@ -23,13 +23,15 @@
     creates: "{{ user_home_directory }}/.asdf/plugins/{{ item.name }}/bin/install"
   register: plugin_add
   failed_when: plugin_add == 2
+  tags: "{{ tags | default([]) }}"
 
 - name: install versions
   loop: "{{ versions }}"
   command:
     cmd: "{{ user_home_directory }}/.asdf/bin/asdf install {{ item.name }} {{ item.version }}"
     creates: "{{ user_home_directory }}/.asdf/installs/{{ item.name }}/{{ item.version }}"
-  environment: "{{ item.environment }}"
+  environment: "{{ item.environment | default({}) }}"
+  tags: "{{ tags | default([]) }}"
 
 - name: set global version
   loop: "{{ global_versions }}"
