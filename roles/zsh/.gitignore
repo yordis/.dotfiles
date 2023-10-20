@@ -1,4 +1,5 @@
 src/*private.zsh
+src/*secret.zsh
 src/bin/private
 src/completions
 !src/completions/.gitkeep
