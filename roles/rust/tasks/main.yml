@@ -1,22 +1,17 @@
-- name: add Rust plugin to asdf
-  command:
-    cmd: "{{ user_home_directory }}/.asdf/bin/asdf plugin-add rust https://github.com/code-lever/asdf-rust.git"
-    creates: "{{ user_home_directory }}/.asdf/plugins/rust/bin/install"
-  register: rust_add
-  failed_when: rust_add == 2
-
-- name: install Rust versions
-  command:
-    cmd: "{{ user_home_directory }}/.asdf/bin/asdf install rust {{ item }}"
-    creates: "{{ user_home_directory }}/.asdf/installs/rust/{{ item }}/bin/cargo"
-  loop: "{{ versions }}"
-
-- name: check if global Rust version is v{{ global_version }}
-  shell: "{{ user_home_directory }}/.asdf/bin/asdf current rust | grep {{ global_version }}"
-  register: rust_global_version
-  changed_when: no
+- name: check if cargo is installed
+  shell: command -v cargo
+  register: cargo_exists
   ignore_errors: yes
 
-- name: set global version for Rust to v{{ global_version }}
-  command: "{{ user_home_directory }}/.asdf/bin/asdf global rust {{ global_version }}"
-  when: rust_global_version.rc > 0
+- name: fetch rustup
+  when: cargo_exists is failed
+  ansible.builtin.uri:
+    url: https://sh.rustup.rs
+    return_content: yes
+  register: rustup_installer
+
+- name: Run rustup installer
+  when: cargo_exists is failed
+  ansible.builtin.shell:
+    cmd: sh -s -- -y
+    stdin: "{{ rustup_installer.content }}"
