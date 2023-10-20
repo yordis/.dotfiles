@@ -24,18 +24,13 @@
   register: plugin_add
   failed_when: plugin_add == 2
 
-#- name: install Elixir versions
-#  command:
-#    cmd: "{{ user_home_directory }}/.asdf/bin/asdf install elixir {{ item }}"
-#    creates: "{{ user_home_directory }}/.asdf/installs/elixir/{{ item }}/bin/elixir"
-#  loop: "{{ versions }}"
-#
-#- name: check if global Elixir version is v{{ global_version }}
-#  shell: "{{ user_home_directory }}/.asdf/bin/asdf current elixir | grep {{ global_version }}"
-#  register: elixir_global_version
-#  changed_when: no
-#  ignore_errors: yes
-#
-#- name: set global version for Elixir to v{{ global_version }}
-#  command: "{{ user_home_directory }}/.asdf/bin/asdf global elixir {{ global_version }}"
-#  when: elixir_global_version.rc > 0
+- name: install versions
+  loop: "{{ versions }}"
+  command:
+    cmd: "{{ user_home_directory }}/.asdf/bin/asdf install {{ item.name }} {{ item.version }}"
+    creates: "{{ user_home_directory }}/.asdf/installs/{{ item.name }}/{{ item.version }}"
+  environment: "{{ item.environment }}"
+
+- name: set global version
+  loop: "{{ global_versions }}"
+  command: "{{ user_home_directory }}/.asdf/bin/asdf global {{ item.name }} {{ item.version }}"
