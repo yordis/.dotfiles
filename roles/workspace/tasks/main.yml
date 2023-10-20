@@ -3,3 +3,9 @@
     dest: "{{ item }}"
     state: directory
   loop: "{{ directories }}"
+
+- name: link global .default-npm-packages file
+  file:
+    src: "{{ dotfiles_directory }}/roles/workspace/files/default-npm-packages.symlink"
+    dest: "{{ user_home_directory }}/.default-npm-packages"
+    state: link
