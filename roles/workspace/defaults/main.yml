@@ -15,3 +15,7 @@ symlinks:
     dest: ".default-python-packages"
   - src: "default-gems.symlink"
     dest: ".default-gems.symlink"
+  - src: "editorconfig.symlink"
+    dest: ".editorconfig"
+  - src: "emacs.symlink"
+    dest: ".emacs"

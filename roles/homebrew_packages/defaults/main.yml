@@ -259,6 +259,8 @@ brews:
     install_options: null
 
 casks:
+  - name: emacs
+    state: latest
   - name: meld
     state: latest
   - name: rancher

@@ -10,12 +10,6 @@
     - role: docker-desktop
       tags:
         - docker-desktop
-    - role: editorconfig
-      tags:
-        - editorconfig
-    - role: emacs
-      tags:
-        - emacs
     - role: git
       tags:
         - git

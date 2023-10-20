@@ -1,6 +1,0 @@
-- name: link global .editorconfig file
-  file:
-    src: "{{ dotfiles_directory }}/roles/editorconfig/files/editorconfig.symlink"
-    dest: "{{ user_home_directory }}/.editorconfig"
-    state: link
-    force: yes
