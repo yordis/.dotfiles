@@ -28,38 +28,12 @@
     - role: hyperterm
       tags:
         - hyperterm
-    - role: nodejs
-      tags:
-        - asdf
-        - nodejs
     - role: os
       tags:
         - os
-    - role: python
-      tags:
-        - asdf
-        - python
-    - role: ruby
-      tags:
-        - asdf
-        - ruby
     - role: rust
       tags:
-        - asdf
         - rust
-    - role: terraform
-      tags:
-        - asdf
-        - terraform
-        - rust
-    - role: terraform_docs
-      tags:
-        - asdf
-        - terraform_docs
-    - role: terragrunt
-      tags:
-        - asdf
-        - terragrunt
     - role: vim
       tags:
         - vim
