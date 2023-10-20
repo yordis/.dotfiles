@@ -14,8 +14,35 @@ volumes:
     driver: local
   cockroach-data:
     driver: local
+  opensearch-data:
+    driver: local
 
 services:
+  opensearch-dashboards:
+    container_name: opensearch-dashboards
+    image: opensearchproject/opensearch-dashboards:latest
+    environment:
+      OPENSEARCH_HOSTS: '["http://opensearch:9200"]'
+
+  opensearch:
+    container_name: opensearch
+    image: opensearchproject/opensearch:latest
+    restart: unless-stopped
+    ulimits:
+      nofile:
+        soft: 65536
+        hard: 65536
+    environment:
+      - discovery.type=single-node
+      - plugins.security.disabled=true
+      - OPENSEARCH_JAVA_OPTS=-Xms256m -Xmx256m
+      - cluster.routing.allocation.disk.threshold_enabled=true
+      - cluster.routing.allocation.disk.watermark.low=512mb
+      - cluster.routing.allocation.disk.watermark.high=256mb
+      - cluster.routing.allocation.disk.watermark.flood_stage=128mb
+    volumes:
+      - opensearch-data:/usr/share/opensearch/data
+
   cockroach:
     container_name: cockroach
     restart: 'always'
@@ -158,6 +185,7 @@ services:
       - "7233:7233"
     depends_on:
       - postgresql
+      - opensearch
     volumes:
       - ./services/temporal/dynamicconfig:/etc/temporal/config/dynamicconfig
     environment:
@@ -167,7 +195,9 @@ services:
       POSTGRES_PWD: postgres
       POSTGRES_SEEDS: postgresql
       DYNAMIC_CONFIG_FILE_PATH: /etc/temporal/config/dynamicconfig/development-sql.yaml
-      TEMPORAL_ADDRESS: temporal:7233
+      ENABLE_ES: true
+      ES_SEEDS: opensearch
+      ES_VERSION: v7
 
   temporal-admin-tools:
     container_name: temporal-admin-tools
