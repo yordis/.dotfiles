@@ -19,18 +19,12 @@
     - role: homebrew_packages
       tags:
         - homebrew_packages
-    - role: hyperterm
-      tags:
-        - hyperterm
     - role: os
       tags:
         - os
     - role: rust
       tags:
         - rust
-    - role: vim
-      tags:
-        - vim
     - role: zsh
       tags:
         - zsh
