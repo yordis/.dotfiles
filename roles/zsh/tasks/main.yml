@@ -25,7 +25,7 @@
     state: link
     force: yes
 
-- name: ensure private.zsh file exists
+- name: ensure secret.zsh file exists
   file:
-    dest: "{{ dotfiles_directory }}/roles/zsh/src/private.zsh"
+    dest: "{{ dotfiles_directory }}/roles/zsh/src/secret.zsh"
     state: touch
