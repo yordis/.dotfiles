@@ -45,33 +45,33 @@ services:
 
   cockroach:
     container_name: cockroach
-    restart: 'always'
-    image: 'cockroachdb/cockroach:v22.2.2'
-    command: 'start-single-node --insecure'
+    restart: "always"
+    image: "cockroachdb/cockroach:latest"
+    command: "start-single-node --insecure"
     healthcheck:
-      test: [ "CMD", "curl", "-f", "http://localhost:8080/health?ready=1" ]
-      interval: '10s'
-      timeout: '30s'
+      test: ["CMD", "curl", "-f", "http://localhost:8080/health?ready=1"]
+      interval: "10s"
+      timeout: "30s"
       retries: 5
     ports:
-      - '9099:8080'
-      - '26257:26257'
+      - "9099:8080"
+      - "26257:26257"
     volumes:
       - cockroach-data:/cockroach/cockroach-data
 
   zitadel:
     container_name: zitadel
-    restart: 'always'
-    image: 'ghcr.io/zitadel/zitadel:latest'
+    restart: "always"
+    image: "ghcr.io/zitadel/zitadel:latest"
     command: 'start-from-init --config /zitadel/defaults.yaml --masterkey "JuYLmMDXBljOuUghsNgnoB3AaEEFGOLY" --tlsMode disabled'
     environment:
       ZITADEL_DATABASE_COCKROACH_HOST: cockroach
       ZITADEL_EXTERNALSECURE: false
     depends_on:
       cockroach:
-        condition: 'service_healthy'
+        condition: "service_healthy"
     ports:
-      - '8780:8080'
+      - "8780:8080"
     volumes:
       - ./services/zitadel:/zitadel
 
@@ -221,7 +221,6 @@ services:
       TEMPORAL_ADDRESS: temporal:7233
       TEMPORAL_CORS_ORIGINS: http://temporal-ui.ubi.orb.local
       TEMPORAL_CSRF_COOKIE_INSECURE: true
-
 
   spicedb:
     container_name: spicedb
