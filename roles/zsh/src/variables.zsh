@@ -24,16 +24,10 @@ export LANG=en_US.UTF-8
 export LC_ALL=$LANG
 export ANSIBLE_NOCOWS=1
 export GPG_TTY=$(tty)
-
+export LDFLAGS=""
+export CPPFLAGS=""
+export PKG_CONFIG_PATH=""
 export ERL_AFLAGS="-kernel shell_history enabled"
-
-# For compilers to find libxml2 you may need to set:
-export LDFLAGS="-L/usr/local/opt/libxml2/lib -L/usr/local/opt/libpq/lib"
-export CPPFLAGS="-I/usr/local/opt/libxml2/include -I/usr/local/opt/libpq/include"
-
-# For pkg-config to find libxml2 you may need to set:
-export PKG_CONFIG_PATH="/usr/local/opt/libxml2/lib/pkgconfig"
-export PKG_CONFIG_PATH="$PKG_CONFIG_PATH:/usr/local/opt/libpq/lib/pkgconfig"
 
 export GO111MODULE=on
 
@@ -64,6 +58,16 @@ export KERL_CONFIGURE_OPTIONS="--disable-debug \
                                --without-jinterface \
                                --without-odbc \
                                --with-ssl=/usr/local/opt/openssl"
+
+__dotfiles_maybe_prepend_pkg_config_path "/usr/local/opt/libxml2"
+__dotfiles_maybe_prepend_pkg_config_path "/usr/local/opt/libpq"
+
+__dotfiles_maybe_prepend_ldflags "/usr/local/opt/libxml2"
+__dotfiles_maybe_prepend_ldflags "/usr/local/opt/libpq"
+
+__dotfiles_maybe_prepend_cppflags "/usr/local/opt/libxml2"
+__dotfiles_maybe_prepend_cppflags "/usr/local/opt/libpq"
+__dotfiles_maybe_prepend_cppflags "/usr/local/opt/openjdk"
 
 __dotfiles_prepend_path "$DOTFILES_ROOT_ZSH_ROOT/bin/private"
 __dotfiles_prepend_path "$DOTFILES_ROOT_ZSH_ROOT/bin"

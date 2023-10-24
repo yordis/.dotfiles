@@ -29,3 +29,33 @@ function __dotfiles_maybe_prepend_path {
     export PATH="$1:$PATH"
   fi
 }
+
+function __dotfiles_prepend_cppflags {
+  export CPPFLAGS="-I$1/include $CPPFLAGS"
+}
+
+function __dotfiles_maybe_prepend_cppflags {
+  if [[ -d "$1/include" ]]; then
+    __dotfiles_prepend_cppflags "$1"
+  fi
+}
+
+function __dotfiles_prepend_ldflags {
+  export LDFLAGS="-L$1/lib $LDFLAGS"
+}
+
+function __dotfiles_maybe_prepend_ldflags {
+  if [[ -d "$1/lib" ]]; then
+    __dotfiles_prepend_ldflags "$1"
+  fi
+}
+
+function __dotfiles_prepend_pkg_config_path {
+  export PKG_CONFIG_PATH="$1/lib/pkgconfig:$PKG_CONFIG_PATH"
+}
+
+function __dotfiles_maybe_prepend_pkg_config_path {
+  if [[ -d "$1/lib/pkgconfig" ]]; then
+    __dotfiles_prepend_pkg_config_path "$1"
+  fi
+}
