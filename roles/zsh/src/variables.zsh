@@ -11,6 +11,7 @@ export HISTSIZE=1000000
 export SAVEHIST=1000000
 export GPG_TTY=$TTY
 
+export ZPLUG_HOME=/usr/local/opt/zplug
 export JAVA_HOME=$(/usr/libexec/java_home)
 
 export PATH="$DOTFILES_ROOT_ZSH_ROOT/bin/private:$PATH"
