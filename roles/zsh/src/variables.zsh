@@ -83,7 +83,7 @@ if [[ "$RANCHER_ENABLED" == "true" ]]; then
   __dotfiles_maybe_prepend_path "$HOME/.rd/bin"
 fi
 
-__dotfiles_maybe_prepend_path  "$HOME/.mix/escripts"
+__dotfiles_maybe_prepend_path "$HOME/.mix/escripts"
 __dotfiles_maybe_prepend_path "$HOME/.cargo/bin"
 __dotfiles_maybe_prepend_path "$HOME/.crc/bin"
 __dotfiles_maybe_prepend_path "$HOME/Developer/Flutter/bin"
