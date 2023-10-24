@@ -1,5 +1,7 @@
-function __dotfiles_warning_message() {
-  echo -e "\033[1;33m[DOTFILES:WARNING] $1\033[0m"
+function __dotfiles_log_warning() {
+  if [[ -n "$DOTFILES_DEBUG" ]]; then
+    echo -e "\033[1;33m[DOTFILES:WARNING] $1\033[0m"
+  fi
 }
 
 function __dotfiles_source {
@@ -10,7 +12,7 @@ function __dotfiles_maybe_source {
   if [[ -f "$1" ]]; then
     __dotfiles_source "$1"
   else
-    [[ -n "$DOTFILES_DEBUG" ]] && __dotfiles_warning_message "$1 does not exist"
+    __dotfiles_log_warning "$1 does not exist"
   fi
 }
 
@@ -24,7 +26,7 @@ function __dotfiles_maybe_secret_source {
   if [[ -f "$1" ]]; then
     __dotfiles_secret_source "$1"
   else
-    [[ -n "$DOTFILES_DEBUG" ]] && __dotfiles_warning_message "$1 does not exist"
+    __dotfiles_log_warning "$1 does not exist"
   fi
 }
 
@@ -36,7 +38,7 @@ function __dotfiles_maybe_prepend_path {
   if [[ -d "$1" ]]; then
     export PATH="$1:$PATH"
   else
-    [[ -n "$DOTFILES_DEBUG" ]] && __dotfiles_warning_message "$1 does not exist"
+    __dotfiles_log_warning "$1 does not exist"
   fi
 }
 
@@ -48,7 +50,7 @@ function __dotfiles_maybe_prepend_cppflags {
   if [[ -d "$1/include" ]]; then
     __dotfiles_prepend_cppflags "$1"
   else
-    [[ -n "$DOTFILES_DEBUG" ]] && __dotfiles_warning_message "$1/include does not exist"
+    __dotfiles_log_warning "$1/include does not exist"
   fi
 }
 
@@ -60,7 +62,7 @@ function __dotfiles_maybe_prepend_ldflags {
   if [[ -d "$1/lib" ]]; then
     __dotfiles_prepend_ldflags "$1"
   else
-    [[ -n "$DOTFILES_DEBUG" ]] && __dotfiles_warning_message "$1/lib does not exist"
+    __dotfiles_log_warning "$1/lib does not exist"
   fi
 }
 
@@ -72,6 +74,6 @@ function __dotfiles_maybe_prepend_pkg_config_path {
   if [[ -d "$1/lib/pkgconfig" ]]; then
     __dotfiles_prepend_pkg_config_path "$1"
   else
-    [[ -n "$DOTFILES_DEBUG" ]] && __dotfiles_warning_message "$1/lib/pkgconfig does not exist"
+    __dotfiles_log_warning "$1/lib/pkgconfig does not exist"
   fi
 }
