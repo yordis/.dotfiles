@@ -11,6 +11,8 @@ taps:
     state: present
 
 brews:
+  - name: openjdk
+    state: latest
   - name: yarn
     state: latest
   - name: wasm-tools
