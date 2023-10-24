@@ -1,6 +1,7 @@
 source "$DOTFILES_ROOT_ZSH_ROOT/__dotfiles.zsh"
 
 __dotfiles_maybe_secret_source "$DOTFILES_ROOT_ZSH_ROOT/secret.zsh"
+__dotfiles_source "$DOTFILES_ROOT_ZSH_ROOT/variables.zsh"
 
 setopt auto_cd                # Any command that results in a directory change automatically cd's to that directory.
 setopt prompt_subst           # Enable parameter expansion, command substitution and arithmetic expansion in the prompt.
@@ -32,13 +33,14 @@ fpath+=$DOTFILES_ROOT_ZSH_ROOT/completions
 # ¯\_(ツ)_/¯
 ulimit -n 4096
 
-__dotfiles_maybe_source "$HOME/.asdf/asdf.sh"
-__dotfiles_source "$DOTFILES_ROOT_ZSH_ROOT/variables.zsh"
+__dotfiles_source "$ZPLUG_HOME/init.zsh"
 __dotfiles_source "$DOTFILES_ROOT_ZSH_ROOT/zplug.zsh"
 __dotfiles_source "$DOTFILES_ROOT_ZSH_ROOT/aliases.zsh"
 __dotfiles_source "$DOTFILES_ROOT_ZSH_ROOT/functions.zsh"
 __dotfiles_source "$DOTFILES_ROOT_ZSH_ROOT/keybinding.zsh"
 __dotfiles_source "$DOTFILES_ROOT_ZSH_ROOT/completion.zsh"
+
+__dotfiles_maybe_source "$HOME/.asdf/asdf.sh"
 __dotfiles_maybe_source "$HOME/.tnsrc"
 __dotfiles_maybe_source "$HOME/.nix-profile/etc/profile.d/nix.sh"
 

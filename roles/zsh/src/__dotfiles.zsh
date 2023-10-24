@@ -19,3 +19,13 @@ function __dotfiles_maybe_secret_source {
     __dotfiles_secret_source "$1"
   fi
 }
+
+function __dotfiles_prepend_path {
+  export PATH="$1:$PATH"
+}
+
+function __dotfiles_maybe_prepend_path {
+  if [[ -d "$1" ]]; then
+    export PATH="$1:$PATH"
+  fi
+}
