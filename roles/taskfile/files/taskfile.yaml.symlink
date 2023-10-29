@@ -1,6 +1,11 @@
 version: '3'
 
 tasks:
+  default:
+    silent: true
+    cmds:
+      - $DOTFILES_ROOT/roles/zsh/src/bin/ubi --list-all
+
   help:
     silent: true
     cmds:
