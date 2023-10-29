@@ -1,8 +1,5 @@
-[[ -s "$HOME/.iterm2_shell_integration.zsh" ]] && . "$HOME/.iterm2_shell_integration.zsh"
-
-[[ -f "$HOME/.config/yarn/global/node_modules/tabtab/.completions/serverless.zsh" ]] && . "$HOME/.config/yarn/global/node_modules/tabtab/.completions/serverless.zsh"
-[[ -f "$HOME/.config/yarn/global/node_modules/tabtab/.completions/sls.zsh" ]] && . "$HOME/.config/yarn/global/node_modules/tabtab/.completions/sls.zsh"
-[[ -f "$HOME/.config/yarn/global/node_modules/tabtab/.completions/slss.zsh" ]] && . "$HOME/.config/yarn/global/node_modules/tabtab/.completions/slss.zsh"
+__dotfiles_maybe_source "$HOME/.iterm2_shell_integration.zsh"
+__dotfiles_maybe_source "/usr/local/etc/profile.d/bash_completion.sh"
 
 if [ $commands[kubectl] ]; then
   kubectl completion zsh >$DOTFILES_ROOT_ZSH_ROOT/completions/_kubectl
@@ -24,5 +21,3 @@ fi
 if [ $commands[poetry] ]; then
   poetry completions zsh >$DOTFILES_ROOT_ZSH_ROOT/completions/_poetry
 fi
-
-[[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
