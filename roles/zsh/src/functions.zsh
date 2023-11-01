@@ -135,3 +135,7 @@ function k8s-proxy-argocd {
   local namespace=$2
   k8s-proxy-srv $context $namespace argocd-server 80
 }
+
+function obs-fix {
+  sudo rm -rf /Library/Application\ Support/obs-studio/plugins/logi_obs_plugin/
+}
