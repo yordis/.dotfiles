@@ -1,4 +1,6 @@
 plugins:
+  - name: opentofu
+    url: https://github.com/virtualroot/asdf-opentofu.git
   - name: elixir
     url: https://github.com/asdf-vm/asdf-elixir
   - name: erlang
