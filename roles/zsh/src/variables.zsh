@@ -42,22 +42,22 @@ export KERL_USE_AUTOCONF=0
 export DOCKER_BUILDKIT=1
 
 export KERL_CONFIGURE_OPTIONS="--disable-debug \
-                               --disable-hipe \
-                               --disable-sctp \
-                               --disable-silent-rules \
-                               --enable-darwin-64bit \
-                               --enable-dynamic-ssl-lib \
-                               --enable-kernel-poll \
-                               --enable-shared-zlib \
-                               --enable-smp-support \
-                               --enable-threads \
-                               --enable-wx \
-                               --with-ssl=/opt/local \
-                               --with-wx-config=/usr/local/bin/wx-config \
-                               --without-javac \
-                               --without-jinterface \
-                               --without-odbc \
-                               --with-ssl=/usr/local/opt/openssl"
+--disable-hipe \
+--disable-sctp \
+--disable-silent-rules \
+--enable-darwin-64bit \
+--enable-dynamic-ssl-lib \
+--enable-kernel-poll \
+--enable-shared-zlib \
+--enable-smp-support \
+--enable-threads \
+--enable-wx \
+--with-ssl=/opt/local \
+--with-wx-config=/usr/local/bin/wx-config \
+--without-javac \
+--without-jinterface \
+--without-odbc \
+--with-ssl=/usr/local/opt/openssl"
 
 __dotfiles_maybe_prepend_pkg_config_path "/usr/local/opt/libxml2"
 __dotfiles_maybe_prepend_pkg_config_path "/usr/local/opt/libpq"
