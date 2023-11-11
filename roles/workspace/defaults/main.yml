@@ -19,3 +19,6 @@ symlinks:
     dest: ".editorconfig"
   - src: "emacs.symlink"
     dest: ".emacs"
+  - src: "ssh/config.symlink"
+    dest: ".ssh/config"
+
