@@ -40,8 +40,7 @@ format = ssh
 
 [gpg "ssh"]
 defaultKeyCommand = ssh-add -L
-program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
-
+program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
 
 [init]
 defaultBranch = master
