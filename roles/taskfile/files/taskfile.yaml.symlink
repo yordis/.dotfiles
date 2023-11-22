@@ -21,6 +21,11 @@ tasks:
     cmds:
       - code "$DOTFILES_ROOT"
 
+  git:fix-commit-metadata:
+    silent: true
+    cmds:
+      - git commit --amend --author='Yordis Prieto <yordis.prieto@gmail.com>' --date="$(date)"
+
   dotfiles:dc:
     silent: true
     aliases:
