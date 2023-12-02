@@ -14,7 +14,7 @@ tasks:
   dotfiles:docker-dir:
     silent: true
     cmds:
-      - cd "$DOTFILES_ROOT/roles/docker/src"
+      - echo "$DOTFILES_ROOT/roles/docker/src"
 
   dotfiles:edit:
     silent: true
