@@ -116,9 +116,6 @@ function k8s-proxy-srv {
   local namespace=$2
   local service_name=$3
   local service_port=$4
-
-  echo "$context $namespace $service_name $service_port"
-
   local service=$(kubectl --context $context get service -n $namespace -o name | grep $service_name)
 
   kubectl port-forward --context $context $service 8080:$service_port -n $namespace
