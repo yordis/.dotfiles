@@ -35,18 +35,6 @@ services:
       - "2222:22"
     command: foo:pass:1001
 
-  minio-console:
-    container_name: minio-console
-    image: minio/console:latest
-    command:
-      - server
-    ports:
-      - "9093:9090"
-    environment:
-      CONSOLE_PBKDF_PASSPHRASE: SECRET
-      CONSOLE_PBKDF_SALT: SECRET
-      CONSOLE_MINIO_SERVER: http://minio:9002
-
   opa:
     container_name: opa
     image: openpolicyagent/opa:latest
@@ -157,13 +145,6 @@ services:
     environment:
       STATSD_SERVER_HOST: statsd-exporter
       STATSD_SERVER_PORT: 9125
-
-  mongodb:
-    container_name: mongodb
-    image: mongo:latest
-    restart: unless-stopped
-    ports:
-      - "27017:27017"
 
   memcached:
     container_name: memcached

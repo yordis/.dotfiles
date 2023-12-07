@@ -338,3 +338,12 @@ services:
     environment:
       SPICEDB_DATASTORE_ENGINE: postgres
       SPICEDB_DATASTORE_CONN_URI: postgres://postgres:postgres@postgresql:5432/spicedb
+
+  mongodb:
+    container_name: mongodb
+    profiles:
+      - mongodb
+    image: mongo:latest
+    restart: unless-stopped
+    ports:
+      - "27017:27017"
