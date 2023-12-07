@@ -40,6 +40,8 @@ services:
 
   schema-registry:
     container_name: schema-registry
+    profiles:
+      - kafka
     image: confluentinc/cp-schema-registry:latest
     depends_on:
       - zookeeper
@@ -156,6 +158,8 @@ services:
 
   browserless:
     container_name: browserless
+    profiles:
+      - browserless
     image: browserless/chrome:latest
     ports:
       - "3005:3000"
