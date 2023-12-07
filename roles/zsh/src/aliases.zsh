@@ -35,7 +35,6 @@ alias commit-without-husky="HUSKY_SKIP_HOOKS=true git commit --no-verify"
 
 # Docker & K8S
 alias dc="docker compose"
-alias dcpsf="docker compose ps --format='table {{.Names}}\t{{.Ports}}\t{{.Status}}'"
 alias k="kubectl"
 
 # ZSH
