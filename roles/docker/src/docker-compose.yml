@@ -16,8 +16,28 @@ volumes:
     driver: local
   opensearch-data:
     driver: local
+  rabbitmq-data:
+    driver: local
 
 services:
+  rabbitmq:
+    profiles:
+      - rabbitmq
+    container_name: rabbitmq
+    image: rabbitmq:management
+    healthcheck:
+      test: [ "CMD", "rabbitmqctl", "status" ]
+      timeout: 20s
+      retries: 10
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    environment:
+      RABBITMQ_DEFAULT_USER: guest
+      RABBITMQ_DEFAULT_PASS: guest
+    volumes:
+      - rabbitmq-data:/var/lib/rabbitmq
+
   schema-registry:
     container_name: schema-registry
     image: confluentinc/cp-schema-registry:latest
@@ -30,6 +50,8 @@ services:
 
   redpanda-console:
     container_name: redpanda-console
+    profiles:
+      - kafka
     image: redpandadata/console:latest
     entrypoint: /bin/sh
     command: -c "echo \"$$CONSOLE_CONFIG_FILE\" > /tmp/config.yml; /app/console"
@@ -50,12 +72,16 @@ services:
 
   zookeeper:
     container_name: zookeeper
+    profiles:
+      - kafka
     image: confluentinc/cp-zookeeper:latest
     environment:
       ZOOKEEPER_CLIENT_PORT: 2181
 
   kafka:
     container_name: kafka
+    profiles:
+      - kafka
     image: confluentinc/cp-kafka:latest
     ports:
       - "9092:9092"
@@ -69,12 +95,16 @@ services:
 
   opensearch-dashboards:
     container_name: opensearch-dashboards
+    profiles:
+      - opensearch
     image: opensearchproject/opensearch-dashboards:latest
     environment:
       OPENSEARCH_HOSTS: '["http://opensearch:9200"]'
 
   opensearch:
     container_name: opensearch
+    profiles:
+      - opensearch
     image: opensearchproject/opensearch:latest
     restart: unless-stopped
     ulimits:
@@ -227,6 +257,8 @@ services:
 
   temporal:
     container_name: temporal
+    profiles:
+      - temporal
     image: temporalio/auto-setup:latest
     labels:
       kompose.volume.type: configMap
@@ -250,6 +282,8 @@ services:
 
   temporal-admin-tools:
     container_name: temporal-admin-tools
+    profiles:
+      - temporal
     image: temporalio/admin-tools:latest
     stdin_open: true
     tty: true
@@ -261,6 +295,8 @@ services:
 
   temporal-ui:
     container_name: temporal-ui
+    profiles:
+      - temporal
     image: temporalio/ui:latest
     ports:
       - "8080:8080"
