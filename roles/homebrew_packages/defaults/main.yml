@@ -13,6 +13,8 @@ taps:
 brews:
   - name: openjdk
     state: latest
+  - name: buf
+    state: latest
   - name: yarn
     state: latest
   - name: wasm-tools
