@@ -27,8 +27,6 @@ brews:
     state: latest
   - name: kubeseal
     state: latest
-  - name: k6
-    state: latest
   - name: clusterctl
     state: latest
   - name: stripe/stripe-cli/stripe
@@ -36,7 +34,7 @@ brews:
   - name: minio/stable/mc
     state: latest
   - name: ory/tap/cli
-    state: latest
+    state: uninstalled
   - name: certigo
     state: latest
   - name: argocd
@@ -99,7 +97,7 @@ brews:
   - name: openshift-cli
     state: latest
   - name: drone-cli
-    state: latest
+    state: uninstalled
   - name: git-lfs
     state: latest
   - name: aws-sam-cli
@@ -107,7 +105,7 @@ brews:
   - name: awscli
     state: latest
   - name: azure-cli
-    state: latest
+    state: uninstalled
   - name: nektos/tap/act
     state: uninstalled
   - name: git-flow
@@ -147,7 +145,7 @@ brews:
   - name: tmux
     state: latest
   - name: heroku
-    state: latest
+    state: uninstalled
   - name: hub
     state: latest
   - name: bash
@@ -183,11 +181,11 @@ brews:
 
 casks:
   - name: emacs
-    state: latest
+    state: uninstalled
   - name: meld
     state: latest
   - name: rancher
-    state: latest
+    state: uninstalled
   - name: notion
     state: latest
   - name: warp
@@ -213,7 +211,7 @@ casks:
   - name: zoom
     state: latest
   - name: cyberduck
-    state: latest
+    state: uninstalled
   - name: evernote
     state: uninstalled
   - name: virtualbox
@@ -239,9 +237,9 @@ casks:
   - name: jetbrains-toolbox
     state: latest
   - name: iterm2
-    state: latest
+    state: uninstalled
   - name: sublime-text
-    state: latest
+    state: uninstalled
   - name: visual-studio-code
     state: latest
   - name: principle
@@ -255,7 +253,7 @@ casks:
   - name: github-desktop
     state: uninstalled
   - name: skyfonts
-    state: latest
+    state: uninstalled
   - name: balsamiq-mockups
     state: uninstalled
   - name: adobe-creative-cloud
@@ -296,7 +294,7 @@ casks:
     state: uninstalled
   - name: obs
     state: uninstalled
-  - name: paw
+  - name: rapidapi
     state: latest
   - name: flux
     state: uninstalled
@@ -321,10 +319,10 @@ casks:
   - name: loopback
     state: latest
   - name: graphql-playground
-    state: latest
+    state: uninstalled
   - name: postman
-    state: latest
+    state: uninstalled
   - name: signal
     state: uninstalled
   - name: telegram
-    state: uninstalled
+    state: latest
