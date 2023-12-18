@@ -107,6 +107,7 @@ services:
     container_name: opensearch
     profiles:
       - opensearch
+      - temporal
     image: opensearchproject/opensearch:latest
     restart: unless-stopped
     ulimits:
