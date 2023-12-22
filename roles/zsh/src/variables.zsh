@@ -1,4 +1,4 @@
-[[ -d "$HOME/.asdf/plugins/golang" ]] && . "$HOME/.asdf/plugins/golang/set-env.zsh"
+__dotfiles_maybe_source "$HOME/.asdf/plugins/golang/set-env.zsh"
 
 # if [[ -f "$HOME/.asdf/bin/asdf" ]]; then
 #   export GOPATH=$($HOME/.asdf/bin/asdf where golang)/packages
