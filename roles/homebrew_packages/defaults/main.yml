@@ -16,7 +16,7 @@ brews:
   - name: buf
     state: latest
   - name: yarn
-    state: latest
+    state: uninstalled
   - name: wasm-tools
     state: latest
   - name: teller
