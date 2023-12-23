@@ -18,6 +18,8 @@ volumes:
     driver: local
   rabbitmq-data:
     driver: local
+  browserless-data:
+    driver: local
 
 services:
   rabbitmq:
@@ -162,7 +164,7 @@ services:
     ports:
       - "3005:3000"
     volumes:
-      - ./volumes/browserless/data:/data
+      - browserless-data:/data
     environment:
       WORKSPACE_DIR: /data/workspace
       DEBUG: browserless:*
