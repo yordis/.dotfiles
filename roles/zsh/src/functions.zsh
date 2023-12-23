@@ -140,3 +140,10 @@ function obs-fix {
 function dcpsf {
   docker compose ps --format='table {{.Names}}\t{{.Ports}}\t{{.Status}}'
 }
+
+function asdf-remove-all-versions {
+  local plugin=$1
+  asdf list $plugin | grep -v "*" | while read line; do
+    echo "removing $plugin $line" && asdf uninstall $plugin $line;
+  done
+}
