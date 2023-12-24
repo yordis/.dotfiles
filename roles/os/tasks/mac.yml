@@ -6,6 +6,12 @@
   command: softwareupdate -i -a
   become: true
 
+- name: disable memory badge count notification
+  command: defaults delete com.apple.SlotNotificationsPref memoryBadgeCount
+
+- name: disable expansion badge count notification
+  command: defaults delete com.apple.SlotNotificationsPref expansionBadgeCount
+
 - name: enable "Ask for Password" from screensaver
   command: defaults write com.apple.screensaver askForPassword -int 1
 
