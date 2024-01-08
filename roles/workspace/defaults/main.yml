@@ -6,7 +6,6 @@ directories:
   - "{{ user_home_directory }}/Developer/github.com/straw-hat-team"
   - "{{ user_home_directory }}/Developer/github.com/yordis"
   - "{{ user_home_directory }}/Developer/gitlab.com/straw-hat-team"
-  - "{{ user_home_directory }}/Developer/docker-desktop/kubernetes/local-storage-sc"
 
 symlinks:
   - src: "default-npm-packages.symlink"
@@ -21,4 +20,3 @@ symlinks:
     dest: ".emacs"
   - src: "ssh/config.symlink"
     dest: ".ssh/config"
-

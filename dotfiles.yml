@@ -7,9 +7,6 @@
     - role: docker
       tags:
         - docker
-    - role: docker-desktop
-      tags:
-        - docker-desktop
     - role: git
       tags:
         - git
