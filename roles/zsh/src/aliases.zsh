@@ -48,6 +48,7 @@ alias timezsh="time zsh -i -c echo"
 # OS
 alias make-executable="chmod +x"
 
+alias ..="cd .."
 alias -g ...='../..'
 alias -g ....='../../..'
 alias -g .....='../../../..'
@@ -55,9 +56,11 @@ alias -g ......='../../../../..'
 
 alias my-ip="ipconfig getifaddr en0"
 alias super-danger-rm="rm -rf"
-alias l="ls -lah"
-alias ll='ls -FGlAhp'
-alias ..="cd .."
+#alias l="ls -lah"
+#alias ll='ls -FGlAhp'
+alias ls="eza --icons --group-directories-first"
+alias ll="eza --icons --group-directories-first -l"
+
 alias make-dir='mkdir -p'
 alias finder="open"
 alias show-hidden='defaults write com.apple.finder AppleShowAllFiles YES; killall Finder /System/Library/CoreServices/Finder.app'
