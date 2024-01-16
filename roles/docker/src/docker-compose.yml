@@ -224,6 +224,8 @@ services:
     container_name: eventstore
     image: eventstore/eventstore:latest
     restart: unless-stopped
+    labels:
+      - dev.orbstack.http-port=2113
     ports:
       - "2113:2113"
       - "1113:1113"
