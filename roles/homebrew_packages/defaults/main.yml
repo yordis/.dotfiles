@@ -13,6 +13,8 @@ taps:
 brews:
   - name: openjdk
     state: latest
+  - name: eza
+    state: latest
   - name: dagger/tap/dagger
     state: latest
   - name: buf
