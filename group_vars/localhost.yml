@@ -1,2 +1,7 @@
 user_home_directory: "{{ '~' | expanduser }}"
 dotfiles_directory: "{{ user_home_directory }}/.dotfiles"
+workspace_profiles:
+  - "personal"
+  - "hackintosh"
+  - "macbook"
+  - "corporate"

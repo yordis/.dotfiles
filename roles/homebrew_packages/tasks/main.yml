@@ -8,10 +8,7 @@
 - name: install Homebrew brews
   when: homebrew_check.stat.exists
   loop: "{{ brews }}"
-  community.general.homebrew:
-    name: "{{ item.name }}"
-    state: "{{ item.state }}"
-    install_options: "{{ item.install_options | default([]) }}"
+  include_tasks: install_brew.yml
 
 - name: install Homebrew casks
   when: homebrew_check.stat.exists

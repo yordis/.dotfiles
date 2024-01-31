@@ -1,0 +1,17 @@
+- name: "{{ item.name }} : Set workspace_profile"
+  set_fact:
+    workspace_profile: "{{ item.workspace_profile | default({}) }}"
+
+- name: "{{ item.name }} : Get last intersected profile"
+  set_fact:
+    intersected_profile: "{{ workspace_profiles | intersect(workspace_profile.keys()) | last | default(None) }}"
+
+- name: "{{ item.name }} : Set homebrew parameters"
+  set_fact:
+    homebrew_params: "{{ item.workspace_profile[intersected_profile] | default({}) }}"
+
+- name: "{{ item.name }} : Install Homebrew"
+  community.general.homebrew:
+    name: "{{ item.name }}"
+    state: "{{ homebrew_params.state | default(item.state) }}"
+    install_options: "{{ homebrew_params.install_options | default(item.install_options | default([])) }}"
