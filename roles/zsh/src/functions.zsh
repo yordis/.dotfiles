@@ -144,6 +144,14 @@ function dcpsf {
 function asdf-remove-all-versions {
   local plugin=$1
   asdf list $plugin | grep -v "*" | while read line; do
-    echo "removing $plugin $line" && asdf uninstall $plugin $line;
+    echo "removing $plugin $line" && asdf uninstall $plugin $line
   done
+}
+
+function gprcreate {
+  gh pr create --fill --draft && gh pr view --web
+}
+
+function gprrcreate {
+  gh pr create --fill && gh pr view --web
 }
