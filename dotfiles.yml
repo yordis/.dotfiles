@@ -7,9 +7,6 @@
     - role: docker
       tags:
         - docker
-    - role: git
-      tags:
-        - git
     - role: homebrew
       tags:
         - homebrew
@@ -28,9 +25,6 @@
     - role: workspace
       tags:
         - workspace
-    - role: taskfile
-      tags:
-        - taskfile
     - role: neovim
       tags:
         - neovim

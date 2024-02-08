@@ -1,6 +1,6 @@
 [core]
 editor = nvim
-excludesfile = ~/.gitignore_global
+excludesfile = ~/.dotfiles/roles/workspace/files/gitignore_global
 eol = lf
 precomposeUnicode = true
 ignorecase = false
@@ -12,7 +12,7 @@ email = yordis.prieto@gmail.com
 signingkey = ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDQRZzU2O7+loYsh812EKqyFunQs9mo9uLmzewokvxevIY5DpciIXNcEp3E6QL8n01i8po8dAq0pYA7fXg+ZRYE4hLObI9WMUlzVnYeEg8t/ITXiQ5iKed7zdKYT2iktoAv/IBqWvnXxVswi3fh83O4s4a1ROs03PFw5Pzv2eGhwIFTJt8qPFHaomG4VPSgvOA+oEo+vyQAd/Vp1asZRZibAmvEWdY8ZSkjL7O90I7/Fh31L1xOHPx9HVfpslBarn/vMpsqFIO3OUDTFWqSGDxfqqkvaMONOthMrdcUlrY5E5BAk5nawiDvGKYWFWaOixMfG2ee6MTjJGdAVHO2ZbC7/doQECfFNCRD3Go+4cwM9USWw0kk8nNkT91b3YLUZwqExWHYMDdjYhuYtb+jeIZKKC7ainamotAbe3py4l3NWPv2VV84leP6ad0bFKWGbVVXmW4GQWCA7eED3cyOFyv9RQ1g1Kfxi4AZtJoXzfKrvu4NNx+VkIETgIwpPhLFTz/01824/iZT3ccs+/eK9SK2TYdEn1LhuD6okMqlY34gFGOxDBD4V17vqEDvLjwtVNeySLQVyt2FeuHzQyO9S6/jSjvnVzc/GShY6v7mXSFHu4outnIoZq8XXrcYU6eeAQBHaQz1ZkVpDkid0sWu9b22YuRGQm8aNV2euoE6kHguTQ==
 
 [commit]
-template = ~/.gitmessage
+template = ~/.dotfiles/roles/workspace/files/gitmessage
 gpgsign = true
 
 [format]

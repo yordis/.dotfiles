@@ -8,6 +8,10 @@ directories:
   - "{{ user_home_directory }}/Developer/gitlab.com/straw-hat-team"
 
 symlinks:
+  - src: "gitconfig"
+    dest: ".gitconfig"
+  - src: "asdfrc"
+    dest: ".asdfrc"
   - src: "taskfile.yaml"
     dest: ".taskfile.yaml"
   - src: "zed/settings.json"

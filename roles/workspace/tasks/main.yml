@@ -11,3 +11,8 @@
     dest: "{{ user_home_directory }}/{{ item.dest }}"
     state: link
     force: yes
+
+- name: ensure secret.gitconfig file exists
+  file:
+    dest: "{{ dotfiles_directory }}/roles/workspace/files/secret/secret.gitconfig"
+    state: touch

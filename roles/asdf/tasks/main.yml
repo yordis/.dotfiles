@@ -9,13 +9,6 @@
     version: master
     depth: "1"
 
-- name: symlink .asdfrc file
-  file:
-    src: "{{ dotfiles_directory }}/roles/asdf/files/asdfrc.symlink"
-    dest: "{{ user_home_directory }}/.asdfrc"
-    state: link
-    force: yes
-
 - name: add plugins
   loop: "{{ plugins }}"
   command:
