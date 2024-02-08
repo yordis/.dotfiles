@@ -10,6 +10,8 @@ directories:
 symlinks:
   - src: "zed/settings.json"
     dest: ".config/zed/settings.json"
+  - src: "zed/keymap.json"
+    dest: ".config/zed/keymap.json"
   - src: "default-npm-packages.symlink"
     dest: ".default-npm-packages"
   - src: "default-python-packages.symlink"
