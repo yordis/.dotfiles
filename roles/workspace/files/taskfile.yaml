@@ -14,7 +14,7 @@ tasks:
   dotfiles:docker-dir:
     silent: true
     cmds:
-      - echo "$DOTFILES_ROOT/roles/docker/src"
+      - echo "$DOTFILES_ROOT/roles/workspace/files/docker"
 
   dotfiles:edit:
     silent: true
@@ -33,6 +33,6 @@ tasks:
     cmds:
       - >-
         docker compose
-        --project-directory "$DOTFILES_ROOT/roles/docker/src"
-        --file "$DOTFILES_ROOT/roles/docker/src/docker-compose.yml"
+        --project-directory "$DOTFILES_ROOT/roles/workspace/files/docker"
+        --file "$DOTFILES_ROOT/roles/workspace/files/docker/docker-compose.yml"
         {{.CLI_ARGS}}
