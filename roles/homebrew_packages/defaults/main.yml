@@ -11,6 +11,8 @@ taps:
     state: present
 
 brews:
+  - name: go-task/tap/go-task
+    state: latest
   - name: openjdk
     state: latest
   - name: eza
