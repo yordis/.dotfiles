@@ -20,7 +20,7 @@
 
 - name: link .zshrc config file
   file:
-    src: "{{ dotfiles_directory }}/roles/zsh/files/zshrc.symlink"
+    src: "{{ dotfiles_directory }}/roles/zsh/files/zshrc.sh"
     dest: "{{ user_home_directory }}/.zshrc"
     state: link
     force: yes
