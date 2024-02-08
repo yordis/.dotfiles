@@ -18,6 +18,6 @@ if [ $commands[op] ]; then
   compdef _op op
 fi
 
-if [ $commands[poetry] ]; then
-  poetry completions zsh >$DOTFILES_ROOT_ZSH_ROOT/completions/_poetry
-fi
+#if [ $commands[poetry] ]; then
+#  poetry completions zsh >$DOTFILES_ROOT_ZSH_ROOT/completions/_poetry
+#fi
