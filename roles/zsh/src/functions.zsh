@@ -30,8 +30,8 @@ function gpublish {
 
 function dotfiles-dc {
   docker compose \
-    --project-directory "$DOTFILES_ROOT/roles/docker/src" \
-    --file "$DOTFILES_ROOT/roles/docker/src/docker-compose.yml" \
+    --project-directory "$DOTFILES_ROOT/roles/workspace/files/docker" \
+    --file "$DOTFILES_ROOT/roles/workspace/files/docker/docker-compose.yml" \
     "$@"
 }
 

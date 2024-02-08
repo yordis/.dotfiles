@@ -1,3 +1,0 @@
-src/volumes
-!src/volumes/.keep
-src/**/local.env

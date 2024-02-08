@@ -3,3 +3,4 @@
 *.local
 dotfiles.retry
 docker_tmp
+local.env
