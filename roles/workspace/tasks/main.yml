@@ -16,3 +16,16 @@
   file:
     dest: "{{ dotfiles_directory }}/roles/workspace/files/secret/secret.gitconfig"
     state: touch
+
+- name: link src dir to neovim config dir
+  file:
+    src: "{{ dotfiles_directory }}/roles/workspace/files/neovim"
+    dest: "{{ user_home_directory }}/.config/nvim"
+    state: link
+
+- name: install packer
+  git:
+    repo: https://github.com/wbthomason/packer.nvim
+    dest: "{{ user_home_directory }}/.local/share/nvim/site/pack/packer/start/packer.nvim"
+    version: master
+    depth: "1"

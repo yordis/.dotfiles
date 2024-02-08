@@ -1,4 +1,5 @@
 directories:
+  - "{{ user_home_directory }}/.config"
   - "{{ user_home_directory }}/Developer"
   - "{{ user_home_directory }}/Developer/GoLang"
   - "{{ user_home_directory }}/Developer/Trashcan"

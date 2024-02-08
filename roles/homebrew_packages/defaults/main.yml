@@ -11,6 +11,8 @@ taps:
     state: present
 
 brews:
+  - name: neovim
+    state: latest
   - name: docker
     state: latest
   - name: go-task/tap/go-task

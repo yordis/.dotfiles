@@ -4,9 +4,6 @@
     - role: asdf
       tags:
         - asdf
-    - role: docker
-      tags:
-        - docker
     - role: homebrew
       tags:
         - homebrew
@@ -25,6 +22,3 @@
     - role: workspace
       tags:
         - workspace
-    - role: neovim
-      tags:
-        - neovim
