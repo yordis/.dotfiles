@@ -49,7 +49,7 @@ defaultBranch = main
 rebase = false
 
 [include]
-path = ~/.dotfiles/roles/git/src/private.gitconfig
+path = ~/.dotfiles/roles/workspace/files/secret/secret.gitconfig
 
 [alias]
 co = checkout

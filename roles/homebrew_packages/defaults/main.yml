@@ -11,6 +11,8 @@ taps:
     state: present
 
 brews:
+  - name: docker
+    state: latest
   - name: go-task/tap/go-task
     state: latest
   - name: openjdk
