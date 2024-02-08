@@ -1,2 +1,2 @@
-src/*private.zsh
-src/*secret.zsh
+*private.zsh
+*secret.zsh

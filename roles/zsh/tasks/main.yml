@@ -27,5 +27,5 @@
 
 - name: ensure secret.zsh file exists
   file:
-    dest: "{{ dotfiles_directory }}/roles/zsh/src/secret.zsh"
+    dest: "{{ dotfiles_directory }}/roles/zsh/files/secret.zsh"
     state: touch
