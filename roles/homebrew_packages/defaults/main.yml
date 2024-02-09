@@ -9,8 +9,12 @@ taps:
     state: present
   - name: spectralops/tap
     state: present
+  - name: nats-io/nats-tools
+    state: present
 
 brews:
+  - name: nats-io/nats-tools/nats
+    state: latest
   - name: neovim
     state: latest
   - name: docker
