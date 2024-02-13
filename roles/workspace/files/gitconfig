@@ -36,7 +36,6 @@ prompt = false
 
 [gpg]
 format = ssh
-#program = gpg
 
 [gpg "ssh"]
 defaultKeyCommand = ssh-add -L
@@ -60,3 +59,15 @@ wip = commit -am "WIP"
 undo = reset HEAD~1 --mixed
 amend = commit -a --amend
 wipe = !git add -A && git commit -qm 'WIPE SAVEPOINT' && git reset HEAD~1 --hard
+
+[rerere]
+enabled = true
+
+[column]
+ui = auto
+
+[branch]
+sort = -committerdate
+
+[fetch]
+writeCommitGraph = true

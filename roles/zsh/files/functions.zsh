@@ -155,3 +155,9 @@ function gprcreate {
 function gprrcreate {
   gh pr create --fill && gh pr view --web
 }
+
+function git-goodies {
+  git config core.untrackedCache true
+  git config core.fsmonitor true
+  git maintenance start
+}
