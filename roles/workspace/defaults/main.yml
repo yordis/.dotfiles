@@ -7,6 +7,7 @@ directories:
   - "{{ user_home_directory }}/Developer/github.com/straw-hat-team"
   - "{{ user_home_directory }}/Developer/github.com/yordis"
   - "{{ user_home_directory }}/Developer/gitlab.com/straw-hat-team"
+  - "{{ user_home_directory }}/.config/zed"
 
 symlinks:
   - src: "gitconfig"
