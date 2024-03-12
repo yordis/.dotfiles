@@ -22,8 +22,27 @@ volumes:
     driver: local
   tigerbeetle-data:
     driver: local
+  open-webui:
+    driver: local
 
 services:
+  watchtower:
+    container_name: watchtower
+    image: containrrr/watchtower:latest
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+
+  open-webui:
+    profiles:
+      - ollama
+    container_name: open-webui
+    image: ghcr.io/open-webui/open-webui:main
+    restart: unless-stopped
+    volumes:
+      - open-webui:/app/backend/data
+    environment:
+      OLLAMA_BASE_URL: http://host.docker.internal:11434
+
   tigerbeetle-format:
     container_name: tigerbeetle-format
     profiles:
