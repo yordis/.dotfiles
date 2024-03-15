@@ -1,3 +1,5 @@
+export SSH_AUTH_SOCK="$HOME/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
+
 __dotfiles_maybe_source "$HOME/.asdf/plugins/golang/set-env.zsh"
 
 # if [[ -f "$HOME/.asdf/bin/asdf" ]]; then
