@@ -1,7 +1,7 @@
 source "$DOTFILES_ROOT_ZSH_ROOT/__dotfiles.zsh"
 
-__dotfiles_maybe_secret_source "$DOTFILES_ROOT_ZSH_ROOT/secret.zsh"
 __dotfiles_source "$DOTFILES_ROOT_ZSH_ROOT/variables.zsh"
+__dotfiles_maybe_secret_source "$DOTFILES_ROOT_ZSH_ROOT/secret.zsh"
 
 setopt auto_cd                # Any command that results in a directory change automatically cd's to that directory.
 setopt prompt_subst           # Enable parameter expansion, command substitution and arithmetic expansion in the prompt.
