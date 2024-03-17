@@ -277,7 +277,8 @@ require('lazy').setup({
         mapping = cmp.mapping.preset.insert {
           ['<C-n>'] = cmp.mapping.select_next_item(),
           ['<C-p>'] = cmp.mapping.select_prev_item(),
-          ['<C-y>'] = cmp.mapping.confirm { select = true },
+          -- use Tab to autocomplete
+          ['<Tab>'] = cmp.mapping.confirm { select = true },
           ['<C-Space>'] = cmp.mapping.complete {},
           ['<C-l>'] = cmp.mapping(function()
             if luasnip.expand_or_locally_jumpable() then
