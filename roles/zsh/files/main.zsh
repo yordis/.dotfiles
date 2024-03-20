@@ -1,7 +1,7 @@
 source "$DOTFILES_ROOT_ZSH_ROOT/__dotfiles.zsh"
 
-__dotfiles_maybe_secret_source "$DOTFILES_ROOT_ZSH_ROOT/secret.zsh"
 __dotfiles_source "$DOTFILES_ROOT_ZSH_ROOT/variables.zsh"
+__dotfiles_maybe_secret_source "$DOTFILES_ROOT_ZSH_ROOT/secret.zsh"
 
 setopt auto_cd                # Any command that results in a directory change automatically cd's to that directory.
 setopt prompt_subst           # Enable parameter expansion, command substitution and arithmetic expansion in the prompt.
@@ -19,6 +19,9 @@ setopt HIST_REDUCE_BLANKS     # Remove superfluous blanks before recording entry
 setopt HIST_VERIFY            # Don't execute immediately upon history expansion.
 setopt HIST_BEEP              # Beep when accessing nonexistent history.
 
+fpath+=$DOTFILES_ROOT_ZSH_ROOT/completions
+fpath+=$ASDF_DIR
+
 autoload -U edit-command-line
 zle -N edit-command-line
 
@@ -27,8 +30,6 @@ autoload -U colors && colors
 autoload -Uz compinit && compinit
 autoload -U promptinit && promptinit
 autoload -Uz zkbd
-
-fpath+=$DOTFILES_ROOT_ZSH_ROOT/completions
 
 # ¯\_(ツ)_/¯
 ulimit -n 4096
