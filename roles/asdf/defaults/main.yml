@@ -24,9 +24,9 @@ plugins:
 
 versions:
   - name: elixir
-    version: 1.16.0
+    version: 1.16.2
   - name: erlang
-    version: 26.2.1
+    version: 26.2.3
 #    environment:
 #      CFLAGS: "-O2 -g -fno-stack-check"
 #      KERL_CONFIGURE_OPTIONS: "--disable-hipe --with-ssl={{ openssl_path.stdout }}"
@@ -43,9 +43,9 @@ versions:
 
 global_versions:
   - name: elixir
-    version: 1.16.0
+    version: 1.16.2
   - name: erlang
-    version: 26.2.1
+    version: 26.2.3
   - name: golang
     version: 1.21.6
   - name: deno
