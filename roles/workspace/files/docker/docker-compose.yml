@@ -243,7 +243,9 @@ services:
 
   postgresql:
     container_name: postgresql
-    image: postgres:latest
+    build:
+      context: ./images/postgres
+      dockerfile: Dockerfile
     restart: unless-stopped
     ports:
       - "5432:5432"

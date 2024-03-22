@@ -13,6 +13,8 @@ taps:
     state: present
 
 brews:
+  - name: pgxman/tap/pgxman
+    state: latest
   - name: nats-io/nats-tools/nats
     state: latest
   - name: neovim
