@@ -149,7 +149,15 @@ function asdf-remove-all-versions {
 }
 
 function gprcreate {
-  gh pr create --fill --draft && gh pr view --web
+  local git_root=$(git rev-parse --show-toplevel)
+
+  if [ -f "$git_root/.github/PULL_REQUEST_TEMPLATE.md" ]; then
+    gh pr create --fill --draft --template $git_root/.github/PULL_REQUEST_TEMPLATE.md
+  else
+    gh pr create --fill --draft
+  fi
+
+  gh pr view --web
 }
 
 function gprrcreate {
