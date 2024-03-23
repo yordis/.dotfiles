@@ -352,3 +352,16 @@ services:
     restart: unless-stopped
     ports:
       - "27017:27017"
+
+  centrifugo:
+    container_name: centrifugo
+    image: centrifugo/centrifugo:latest
+    volumes:
+      - ./services/centrifugo/config.json:/centrifugo/config.json
+    command: centrifugo -c config.json
+    labels:
+      - dev.orbstack.https-port=8000
+    ulimits:
+      nofile:
+        soft: 65535
+        hard: 65535
