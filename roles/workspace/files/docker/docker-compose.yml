@@ -20,8 +20,55 @@ volumes:
     driver: local
   browserless-data:
     driver: local
+  tigerbeetle-data:
+    driver: local
+  open-webui:
+    driver: local
 
 services:
+  watchtower:
+    container_name: watchtower
+    image: containrrr/watchtower:latest
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+
+  open-webui:
+    profiles:
+      - ollama
+    container_name: open-webui
+    image: ghcr.io/open-webui/open-webui:main
+    restart: unless-stopped
+    volumes:
+      - open-webui:/app/backend/data
+    environment:
+      OLLAMA_BASE_URL: http://host.docker.internal:11434
+
+  tigerbeetle-format:
+    container_name: tigerbeetle-format
+    profiles:
+      - tigerbeetle
+    image: ghcr.io/tigerbeetle/tigerbeetle:latest
+    entrypoint: ""
+    volumes:
+      - ./volumes/tigerbeetle-data:/data
+    command: >
+      /bin/sh -c "
+      if [ -f /data/0_0.tigerbeetle ]; then
+        echo 'tigerbeetle data already exists';
+      else
+        /tigerbeetle format --cluster=0 --replica=0 --replica-count=1 /data/0_0.tigerbeetle;
+      fi
+      "
+
+#  tigerbeetle:
+#    container_name: tigerbeetle
+#    profiles:
+#      - tigerbeetle
+#    image: ghcr.io/tigerbeetle/tigerbeetle:latest
+#    command: "start --addresses=0.0.0.0:3000 /data/0_0.tigerbeetle"
+#    volumes:
+#      - ./volumes/tigerbeetle-data:/data
+
   rabbitmq:
     profiles:
       - rabbitmq
