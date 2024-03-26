@@ -1,3 +1,11 @@
+function cd-git-root {
+  cd $(git rev-parse --show-toplevel)
+}
+
+function code-open-git-root {
+  code $(git rev-parse --show-toplevel)
+}
+
 function get-app-running-on-port {
   local port=$1
   local rstring=$2
