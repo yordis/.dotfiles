@@ -15,6 +15,8 @@ taps:
 brews:
   - name: pgxman/tap/pgxman
     state: latest
+  - name: wireguard-tools
+    state: latest
   - name: gabotechs/taps/dep-tree
     state: latest
   - name: nats-io/nats-tools/nats
