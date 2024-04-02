@@ -1,2 +1,2 @@
 #!/bin/sh
-task --taskfile $HOME/.taskfile.yaml $@
+task --taskfile $HOME/.Taskfile.yaml $@
