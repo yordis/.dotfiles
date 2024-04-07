@@ -209,8 +209,8 @@ services:
     volumes:
       - minio-data:/data
     environment:
-      MINIO_ACCESS_KEY: AKIAIOSFODNN7EXAMPLE
-      MINIO_SECRET_KEY: wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
+      MINIO_ROOT_USER: AKIAIOSFODNN7EXAMPLE
+      MINIO_ROOT_PASSWORD: wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
 
   mailhog:
     container_name: mailhog
@@ -228,17 +228,14 @@ services:
       - dev.orbstack.http-port=2113
     ports:
       - "2113:2113"
-      - "1113:1113"
     volumes:
       - eventstore-data:/var/lib/eventstore
     environment:
       EVENTSTORE_CLUSTER_SIZE: 1
       EVENTSTORE_RUN_PROJECTIONS: All
       EVENTSTORE_START_STANDARD_PROJECTIONS: true
-      EVENTSTORE_EXT_TCP_PORT: 1113
       EVENTSTORE_HTTP_PORT: 2113
       EVENTSTORE_INSECURE: true
-      EVENTSTORE_ENABLE_EXTERNAL_TCP: true
       EVENTSTORE_ENABLE_ATOM_PUB_OVER_HTTP: true
 
   postgresql:
