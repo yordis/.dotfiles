@@ -125,6 +125,7 @@ services:
       - cluster.routing.allocation.disk.watermark.low=512mb
       - cluster.routing.allocation.disk.watermark.high=256mb
       - cluster.routing.allocation.disk.watermark.flood_stage=128mb
+      - OPENSEARCH_INITIAL_ADMIN_PASSWORD=admin
     volumes:
       - opensearch-data:/usr/share/opensearch/data
 
@@ -147,24 +148,25 @@ services:
     container_name: zitadel
     restart: "always"
     image: "ghcr.io/zitadel/zitadel:latest"
-    command: 'start-from-init --config /zitadel/defaults.yaml --masterkey "JuYLmMDXBljOuUghsNgnoB3AaEEFGOLY" --tlsMode disabled'
+    command: 'start-from-init --masterkey "JuYLmMDXBljOuUghsNgnoB3AaEEFGOLY" --tlsMode disabled'
     environment:
-      ZITADEL_EXTERNALSECURE: false
-      ZITADEL_DATABASE_POSTGRES_HOST: postgresql
-      ZITADEL_DATABASE_POSTGRES_PORT: 5432
-      ZITADEL_DATABASE_POSTGRES_DATABASE: zitadel
-      ZITADEL_DATABASE_POSTGRES_USER_USERNAME: zitadel
-      ZITADEL_DATABASE_POSTGRES_USER_PASSWORD: zitadel
-      ZITADEL_DATABASE_POSTGRES_USER_SSL_MODE: disable
-      ZITADEL_DATABASE_POSTGRES_ADMIN_USERNAME: postgres
-      ZITADEL_DATABASE_POSTGRES_ADMIN_PASSWORD: postgres
-      ZITADEL_DATABASE_POSTGRES_ADMIN_SSL_MODE: disable
+      - ZITADEL_LOG_LEVEL=debug
+      - ZITADEL_EXTERNALSECURE=false
+      - ZITADEL_EXTERNALPORT=80
+      - ZITADEL_EXTERNALDOMAIN=zitadel.ubi.orb.local
+      - ZITADEL_DATABASE_POSTGRES_HOST=postgresql
+      - ZITADEL_DATABASE_POSTGRES_PORT=5432
+      - ZITADEL_DATABASE_POSTGRES_DATABASE=zitadel
+      - ZITADEL_DATABASE_POSTGRES_USER_USERNAME=postgres
+      - ZITADEL_DATABASE_POSTGRES_USER_PASSWORD=postgres
+      - ZITADEL_DATABASE_POSTGRES_USER_SSL_MODE=disable
+      - ZITADEL_DATABASE_POSTGRES_ADMIN_USERNAME=postgres
+      - ZITADEL_DATABASE_POSTGRES_ADMIN_PASSWORD=postgres
+      - ZITADEL_DATABASE_POSTGRES_ADMIN_SSL_MODE=disable
+      - ZITADEL_DEFAULTINSTANCE_ORG_HUMAN_USERNAME=zitadel-admin@zitadel.localhost
+      - ZITADEL_DEFAULTINSTANCE_ORG_HUMAN_PASSWORD=Asdf!234
     depends_on:
       - postgresql
-    ports:
-      - "8780:8080"
-    volumes:
-      - ./services/zitadel:/zitadel
 
   browserless:
     container_name: browserless
@@ -260,6 +262,12 @@ services:
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready"]
+      interval: "10s"
+      timeout: "30s"
+      retries: 5
+      start_period: "20s"
 
   redis:
     container_name: redis
