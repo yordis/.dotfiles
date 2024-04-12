@@ -28,7 +28,7 @@ services:
     container_name: rabbitmq
     image: rabbitmq:management
     healthcheck:
-      test: [ "CMD", "rabbitmqctl", "status" ]
+      test: ["CMD", "rabbitmqctl", "status"]
       timeout: 20s
       retries: 10
     ports:
@@ -130,6 +130,8 @@ services:
 
   cockroach:
     container_name: cockroach
+    profiles:
+      - cockroach
     restart: "always"
     image: "cockroachdb/cockroach:latest"
     command: "start-single-node --insecure"
@@ -147,11 +149,18 @@ services:
     image: "ghcr.io/zitadel/zitadel:latest"
     command: 'start-from-init --config /zitadel/defaults.yaml --masterkey "JuYLmMDXBljOuUghsNgnoB3AaEEFGOLY" --tlsMode disabled'
     environment:
-      ZITADEL_DATABASE_COCKROACH_HOST: cockroach
       ZITADEL_EXTERNALSECURE: false
+      ZITADEL_DATABASE_POSTGRES_HOST: postgresql
+      ZITADEL_DATABASE_POSTGRES_PORT: 5432
+      ZITADEL_DATABASE_POSTGRES_DATABASE: zitadel
+      ZITADEL_DATABASE_POSTGRES_USER_USERNAME: zitadel
+      ZITADEL_DATABASE_POSTGRES_USER_PASSWORD: zitadel
+      ZITADEL_DATABASE_POSTGRES_USER_SSL_MODE: disable
+      ZITADEL_DATABASE_POSTGRES_ADMIN_USERNAME: postgres
+      ZITADEL_DATABASE_POSTGRES_ADMIN_PASSWORD: postgres
+      ZITADEL_DATABASE_POSTGRES_ADMIN_SSL_MODE: disable
     depends_on:
-      cockroach:
-        condition: "service_healthy"
+      - postgresql
     ports:
       - "8780:8080"
     volumes:
@@ -352,6 +361,8 @@ services:
 
   centrifugo:
     container_name: centrifugo
+    profiles:
+      - centrifugo
     image: centrifugo/centrifugo:latest
     volumes:
       - ./services/centrifugo/config.json:/centrifugo/config.json
