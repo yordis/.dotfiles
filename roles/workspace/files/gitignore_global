@@ -9,3 +9,4 @@
 .tool-versions
 .rakeTasks
 yarn-error.log
+.turbo
