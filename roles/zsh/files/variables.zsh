@@ -1,3 +1,5 @@
+export SSH_AUTH_SOCK="$HOME/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock"
+
 __dotfiles_maybe_source "$HOME/.asdf/plugins/golang/set-env.zsh"
 
 # if [[ -f "$HOME/.asdf/bin/asdf" ]]; then
@@ -6,16 +8,27 @@ __dotfiles_maybe_source "$HOME/.asdf/plugins/golang/set-env.zsh"
 #   export GOPATH="$HOME/Developer/GoLang"
 # fi
 
+if [[ "$(uname -m)" == "arm64" ]]; then
+  export HOMEBREW_PREFIX="/opt/homebrew"
+  export HOMEBREW_CELLAR="/opt/homebrew/Cellar"
+  export HOMEBREW_REPOSITORY="/opt/homebrew"
+  export MANPATH="$HOMEBREW_PREFIX/share/man${MANPATH+:$MANPATH}:"
+  export INFOPATH="$HOMEBREW_PREFIX/share/info:${INFOPATH:-}"
+  export PATH="$HOMEBREW_PREFIX/bin:$HOMEBREW_PREFIX/sbin${PATH+:$PATH}"
+else
+  export HOMEBREW_PREFIX="/usr/local"
+fi
+
 export HISTFILE="$HOME/.zsh_history"
 export HISTSIZE=1000000
 export SAVEHIST=1000000
 export GPG_TTY=$TTY
 
-export ZPLUG_HOME=/usr/local/opt/zplug
+export ZPLUG_HOME="$HOMEBREW_PREFIX/opt/zplug"
 export JAVA_HOME=$(/usr/libexec/java_home)
 export UBI_MY_DRIVE_PATH=$HOME/My\ Drive
 export TERM=xterm-256color
-export ZPLUG_HOME=/usr/local/opt/zplug
+
 # export EDITOR="$(which vim)"
 export EDITOR="code --wait"
 export REACT_EDITOR=idea
@@ -28,6 +41,9 @@ export LDFLAGS=""
 export CPPFLAGS=""
 export PKG_CONFIG_PATH=""
 export ERL_AFLAGS="-kernel shell_history enabled"
+
+# Related To: https://github.com/rails/rails/issues/38560
+export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
 
 export GO111MODULE=on
 
@@ -53,27 +69,27 @@ export KERL_CONFIGURE_OPTIONS="--disable-debug \
 --enable-threads \
 --enable-wx \
 --with-ssl=/opt/local \
---with-wx-config=/usr/local/bin/wx-config \
+--with-wx-config=$HOMEBREW_PREFIX/bin/wx-config \
 --without-javac \
 --without-jinterface \
 --without-odbc \
---with-ssl=/usr/local/opt/openssl"
+--with-ssl=$HOMEBREW_PREFIX/opt/openssl"
 
-__dotfiles_maybe_prepend_pkg_config_path "/usr/local/opt/libxml2"
-__dotfiles_maybe_prepend_pkg_config_path "/usr/local/opt/libpq"
+__dotfiles_maybe_prepend_pkg_config_path "$HOMEBREW_PREFIX/opt/libxml2"
+__dotfiles_maybe_prepend_pkg_config_path "$HOMEBREW_PREFIX/opt/libpq"
 
-__dotfiles_maybe_prepend_ldflags "/usr/local/opt/libxml2"
-__dotfiles_maybe_prepend_ldflags "/usr/local/opt/libpq"
+__dotfiles_maybe_prepend_ldflags "$HOMEBREW_PREFIX/opt/libxml2"
+__dotfiles_maybe_prepend_ldflags "$HOMEBREW_PREFIX/opt/libpq"
 
-__dotfiles_maybe_prepend_cppflags "/usr/local/opt/libxml2"
-__dotfiles_maybe_prepend_cppflags "/usr/local/opt/libpq"
-__dotfiles_maybe_prepend_cppflags "/usr/local/opt/openjdk"
+__dotfiles_maybe_prepend_cppflags "$HOMEBREW_PREFIX/opt/libxml2"
+__dotfiles_maybe_prepend_cppflags "$HOMEBREW_PREFIX/opt/libpq"
+__dotfiles_maybe_prepend_cppflags "$HOMEBREW_PREFIX/opt/openjdk"
 
-__dotfiles_prepend_path "$DOTFILES_ROOT_ZSH_ROOT/bin/private"
+__dotfiles_prepend_path "$DOTFILES_ROOT_ZSH_ROOT/bin/secret"
 __dotfiles_prepend_path "$DOTFILES_ROOT_ZSH_ROOT/bin"
-__dotfiles_prepend_path "/usr/local/opt/libxml2/bin"
-__dotfiles_prepend_path "/usr/local/opt/libpq/bin"
-__dotfiles_prepend_path "/usr/local/sbin"
+__dotfiles_prepend_path "$HOMEBREW_PREFIX/opt/libxml2/bin"
+__dotfiles_prepend_path "$HOMEBREW_PREFIX/opt/libpq/bin"
+__dotfiles_prepend_path "$HOMEBREW_PREFIX/sbin"
 __dotfiles_prepend_path "$HOME/.config/yarn/global/node_modules/.bin"
 __dotfiles_prepend_path "$HOME/.dotfiles/bin"
 __dotfiles_prepend_path "$GOPATH/bin"
@@ -89,7 +105,7 @@ __dotfiles_maybe_prepend_path "$HOME/Developer/Flutter/bin"
 __dotfiles_maybe_prepend_path "$HOME/.deno/bin"
 __dotfiles_maybe_prepend_path "$HOME/.radicle/bin"
 __dotfiles_maybe_prepend_path "$HOME/.cosmo/bin"
-__dotfiles_maybe_prepend_path "/usr/local/opt/openjdk/bin"
+__dotfiles_maybe_prepend_path "$HOMEBREW_PREFIX/opt/openjdk/bin"
 
 # NOTE: must be the first entry in $PATH
 __dotfiles_prepend_path "/usr/local/bin"
