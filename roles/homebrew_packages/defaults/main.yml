@@ -11,8 +11,14 @@ taps:
     state: present
   - name: nats-io/nats-tools
     state: present
+  - name: hashicorp/tap
+    state: present
 
 brews:
+  - name: hashicorp/tap/terraform
+    state: latest
+  - name: watch
+    state: latest
   - name: pgxman/tap/pgxman
     state: latest
   - name: wireguard-tools
