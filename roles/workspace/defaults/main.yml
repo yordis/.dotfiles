@@ -8,8 +8,11 @@ directories:
   - "{{ user_home_directory }}/Developer/github.com/yordis"
   - "{{ user_home_directory }}/Developer/gitlab.com/straw-hat-team"
   - "{{ user_home_directory }}/.config/zed"
+  - "{{ user_home_directory }}/.version-fox"
 
 symlinks:
+  - src: "version-fox/config.yaml"
+    dest: ".version-fox/config.yaml"
   - src: "gitconfig"
     dest: ".gitconfig"
   - src: "asdfrc"
