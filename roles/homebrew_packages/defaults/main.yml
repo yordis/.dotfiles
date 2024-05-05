@@ -11,15 +11,13 @@ taps:
     state: present
   - name: nats-io/nats-tools
     state: present
-  - name: hashicorp/tap
-    state: present
+  - name: ory/tap
+    state: absent
 
 brews:
-  - name: vfox
+  - name: libpq
     state: latest
-  - name: hashicorp/tap/terraform
-    state: latest
-  - name: watch
+  - name: orbstack
     state: latest
   - name: pgxman/tap/pgxman
     state: latest
@@ -30,8 +28,6 @@ brews:
   - name: nats-io/nats-tools/nats
     state: latest
   - name: neovim
-    state: latest
-  - name: docker
     state: latest
   - name: go-task/tap/go-task
     state: latest
@@ -61,8 +57,8 @@ brews:
     state: latest
   - name: minio/stable/mc
     state: latest
-  - name: ory/tap/cli
-    state: uninstalled
+  # - name: ory/tap/cli
+  #   state: uninstalled
   - name: certigo
     state: latest
   - name: argocd
@@ -96,7 +92,7 @@ brews:
     state: latest
   - name: hyperfine
     state: latest
-  - name: kafkacat
+  - name: kcat
     state: latest
   - name: pre-commit
     state: latest
@@ -208,6 +204,8 @@ brews:
     state: latest
 
 casks:
+  - name: docker
+    state: uninstalled
   - name: emacs
     state: uninstalled
   - name: meld
