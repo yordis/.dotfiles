@@ -20,8 +20,23 @@ volumes:
     driver: local
   browserless-data:
     driver: local
+  mysql-data:
+    driver: local
 
 services:
+  mysql:
+    profiles:
+      - mysql
+    container_name: mysql
+    image: mysql:latest
+    restart: unless-stopped
+    volumes:
+      - mysql-data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: adminpass
   rabbitmq:
     profiles:
       - rabbitmq
