@@ -25,7 +25,9 @@ export SAVEHIST=1000000
 export GPG_TTY=$TTY
 
 export ZPLUG_HOME="$HOMEBREW_PREFIX/opt/zplug"
-export JAVA_HOME=$(/usr/libexec/java_home)
+if [[ -d "/usr/libexec/java_home" ]]; then
+  export JAVA_HOME=$(/usr/libexec/java_home)
+fi
 export UBI_MY_DRIVE_PATH=$HOME/My\ Drive
 export TERM=xterm-256color
 
