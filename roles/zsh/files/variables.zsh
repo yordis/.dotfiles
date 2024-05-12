@@ -1,5 +1,7 @@
 __dotfiles_maybe_source "$HOME/.asdf/plugins/golang/set-env.zsh"
 
+export GOPATH="$HOME/Developer/GoLang"
+
 # if [[ -f "$HOME/.asdf/bin/asdf" ]]; then
 #   export GOPATH=$($HOME/.asdf/bin/asdf where golang)/packages
 # else
