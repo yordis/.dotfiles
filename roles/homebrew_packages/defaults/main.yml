@@ -13,8 +13,14 @@ taps:
     state: present
   - name: ory/tap
     state: absent
+  - name: shopify/shopify
+    state: present
 
 brews:
+  - name: ejson
+    state: latest
+  - name: ejson2env
+    state: latest
   - name: wasmcloud/wasmcloud/wash
     state: latest
   - name: libpq
