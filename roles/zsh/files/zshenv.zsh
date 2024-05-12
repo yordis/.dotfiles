@@ -88,29 +88,22 @@ export KERL_CONFIGURE_OPTIONS="--disable-debug \
 --without-odbc \
 --with-ssl=$HOMEBREW_PREFIX/opt/openssl"
 
-__dotfiles_maybe_prepend_pkg_config_path "$HOMEBREW_PREFIX/opt/libxml2"
-__dotfiles_maybe_prepend_pkg_config_path "$HOMEBREW_PREFIX/opt/libpq"
-
-__dotfiles_maybe_prepend_ldflags "$HOMEBREW_PREFIX/opt/libxml2"
-__dotfiles_maybe_prepend_ldflags "$HOMEBREW_PREFIX/opt/libpq"
-
-__dotfiles_maybe_prepend_cppflags "$HOMEBREW_PREFIX/opt/libxml2"
-__dotfiles_maybe_prepend_cppflags "$HOMEBREW_PREFIX/opt/libpq"
+__dotfiles_brew_pkg_link "libxml2"
+__dotfiles_brew_pkg_link "libpq"
 __dotfiles_maybe_prepend_cppflags "$HOMEBREW_PREFIX/opt/openjdk"
-
-__dotfiles_prepend_path "$DOTFILES_ROOT_ZSH_ROOT/bin/secret"
-__dotfiles_prepend_path "$DOTFILES_ROOT_ZSH_ROOT/bin"
-__dotfiles_prepend_path "$HOMEBREW_PREFIX/opt/libxml2/bin"
-__dotfiles_prepend_path "$HOMEBREW_PREFIX/opt/libpq/bin"
-__dotfiles_prepend_path "$HOMEBREW_PREFIX/sbin"
-__dotfiles_prepend_path "$HOME/.config/yarn/global/node_modules/.bin"
-__dotfiles_prepend_path "$HOME/.dotfiles/bin"
-__dotfiles_prepend_path "$GOPATH/bin"
 
 if [[ "$RANCHER_ENABLED" == "true" ]]; then
   __dotfiles_maybe_prepend_path "$HOME/.rd/bin"
 fi
 
+__dotfiles_brew_pkg_prepend_path "libxml2"
+__dotfiles_brew_pkg_prepend_path "libpq"
+__dotfiles_brew_pkg_prepend_path "openjdk"
+__dotfiles_prepend_path "$DOTFILES_ROOT_ZSH_ROOT/bin"
+__dotfiles_prepend_path "$HOMEBREW_PREFIX/sbin"
+__dotfiles_prepend_path "$HOME/.config/yarn/global/node_modules/.bin"
+__dotfiles_prepend_path "$HOME/.dotfiles/bin"
+__dotfiles_prepend_path "$GOPATH/bin"
 __dotfiles_maybe_prepend_path "$HOME/.mix/escripts"
 __dotfiles_maybe_prepend_path "$HOME/.cargo/bin"
 __dotfiles_maybe_prepend_path "$HOME/.crc/bin"
@@ -118,9 +111,9 @@ __dotfiles_maybe_prepend_path "$HOME/Developer/Flutter/bin"
 __dotfiles_maybe_prepend_path "$HOME/.deno/bin"
 __dotfiles_maybe_prepend_path "$HOME/.radicle/bin"
 __dotfiles_maybe_prepend_path "$HOME/.cosmo/bin"
-__dotfiles_maybe_prepend_path "$HOMEBREW_PREFIX/opt/openjdk/bin"
 __dotfiles_maybe_source "$HOME/.asdf/plugins/golang/set-env.zsh"
 
+__dotfiles_prepend_path "$DOTFILES_ROOT_ZSH_ROOT/bin/secret"
 # NOTE: must be the first entry in $PATH always respect system
 # setup, until further notice!
 __dotfiles_prepend_path "/usr/local/bin"

@@ -55,3 +55,15 @@ function __dotfiles_prepend_pkg_config_path {
 function __dotfiles_maybe_prepend_pkg_config_path {
   __dotfiles_dir_exists "$1/lib/pkgconfig" && __dotfiles_prepend_pkg_config_path $1
 }
+
+function __dotfiles_brew_pkg_link {
+  if __dotfiles_dir_exists "$HOMEBREW_PREFIX/opt/$1"; then
+    __dotfiles_prepend_pkg_config_path "$HOMEBREW_PREFIX/opt/$1"
+    __dotfiles_prepend_ldflags "$HOMEBREW_PREFIX/opt/$1"
+    __dotfiles_prepend_cppflags "$HOMEBREW_PREFIX/opt/$1"
+  fi
+}
+
+function __dotfiles_brew_pkg_prepend_path {
+  __dotfiles_maybe_prepend_path "$HOMEBREW_PREFIX/opt/$1/bin"
+}
