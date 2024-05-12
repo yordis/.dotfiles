@@ -1,32 +1,30 @@
-function __dotfiles_log_warning() {
-  if [[ -n "$DOTFILES_DEBUG" ]]; then
-    echo -e "\033[1;33m[DOTFILES:WARNING] $1\033[0m"
-  fi
+function __dotfiles_log_warning {
+  [[ -n "$DOTFILES_DEBUG" ]] && echo -e "\033[1;33m[DOTFILES:WARNING] $1\033[0m"
 }
 
-function __dotfiles_source {
-  source $1
+function __dotfiles_file_exists {
+  [[ -f $1 ]] || { __dotfiles_log_warning "$1 does not exist"; return 1; }
+}
+
+function __dotfiles_dir_exists {
+  [[ -d $1 ]] || { __dotfiles_log_warning "$1 does not exist"; return 1; }
 }
 
 function __dotfiles_maybe_source {
-  if [[ -f "$1" ]]; then
-    __dotfiles_source "$1"
-  else
-    __dotfiles_log_warning "$1 does not exist"
+  if __dotfiles_file_exists $1; then
+    source "$1"
   fi
 }
 
 function __dotfiles_secret_source {
   set -o allexport
-  __dotfiles_source $1
+  source $1
   set +o allexport
 }
 
 function __dotfiles_maybe_secret_source {
-  if [[ -f "$1" ]]; then
+  if __dotfiles_file_exists $1; then
     __dotfiles_secret_source "$1"
-  else
-    __dotfiles_log_warning "$1 does not exist"
   fi
 }
 
@@ -35,10 +33,8 @@ function __dotfiles_prepend_path {
 }
 
 function __dotfiles_maybe_prepend_path {
-  if [[ -d "$1" ]]; then
+  if __dotfiles_dir_exists $1; then
     export PATH="$1:$PATH"
-  else
-    __dotfiles_log_warning "$1 does not exist"
   fi
 }
 
@@ -47,10 +43,8 @@ function __dotfiles_prepend_cppflags {
 }
 
 function __dotfiles_maybe_prepend_cppflags {
-  if [[ -d "$1/include" ]]; then
+  if __dotfiles_dir_exists "$1/include"; then
     __dotfiles_prepend_cppflags "$1"
-  else
-    __dotfiles_log_warning "$1/include does not exist"
   fi
 }
 
@@ -59,10 +53,8 @@ function __dotfiles_prepend_ldflags {
 }
 
 function __dotfiles_maybe_prepend_ldflags {
-  if [[ -d "$1/lib" ]]; then
+  if __dotfiles_dir_exists "$1/lib"; then
     __dotfiles_prepend_ldflags "$1"
-  else
-    __dotfiles_log_warning "$1/lib does not exist"
   fi
 }
 
@@ -71,9 +63,7 @@ function __dotfiles_prepend_pkg_config_path {
 }
 
 function __dotfiles_maybe_prepend_pkg_config_path {
-  if [[ -d "$1/lib/pkgconfig" ]]; then
+  if __dotfiles_dir_exists "$1/lib/pkgconfig"; then
     __dotfiles_prepend_pkg_config_path "$1"
-  else
-    __dotfiles_log_warning "$1/lib/pkgconfig does not exist"
   fi
 }
