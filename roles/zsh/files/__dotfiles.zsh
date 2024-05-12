@@ -11,9 +11,7 @@ function __dotfiles_dir_exists {
 }
 
 function __dotfiles_maybe_source {
-  if __dotfiles_file_exists $1; then
-    source "$1"
-  fi
+  __dotfiles_file_exists $1 && source $1
 }
 
 function __dotfiles_secret_source {
@@ -23,9 +21,7 @@ function __dotfiles_secret_source {
 }
 
 function __dotfiles_maybe_secret_source {
-  if __dotfiles_file_exists $1; then
-    __dotfiles_secret_source "$1"
-  fi
+  __dotfiles_file_exists $1 && __dotfiles_secret_source $1
 }
 
 function __dotfiles_prepend_path {
@@ -33,9 +29,7 @@ function __dotfiles_prepend_path {
 }
 
 function __dotfiles_maybe_prepend_path {
-  if __dotfiles_dir_exists $1; then
-    export PATH="$1:$PATH"
-  fi
+  __dotfiles_dir_exists $1 && __dotfiles_prepend_path $1
 }
 
 function __dotfiles_prepend_cppflags {
@@ -43,9 +37,7 @@ function __dotfiles_prepend_cppflags {
 }
 
 function __dotfiles_maybe_prepend_cppflags {
-  if __dotfiles_dir_exists "$1/include"; then
-    __dotfiles_prepend_cppflags "$1"
-  fi
+  __dotfiles_dir_exists "$1/include" && __dotfiles_prepend_cppflags $1
 }
 
 function __dotfiles_prepend_ldflags {
@@ -53,9 +45,7 @@ function __dotfiles_prepend_ldflags {
 }
 
 function __dotfiles_maybe_prepend_ldflags {
-  if __dotfiles_dir_exists "$1/lib"; then
-    __dotfiles_prepend_ldflags "$1"
-  fi
+  __dotfiles_dir_exists "$1/lib" && __dotfiles_prepend_ldflags $1
 }
 
 function __dotfiles_prepend_pkg_config_path {
@@ -63,7 +53,5 @@ function __dotfiles_prepend_pkg_config_path {
 }
 
 function __dotfiles_maybe_prepend_pkg_config_path {
-  if __dotfiles_dir_exists "$1/lib/pkgconfig"; then
-    __dotfiles_prepend_pkg_config_path "$1"
-  fi
+  __dotfiles_dir_exists "$1/lib/pkgconfig" && __dotfiles_prepend_pkg_config_path $1
 }
