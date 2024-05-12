@@ -18,6 +18,13 @@
   failed_when: plugin_add == 2
   tags: "{{ tags | default([]) }}"
 
+- name: "installing required brews"
+  loop: "{{ plugins | selectattr('brews', 'defined') | map(attribute='brews') | list | flatten | unique }}"
+  community.general.homebrew:
+    name: "{{ item.name }}"
+    state: present
+    install_options: "{{ item.install_options | default([]) }}"
+
 - name: install versions
   loop: "{{ versions }}"
   command:

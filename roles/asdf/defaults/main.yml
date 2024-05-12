@@ -5,6 +5,12 @@ plugins:
     url: https://github.com/asdf-vm/asdf-elixir
   - name: erlang
     url: https://github.com/asdf-vm/asdf-erlang
+    brews:
+      - name: openssl
+      - name: autoconf
+      - name: automake
+      - name: libtool
+      - name: wxwidgets
   - name: golang
     url: https://github.com/kennyp/asdf-golang.git
   - name: deno
