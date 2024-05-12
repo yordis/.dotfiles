@@ -18,10 +18,11 @@
   become: true
   when: current_shell.stdout != "/bin/sh"
 
-- name: link .zshrc config file
+- name: create symlinks
+  loop: "{{ symlinks }}"
   file:
-    src: "{{ dotfiles_directory }}/roles/zsh/files/zshrc.sh"
-    dest: "{{ user_home_directory }}/.zshrc"
+    src: "{{ dotfiles_directory }}/roles/zsh/files/{{ item.src }}"
+    dest: "{{ user_home_directory }}/{{ item.dest }}"
     state: link
     force: yes
 

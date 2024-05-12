@@ -1,6 +1,12 @@
+export DOTFILES_DEBUG=true
+
+export DOTFILES_ROOT="$HOME/.dotfiles"
+export DOTFILES_ROOT_ZSH_ROOT="$DOTFILES_ROOT/roles/zsh/files"
 export SSH_AUTH_SOCK="$HOME/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock"
 
-__dotfiles_maybe_source "$HOME/.asdf/plugins/golang/set-env.zsh"
+source "$DOTFILES_ROOT_ZSH_ROOT/__dotfiles.zsh"
+
+__dotfiles_maybe_secret_source "$DOTFILES_ROOT_ZSH_ROOT/secret.zsh"
 
 export GOPATH="$HOME/Developer/GoLang"
 
@@ -21,15 +27,18 @@ else
   export HOMEBREW_PREFIX="/usr/local"
 fi
 
+export AWS_REGION="localhost"
 export HISTFILE="$HOME/.zsh_history"
 export HISTSIZE=1000000
 export SAVEHIST=1000000
 export GPG_TTY=$TTY
 
 export ZPLUG_HOME="$HOMEBREW_PREFIX/opt/zplug"
+
 if [[ -d "/usr/libexec/java_home" ]]; then
   export JAVA_HOME=$(/usr/libexec/java_home)
 fi
+
 export UBI_MY_DRIVE_PATH=$HOME/My\ Drive
 export TERM=xterm-256color
 
@@ -110,6 +119,8 @@ __dotfiles_maybe_prepend_path "$HOME/.deno/bin"
 __dotfiles_maybe_prepend_path "$HOME/.radicle/bin"
 __dotfiles_maybe_prepend_path "$HOME/.cosmo/bin"
 __dotfiles_maybe_prepend_path "$HOMEBREW_PREFIX/opt/openjdk/bin"
+__dotfiles_maybe_source "$HOME/.asdf/plugins/golang/set-env.zsh"
 
-# NOTE: must be the first entry in $PATH
+# NOTE: must be the first entry in $PATH always respect system
+# setup, until further notice!
 __dotfiles_prepend_path "/usr/local/bin"

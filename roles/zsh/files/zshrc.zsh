@@ -1,8 +1,3 @@
-source "$DOTFILES_ROOT_ZSH_ROOT/__dotfiles.zsh"
-
-__dotfiles_source "$DOTFILES_ROOT_ZSH_ROOT/variables.zsh"
-__dotfiles_maybe_secret_source "$DOTFILES_ROOT_ZSH_ROOT/secret.zsh"
-
 setopt auto_cd                # Any command that results in a directory change automatically cd's to that directory.
 setopt prompt_subst           # Enable parameter expansion, command substitution and arithmetic expansion in the prompt.
 setopt -o sharehistory        # share history between sessions
@@ -34,15 +29,13 @@ autoload -Uz zkbd
 # ¯\_(ツ)_/¯
 ulimit -n 4096
 
-__dotfiles_source "$ZPLUG_HOME/init.zsh"
-__dotfiles_source "$DOTFILES_ROOT_ZSH_ROOT/zplug.zsh"
-__dotfiles_source "$DOTFILES_ROOT_ZSH_ROOT/aliases.zsh"
-__dotfiles_source "$DOTFILES_ROOT_ZSH_ROOT/functions.zsh"
-__dotfiles_source "$DOTFILES_ROOT_ZSH_ROOT/keybinding.zsh"
-__dotfiles_source "$DOTFILES_ROOT_ZSH_ROOT/completion.zsh"
+source "$ZPLUG_HOME/init.zsh"
+source "$DOTFILES_ROOT_ZSH_ROOT/zplug.zsh"
+source "$DOTFILES_ROOT_ZSH_ROOT/aliases.zsh"
+source "$DOTFILES_ROOT_ZSH_ROOT/functions.zsh"
+source "$DOTFILES_ROOT_ZSH_ROOT/keybinding.zsh"
+source "$DOTFILES_ROOT_ZSH_ROOT/completion.zsh"
 
 __dotfiles_maybe_source "$HOME/.asdf/asdf.sh"
 __dotfiles_maybe_source "$HOME/.tnsrc"
 __dotfiles_maybe_source "$HOME/.nix-profile/etc/profile.d/nix.sh"
-
-unset ASDF_RUBY_VERSION

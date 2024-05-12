@@ -1,0 +1,7 @@
+symlinks:
+  - src: "zshrc.zsh"
+    dest: ".zshrc"
+  - src: "zshenv.zsh"
+    dest: ".zshenv"
+  - src: "zprofile.zsh"
+    dest: ".zprofile"
