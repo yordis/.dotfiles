@@ -1,0 +1,9 @@
+proxy:
+    url: ""
+    enable: false
+storage:
+    sdkPath: ""
+registry:
+    address: ""
+legacyVersionFile:
+    enable: false

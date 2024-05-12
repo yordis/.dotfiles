@@ -20,8 +20,23 @@ volumes:
     driver: local
   browserless-data:
     driver: local
+  mysql-data:
+    driver: local
 
 services:
+  mysql:
+    profiles:
+      - mysql
+    container_name: mysql
+    image: mysql:latest
+    restart: unless-stopped
+    volumes:
+      - mysql-data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: adminpass
   rabbitmq:
     profiles:
       - rabbitmq
@@ -125,7 +140,7 @@ services:
       - cluster.routing.allocation.disk.watermark.low=512mb
       - cluster.routing.allocation.disk.watermark.high=256mb
       - cluster.routing.allocation.disk.watermark.flood_stage=128mb
-      - OPENSEARCH_INITIAL_ADMIN_PASSWORD=admin
+      - OPENSEARCH_INITIAL_ADMIN_PASSWORD=1PasswordAsdf!234
     volumes:
       - opensearch-data:/usr/share/opensearch/data
 
@@ -213,13 +228,17 @@ services:
 
   minio:
     container_name: minio
-    image: minio/minio:edge
-    command:
-      - server
-      - /data
+    image: minio/minio:latest
+    command: server /data --console-address ":9001"
     restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:9000/minio/health/live"]
+      interval: 30s
+      timeout: 20s
+      retries: 3
     ports:
-      - "9002:9000"
+      - "9000:9000"
+      - "9001:9001"
     volumes:
       - minio-data:/data
     environment:
@@ -324,8 +343,6 @@ services:
     profiles:
       - temporal
     image: temporalio/ui:latest
-    ports:
-      - "8080:8080"
     depends_on:
       - temporal
     environment:

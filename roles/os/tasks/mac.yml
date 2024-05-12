@@ -6,6 +6,9 @@
   command: softwareupdate -i -a
   become: true
 
+- name: disable man page search
+  command: defaults write pbs NSServicesStatus -dict-add 'com.apple.Terminal - Search man Page Index in Terminal - searchManPages' "<dict><key>enabled_context_menu</key><false/><key>enabled_services_menu</key><false/><key>presentation_modes</key><dict><key>ContextMenu</key><false/><key>ServicesMenu</key><false/></dict></dict>"
+
 - name: disable memory badge count notification
   command: defaults delete com.apple.SlotNotificationsPref memoryBadgeCount
 
