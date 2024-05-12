@@ -17,7 +17,6 @@ taps:
 brews:
   - name: wasmcloud/wasmcloud/wash
     state: latest
-  - name: orbstack
   - name: libpq
     state: latest
   - name: orbstack
