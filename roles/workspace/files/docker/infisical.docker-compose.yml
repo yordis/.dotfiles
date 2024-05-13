@@ -1,0 +1,36 @@
+version: "3"
+
+services:
+  infisical-db-migration:
+    container_name: infisical-db-migration
+    depends_on:
+      postgresql:
+        condition: service_healthy
+    image: infisical/infisical:latest-postgres
+    command: npm run migration:latest
+    environment:
+      DB_CONNECTION_URI: postgres://postgres:postgres@postgresql:5432/infisical
+
+  infisical-backend:
+    container_name: infisical-backend
+    restart: unless-stopped
+    depends_on:
+      postgresql:
+        condition: service_healthy
+      redis:
+        condition: service_started
+      infisical-db-migration:
+        condition: service_completed_successfully
+    image: infisical/infisical:latest-postgres
+    environment:
+      ENCRYPTION_KEY: 6c1fe4e407b8911c104518103505b218
+      AUTH_SECRET: 5lrMXKKWCVocS/uerPsl7V+TX/aaUaI7iDkgl3tSmLE=
+      NODE_ENV: production
+      DB_CONNECTION_URI: postgres://postgres:postgres@postgresql:5432/infisical
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_DB: infisical
+      REDIS_URL: redis://redis:6379
+      SITE_URL: https://infisical-backend.ubi.orb.local
+      SMTP_HOST: mailhog
+      SMTP_PORT: 1025
