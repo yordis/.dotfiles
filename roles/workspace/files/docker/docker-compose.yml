@@ -24,6 +24,8 @@ volumes:
     driver: local
   open-webui:
     driver: local
+  tigerbeetle-data:
+    driver: local
 
 services:
   open-webui:
@@ -56,6 +58,37 @@ services:
       MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
       MYSQL_USER: admin
       MYSQL_PASSWORD: adminpass
+
+  tigerbeetle-format:
+    container_name: tigerbeetle-format
+    profiles:
+      - tigerbeetle
+    image: ghcr.io/tigerbeetle/tigerbeetle:latest
+    entrypoint: ""
+    volumes:
+      - tigerbeetle-data:/data
+    command: >
+      /bin/sh -c "
+      if [ -f /data/0_0.tigerbeetle ]; then
+        echo 'tigerbeetle data already exists';
+      else
+        /tigerbeetle format --cluster=0 --replica=0 --replica-count=1 /data/0_0.tigerbeetle;
+      fi
+      "
+
+  tigerbeetle:
+    container_name: tigerbeetle
+    profiles:
+      - tigerbeetle
+    image: ghcr.io/tigerbeetle/tigerbeetle:latest
+    command: "start --addresses=0.0.0.0:3001 /data/0_0.tigerbeetle"
+    cap_add:
+     - IPC_LOCK
+    depends_on:
+      - tigerbeetle-format
+    volumes:
+      - tigerbeetle-data:/data
+
   rabbitmq:
     profiles:
       - rabbitmq
