@@ -24,8 +24,39 @@ volumes:
     driver: local
   open-webui:
     driver: local
+  maybe-finance:
+    driver: local
 
 services:
+  maybe-finance:
+    container_name: maybe-finance
+    profiles:
+      - maybe-finance
+    image: ghcr.io/maybe-finance/maybe:latest
+    volumes:
+      - maybe-finance:/rails/storage
+    restart: unless-stopped
+    environment:
+      APP_DOMAIN: maybe-finance.ubi.orb.local
+      REQUIRE_INVITE_CODE: false
+      SELF_HOSTING_ENABLED: true
+      DB_HOST: postgresql
+      RAILS_FORCE_SSL: false
+      RAILS_ASSUME_SSL: false
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      GOOD_JOB_EXECUTION_MODE: async
+      SMTP_ADDRESS: mailhog
+      SMTP_PORT: 1025
+      HOSTING_PLATFORM: localhost
+      SECRET_KEY_BASE: 88efe1b90eb800386b3e03e032ffa76d5fc2ec084770d699678d27f94a6bd9bd27ad51dad7781471d42825ca4b1ceceae7ffdb14f60737d8d1219a73af53f8f0
+      GITHUB_REPO_OWNER: maybe-finance
+      GITHUB_REPO_NAME: maybe
+      GITHUB_REPO_BRANCH: main
+    depends_on:
+      postgresql:
+        condition: service_healthy
+
   open-webui:
     profiles:
       - ollama
@@ -56,6 +87,7 @@ services:
       MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
       MYSQL_USER: admin
       MYSQL_PASSWORD: adminpass
+
   rabbitmq:
     profiles:
       - rabbitmq
