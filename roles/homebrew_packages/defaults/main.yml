@@ -17,6 +17,8 @@ taps:
     state: present
 
 brews:
+  - name: argocd-autopilot
+    state: latest
   - name: ejson
     state: latest
   - name: ejson2env
