@@ -14,6 +14,7 @@ setopt HIST_REDUCE_BLANKS     # Remove superfluous blanks before recording entry
 setopt HIST_VERIFY            # Don't execute immediately upon history expansion.
 setopt HIST_BEEP              # Beep when accessing nonexistent history.
 
+
 fpath+=$DOTFILES_ROOT_ZSH_ROOT/completions
 fpath+=$ASDF_DIR
 

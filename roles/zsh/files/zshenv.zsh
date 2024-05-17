@@ -31,6 +31,7 @@ export AWS_REGION="localhost"
 export HISTFILE="$HOME/.zsh_history"
 export HISTSIZE=1000000
 export SAVEHIST=1000000
+export HISTDUP=erase
 export GPG_TTY=$TTY
 
 export ZPLUG_HOME="$HOMEBREW_PREFIX/opt/zplug"
