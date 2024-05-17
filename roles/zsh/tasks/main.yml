@@ -3,11 +3,6 @@
     name: zsh
     state: latest
 
-- name: install zplug using Homebrew
-  community.general.homebrew:
-    name: zplug
-    state: latest
-
 - name: check existing shell
   shell: echo $0
   register: current_shell

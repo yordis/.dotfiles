@@ -19,6 +19,10 @@ taps:
 brews:
   - name: argocd-autopilot
     state: latest
+  - name: zplug
+    state: absent
+  - name: starship
+    state: latest
   - name: ejson
     state: latest
   - name: ejson2env

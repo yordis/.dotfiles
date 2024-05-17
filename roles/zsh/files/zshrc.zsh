@@ -1,3 +1,5 @@
+eval "$(starship init zsh)"
+
 setopt auto_cd                # Any command that results in a directory change automatically cd's to that directory.
 setopt prompt_subst           # Enable parameter expansion, command substitution and arithmetic expansion in the prompt.
 setopt -o sharehistory        # share history between sessions
@@ -14,24 +16,13 @@ setopt HIST_REDUCE_BLANKS     # Remove superfluous blanks before recording entry
 setopt HIST_VERIFY            # Don't execute immediately upon history expansion.
 setopt HIST_BEEP              # Beep when accessing nonexistent history.
 
-
 fpath+=$DOTFILES_ROOT_ZSH_ROOT/completions
 fpath+=$ASDF_DIR
-
-autoload -U edit-command-line
-zle -N edit-command-line
-
-autoload -U +X bashcompinit && bashcompinit
-autoload -U colors && colors
-autoload -Uz compinit && compinit
-autoload -U promptinit && promptinit
-autoload -Uz zkbd
 
 # ¯\_(ツ)_/¯
 ulimit -n 4096
 
-source "$ZPLUG_HOME/init.zsh"
-source "$DOTFILES_ROOT_ZSH_ROOT/zplug.zsh"
+source "$DOTFILES_ROOT_ZSH_ROOT/zinit.zsh"
 source "$DOTFILES_ROOT_ZSH_ROOT/aliases.zsh"
 source "$DOTFILES_ROOT_ZSH_ROOT/functions.zsh"
 source "$DOTFILES_ROOT_ZSH_ROOT/keybinding.zsh"
@@ -40,3 +31,11 @@ source "$DOTFILES_ROOT_ZSH_ROOT/completion.zsh"
 __dotfiles_maybe_source "$HOME/.asdf/asdf.sh"
 __dotfiles_maybe_source "$HOME/.tnsrc"
 __dotfiles_maybe_source "$HOME/.nix-profile/etc/profile.d/nix.sh"
+
+autoload -U edit-command-line
+zle -N edit-command-line
+autoload -U +X bashcompinit && bashcompinit
+autoload -U colors && colors
+autoload -Uz compinit && compinit
+autoload -U promptinit && promptinit
+autoload -Uz zkbd

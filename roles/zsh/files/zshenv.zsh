@@ -34,7 +34,7 @@ export SAVEHIST=1000000
 export HISTDUP=erase
 export GPG_TTY=$TTY
 
-export ZPLUG_HOME="$HOMEBREW_PREFIX/opt/zplug"
+export ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 
 if [[ -d "/usr/libexec/java_home" ]]; then
   export JAVA_HOME=$(/usr/libexec/java_home)
