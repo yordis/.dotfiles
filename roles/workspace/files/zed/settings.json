@@ -8,5 +8,6 @@
 // from the command palette or from `Zed` application menu.
 {
   "ui_font_size": 20,
-  "buffer_font_size": 16
+  "buffer_font_size": 16,
+  "autosave": "on_focus_change"
 }

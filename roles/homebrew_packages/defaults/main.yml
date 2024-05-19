@@ -17,6 +17,8 @@ taps:
     state: present
 
 brews:
+  - name: direnv
+    state: latest
   - name: argocd-autopilot
     state: latest
   - name: zplug
