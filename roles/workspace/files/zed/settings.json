@@ -7,7 +7,12 @@
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
 {
+  "collaboration_panel": {
+    "dock": "right"
+  },
+  "theme": "Summercamp",
   "ui_font_size": 20,
   "buffer_font_size": 16,
-  "autosave": "on_focus_change"
+  "autosave": "on_focus_change",
+  "base_keymap": "JetBrains"
 }
