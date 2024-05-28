@@ -16,6 +16,14 @@ setopt HIST_REDUCE_BLANKS     # Remove superfluous blanks before recording entry
 setopt HIST_VERIFY            # Don't execute immediately upon history expansion.
 setopt HIST_BEEP              # Beep when accessing nonexistent history.
 
+autoload -U edit-command-line
+zle -N edit-command-line
+autoload -U +X bashcompinit && bashcompinit
+autoload -U colors && colors
+autoload -Uz compinit && compinit
+autoload -U promptinit && promptinit
+autoload -Uz zkbd
+
 fpath+=$DOTFILES_ROOT_ZSH_ROOT/completions
 fpath+=$ASDF_DIR
 
@@ -31,11 +39,3 @@ source "$DOTFILES_ROOT_ZSH_ROOT/completion.zsh"
 __dotfiles_maybe_source "$HOME/.asdf/asdf.sh"
 __dotfiles_maybe_source "$HOME/.tnsrc"
 __dotfiles_maybe_source "$HOME/.nix-profile/etc/profile.d/nix.sh"
-
-autoload -U edit-command-line
-zle -N edit-command-line
-autoload -U +X bashcompinit && bashcompinit
-autoload -U colors && colors
-autoload -Uz compinit && compinit
-autoload -U promptinit && promptinit
-autoload -Uz zkbd
