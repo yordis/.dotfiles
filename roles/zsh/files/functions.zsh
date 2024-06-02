@@ -181,3 +181,11 @@ function git-goodies {
 function print-path {
   echo $PATH | tr ':' '\n'
 }
+
+function github-notification-ghost-fix {
+   curl -X PUT \
+      -H "Accept: application/vnd.github.v3+json" \
+      -H "Authorization: token $GITHUB_TOKEN" \
+       https://api.github.com/notifications \
+      -d '{"last_read_at":"'$(date -u +"%Y-%m-%dT%H:%M:%SZ")'"}'
+}
