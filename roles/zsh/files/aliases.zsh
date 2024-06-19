@@ -11,6 +11,7 @@ alias ga="git add"
 alias gss="git status -s"
 alias gst="git status"
 alias gac="git add . && git commit -m"
+alias gapa!="git add . && git commit --amend --no-edit && git push --force-with-lease"
 
 alias gc="git commit -m"
 alias gamend="git commit --amend"
