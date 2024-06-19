@@ -7,7 +7,7 @@ directories:
   - "{{ user_home_directory }}/Developer/github.com/straw-hat-team"
   - "{{ user_home_directory }}/Developer/github.com/yordis"
   - "{{ user_home_directory }}/Developer/gitlab.com/straw-hat-team"
-  - "{{ user_home_directory }}/.config/zed"
+  - "{{ user_home_directory }}/.config/zed/snippets"
   - "{{ user_home_directory }}/.version-fox"
 
 symlinks:
@@ -23,6 +23,8 @@ symlinks:
     dest: ".config/zed/settings.json"
   - src: "zed/keymap.json"
     dest: ".config/zed/keymap.json"
+  - src: "zed/snippets/snippets.json"
+    dest: ".config/zed/snippets/snippets.json"
   - src: "default-npm-packages"
     dest: ".default-npm-packages"
   - src: "default-python-packages"

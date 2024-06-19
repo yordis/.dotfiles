@@ -14,5 +14,11 @@
   "ui_font_size": 20,
   "buffer_font_size": 16,
   "autosave": "on_focus_change",
-  "base_keymap": "JetBrains"
+  "base_keymap": "JetBrains",
+  "assistant": {
+    "version": "1",
+    "provider": {
+      "name": "ollama"
+    }
+  }
 }
