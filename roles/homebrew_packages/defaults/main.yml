@@ -17,6 +17,8 @@ taps:
     state: present
 
 brews:
+  - name: elixir-ls
+    state: latest
   - name: direnv
     state: latest
   - name: argocd-autopilot
