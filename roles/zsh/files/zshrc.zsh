@@ -1,4 +1,6 @@
-eval "$(starship init zsh)"
+if [[ "$TERM_PROGRAM" != "WarpTerminal" || "$ZED_TERM" == "true" ]]; then
+    eval "$(starship init zsh)"
+fi
 
 setopt auto_cd                # Any command that results in a directory change automatically cd's to that directory.
 setopt prompt_subst           # Enable parameter expansion, command substitution and arithmetic expansion in the prompt.

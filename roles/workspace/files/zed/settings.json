@@ -18,7 +18,22 @@
   "assistant": {
     "version": "1",
     "provider": {
-      "name": "ollama"
+      "name": "ollama",
+      "default_model": {
+        "keep_alive": "10m",
+        "name": "codellama:7b",
+        "max_tokens": 2048
+      }
+    }
+  },
+  "languages": {
+    "Elixir": {
+      "format_on_save": {
+        "external": {
+          "command": "mix",
+          "arguments": ["format", "--stdin-filename", "{buffer_path}", "-"]
+        }
+      }
     }
   }
 }
