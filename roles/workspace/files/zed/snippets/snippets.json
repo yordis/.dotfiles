@@ -1,7 +1,7 @@
 {
-  "my snippet": {
-    "prefix": "log",
-    "body": ["console.log(\"$1\")"],
-    "description": "Expand `log` to `console.log()`"
+  "elixir dbg": {
+    "prefix": "iod",
+    "body": ["|> dbg()"],
+    "description": "Insert dbg() at the end of the line"
   }
 }
