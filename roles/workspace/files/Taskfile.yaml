@@ -11,6 +11,15 @@ tasks:
     cmds:
       - $DOTFILES_ROOT/roles/zsh/files/bin/ubi --list-all
 
+  tmp:cleanup:
+    silent: true
+    dir: "{{.USER_WORKING_DIR}}"
+    preconditions:
+      - test -d ./tmp
+    cmds:
+      - echo "cleaning up ./tmp directory"
+      - find ./tmp -mindepth 1 -delete -not -name .gitignore -print
+
   help:
     silent: true
     cmds:
