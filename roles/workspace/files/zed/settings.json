@@ -12,7 +12,7 @@
   },
   "theme": "Summercamp",
   "ui_font_size": 20,
-  "buffer_font_size": 16,
+  "buffer_font_size": 20,
   "autosave": "on_focus_change",
   "base_keymap": "JetBrains",
   "assistant": {
@@ -38,5 +38,13 @@
   },
   "file_types": {
     "Dockerfile": ["Dockerfile*"]
-  }
+  },
+  "indent_guides": {
+    "enabled": true,
+    "line_width": 1,
+    "coloring": "fixed",
+    "background_coloring": "disabled"
+  },
+  "wrap_guides": [80, 120],
+  "show_whitespaces": "all"
 }
