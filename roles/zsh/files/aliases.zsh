@@ -89,7 +89,7 @@ alias dev="cd $HOME/Developer"
 
 alias read-my-keystrokes="sed -n l"
 
-alias open-pr="gh pr view --web"
+alias gprview="gh pr view --web"
 
 alias pretty-json="python -m json.tool"
 
