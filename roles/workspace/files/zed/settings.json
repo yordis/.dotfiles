@@ -35,5 +35,8 @@
         }
       }
     }
+  },
+  "file_types": {
+    "Dockerfile": ["Dockerfile*"]
   }
 }
