@@ -46,5 +46,6 @@
     "background_coloring": "disabled"
   },
   "wrap_guides": [80, 120],
+  "soft_wrap": "none",
   "show_whitespaces": "all"
 }

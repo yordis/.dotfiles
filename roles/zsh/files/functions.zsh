@@ -189,3 +189,8 @@ function github-notification-ghost-fix {
        https://api.github.com/notifications \
       -d '{"last_read_at":"'$(date -u +"%Y-%m-%dT%H:%M:%SZ")'"}'
 }
+
+function gcomain {
+    local branch_name=$(git rev-parse --abbrev-ref origin/HEAD | xargs basename)
+    git checkout $branch_name
+}

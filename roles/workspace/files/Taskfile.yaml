@@ -18,7 +18,7 @@ tasks:
       - test -d ./tmp
     cmds:
       - echo "cleaning up ./tmp directory"
-      - find ./tmp -mindepth 1 -delete -not -name .gitignore -print
+      - find ./tmp -mindepth 1 ! -name '.gitignore' -delete -print
 
   help:
     silent: true
