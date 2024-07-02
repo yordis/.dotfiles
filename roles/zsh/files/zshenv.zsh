@@ -90,6 +90,8 @@ export KERL_CONFIGURE_OPTIONS="--disable-debug \
 --without-odbc \
 --with-ssl=$HOMEBREW_PREFIX/opt/openssl"
 
+export PNPM_HOME="$HOME/Library/pnpm"
+
 __dotfiles_brew_pkg_link "libxml2"
 __dotfiles_brew_pkg_link "libpq"
 __dotfiles_maybe_prepend_cppflags "$HOMEBREW_PREFIX/opt/openjdk"
@@ -106,6 +108,7 @@ __dotfiles_prepend_path "$HOMEBREW_PREFIX/sbin"
 __dotfiles_prepend_path "$HOME/.config/yarn/global/node_modules/.bin"
 __dotfiles_prepend_path "$HOME/.dotfiles/bin"
 __dotfiles_prepend_path "$GOPATH/bin"
+__dotfiles_maybe_prepend_path "$PNPM_HOME"
 __dotfiles_maybe_prepend_path "$HOME/.mix/escripts"
 __dotfiles_maybe_prepend_path "$HOME/.cargo/bin"
 __dotfiles_maybe_prepend_path "$HOME/.crc/bin"
