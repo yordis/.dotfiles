@@ -11,6 +11,12 @@ tasks:
     cmds:
       - $DOTFILES_ROOT/roles/zsh/files/bin/ubi --list-all
 
+  yarn:set:stable:
+    silent: true
+    dir: "{{.USER_WORKING_DIR}}"
+    cmds:
+      - yarn set version stable
+
   tmp:cleanup:
     silent: true
     dir: "{{.USER_WORKING_DIR}}"
