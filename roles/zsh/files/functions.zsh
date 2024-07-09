@@ -194,3 +194,7 @@ function gcomain {
     local branch_name=$(git rev-parse --abbrev-ref origin/HEAD | xargs basename)
     git checkout $branch_name
 }
+
+function git-how-many-time-will-you-google-this {
+    git config core.fileMode false
+}
