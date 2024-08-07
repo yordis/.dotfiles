@@ -140,7 +140,6 @@ services:
             enabled: true
             urls: ["http://schema-registry:8081"]
 
-
   zookeeper:
     container_name: zookeeper
     profiles:

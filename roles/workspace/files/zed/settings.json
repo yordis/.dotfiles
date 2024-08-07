@@ -7,6 +7,9 @@
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
 {
+  "language_models": {
+    "ollama": {}
+  },
   "collaboration_panel": {
     "dock": "right"
   },
@@ -16,15 +19,12 @@
   "autosave": "on_focus_change",
   "base_keymap": "JetBrains",
   "assistant": {
-    "version": "1",
-    "provider": {
-      "name": "ollama",
-      "default_model": {
-        "keep_alive": "10m",
-        "name": "codellama:7b",
-        "max_tokens": 2048
-      }
-    }
+    "default_model": {
+      "provider": "ollama",
+      "model": "codellama:7b"
+    },
+    "version": "2",
+    "provider": null
   },
   "languages": {
     "Elixir": {
