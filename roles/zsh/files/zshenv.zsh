@@ -8,6 +8,9 @@ source "$DOTFILES_ROOT_ZSH_ROOT/__dotfiles.zsh"
 
 __dotfiles_maybe_secret_source "$DOTFILES_ROOT_ZSH_ROOT/secret.zsh"
 
+# Note: figure out how to setup a nicer way to handle the value of $CARGO_TARGET_DIR
+# export CARGO_TARGET_DIR="/Volumes/WinOSPrimary/Cache/Cargo/Target"
+
 export GOPATH="$HOME/Developer/GoLang"
 
 # if [[ -f "$HOME/.asdf/bin/asdf" ]]; then
@@ -26,6 +29,8 @@ if [[ "$(uname -m)" == "arm64" ]]; then
 else
   export HOMEBREW_PREFIX="/usr/local"
 fi
+
+export RUST_BACKTRACE=1
 
 export AWS_REGION="localhost"
 export HISTFILE="$HOME/.zsh_history"
