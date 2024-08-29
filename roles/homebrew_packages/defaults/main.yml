@@ -17,6 +17,8 @@ taps:
     state: present
 
 brews:
+  - name: mysql-client
+    state: latest
   - name: elixir-ls
     state: latest
   - name: direnv
