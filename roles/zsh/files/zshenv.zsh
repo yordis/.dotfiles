@@ -97,6 +97,7 @@ export KERL_CONFIGURE_OPTIONS="--disable-debug \
 
 export PNPM_HOME="$HOME/Library/pnpm"
 
+__dotfiles_brew_pkg_link "mysql-client"
 __dotfiles_brew_pkg_link "libxml2"
 __dotfiles_brew_pkg_link "libpq"
 __dotfiles_maybe_prepend_cppflags "$HOMEBREW_PREFIX/opt/openjdk"
@@ -105,6 +106,7 @@ if [[ "$RANCHER_ENABLED" == "true" ]]; then
   __dotfiles_maybe_prepend_path "$HOME/.rd/bin"
 fi
 
+__dotfiles_brew_pkg_prepend_path "mysql-client"
 __dotfiles_brew_pkg_prepend_path "libxml2"
 __dotfiles_brew_pkg_prepend_path "libpq"
 __dotfiles_brew_pkg_prepend_path "openjdk"
