@@ -2,7 +2,7 @@ export DOTFILES_DEBUG=true
 
 export DOTFILES_ROOT="$HOME/.dotfiles"
 export DOTFILES_ROOT_ZSH_ROOT="$DOTFILES_ROOT/roles/zsh/files"
-export SSH_AUTH_SOCK="$HOME/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock"
+export SSH_AUTH_SOCK="$HOME/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
 
 source "$DOTFILES_ROOT_ZSH_ROOT/__dotfiles.zsh"
 
