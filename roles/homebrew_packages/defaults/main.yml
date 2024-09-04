@@ -17,6 +17,8 @@ taps:
     state: present
 
 brews:
+  - name: delta
+    state: latest
   - name: mysql-client
     state: latest
   - name: elixir-ls

@@ -5,6 +5,7 @@ eol = lf
 precomposeUnicode = true
 ignorecase = false
 autocrlf = input
+pager = delta
 
 [user]
 name = Yordis Prieto
