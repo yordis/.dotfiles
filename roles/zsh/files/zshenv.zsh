@@ -12,6 +12,7 @@ __dotfiles_maybe_secret_source "$DOTFILES_ROOT_ZSH_ROOT/secret.zsh"
 # export CARGO_TARGET_DIR="/Volumes/WinOSPrimary/Cache/Cargo/Target"
 
 export GOPATH="$HOME/Developer/GoLang"
+export GOPRIVATE=github.com/straw-hat-team/*,github.com/yordis/*
 
 # if [[ -f "$HOME/.asdf/bin/asdf" ]]; then
 #   export GOPATH=$($HOME/.asdf/bin/asdf where golang)/packages
