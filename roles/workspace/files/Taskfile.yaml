@@ -56,3 +56,9 @@ tasks:
         --project-directory "$DOTFILES_ROOT/roles/workspace/files/docker"
         --file "$DOTFILES_ROOT/roles/workspace/files/docker/docker-compose.yml"
         {{.CLI_ARGS}}
+
+  dotfiles:sync:
+    silent: true
+    dir: "{{.HOME}}/.dotfiles"
+    cmds:
+      - git pull
