@@ -1,6 +1,6 @@
 - name: install the command line developer tools
   command: xcode-select --install
-  ignore_errors: yes
+  ignore_errors: true
 
 - name: install software update
   command: softwareupdate -i -a

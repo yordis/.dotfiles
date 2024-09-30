@@ -1,7 +1,7 @@
 - name: check if cargo is installed
   shell: command -v cargo
   register: cargo_exists
-  ignore_errors: yes
+  ignore_errors: true
 
 - name: fetch rustup
   when: cargo_exists is failed
