@@ -158,9 +158,13 @@ function asdf-remove-all-versions {
 
 function gprcreate {
   local git_root=$(git rev-parse --show-toplevel)
+  local template_file
 
-  if [ -f "$git_root/.github/PULL_REQUEST_TEMPLATE.md" ]; then
-    gh pr create --fill --draft --template $git_root/.github/PULL_REQUEST_TEMPLATE.md
+  # Check for the template file using case-insensitive pattern matching
+  template_file=$(find "$git_root/.github" -maxdepth 1 -iname "pull_request_template.md" -print -quit)
+
+  if [ -n "$template_file" ]; then
+    gh pr create --fill --draft --template "$template_file"
   else
     gh pr create --fill --draft
   fi
