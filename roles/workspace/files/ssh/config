@@ -10,3 +10,5 @@ Host *
 
 Host github.com
   UpdateHostKeys yes
+
+Include ~/.dotfiles/roles/workspace/files/secret/secret.sshconfig
