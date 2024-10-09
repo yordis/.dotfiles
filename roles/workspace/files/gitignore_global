@@ -10,3 +10,4 @@
 .rakeTasks
 yarn-error.log
 .turbo
+.cursorrules
