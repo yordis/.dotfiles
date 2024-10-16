@@ -84,6 +84,7 @@ alias bubu='bubo && bubc'
 # alias npm="yarn"
 alias yarndep="yarn add --exact"
 alias yarndev="yarn add -D --exact"
+alias p="pnpm"
 
 # Dev
 alias dev="cd $HOME/Developer"
