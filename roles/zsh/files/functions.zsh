@@ -29,7 +29,15 @@ function unfuck-master-branch {
 }
 
 function git-remove-merged-branches {
-  git branch --merged >/tmp/merged-branches && \ vi /tmp/merged-branches && xargs git branch -d </tmp/merged-branches
+  git branch --merged | grep -v -E "^\*|master|main" >/tmp/merged-branches
+
+  if [ ! -s /tmp/merged-branches ]; then
+    echo "No merged branches to remove"
+    return
+  fi
+
+  vim /tmp/merged-branches && \
+    xargs git branch -d </tmp/merged-branches
 }
 
 function gpublish {
