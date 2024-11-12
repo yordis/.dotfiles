@@ -17,6 +17,8 @@ taps:
     state: present
 
 brews:
+  - name: zoxide
+    state: latest
   - name: delta
     state: latest
   - name: mysql-client

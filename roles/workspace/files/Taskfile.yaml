@@ -39,7 +39,7 @@ tasks:
   dotfiles:edit:
     silent: true
     cmds:
-      - code "$DOTFILES_ROOT"
+      - zed "$DOTFILES_ROOT"
 
   git:fix-commit-metadata:
     silent: true

@@ -42,3 +42,7 @@ __dotfiles_maybe_source "$HOME/.asdf/asdf.sh"
 __dotfiles_maybe_source "$HOME/.tnsrc"
 __dotfiles_maybe_source "$HOME/.nix-profile/etc/profile.d/nix.sh"
 __dotfiles_maybe_source "/usr/local/anaconda3/etc/profile.d/conda.sh"
+
+if [ $commands[zoxide] ]; then
+  eval "$(zoxide init zsh)"
+fi
