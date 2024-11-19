@@ -50,6 +50,7 @@ export UBI_MY_DRIVE_PATH=$HOME/My\ Drive
 export TERM=xterm-256color
 
 # export EDITOR="$(which vim)"
+export MANPAGER="nvim +Man!"
 export EDITOR="code --wait"
 export REACT_EDITOR=idea
 export NOKOGIRI_USE_SYSTEM_LIBRARIES=1
