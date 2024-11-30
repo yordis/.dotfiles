@@ -6,6 +6,10 @@ function code-open-git-root {
   code $(git rev-parse --show-toplevel)
 }
 
+function cursor-open-git-root {
+  cursor $(git rev-parse --show-toplevel)
+}
+
 function get-app-running-on-port {
   local port=$1
   local rstring=$2
