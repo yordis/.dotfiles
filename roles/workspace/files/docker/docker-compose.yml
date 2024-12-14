@@ -96,9 +96,8 @@ services:
       test: ["CMD", "rabbitmqctl", "status"]
       timeout: 20s
       retries: 10
-    ports:
-      - "5672:5672"
-      - "15672:15672"
+    labels:
+      - dev.orbstack.http-port=15672
     environment:
       RABBITMQ_DEFAULT_USER: guest
       RABBITMQ_DEFAULT_PASS: guest
