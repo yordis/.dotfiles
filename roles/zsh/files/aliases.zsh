@@ -12,6 +12,7 @@ alias gss="git status -s"
 alias gst="git status"
 alias gac="git add -A && git commit -m"
 alias gapa!="git add -A && git commit --amend --no-edit && git push --force-with-lease"
+alias grc="g rebase --continue"
 
 alias gc="git commit -m"
 alias gamend="git commit --amend"
@@ -63,6 +64,7 @@ alias -g .....='../../../..'
 alias -g ......='../../../../..'
 
 alias my-ip="ipconfig getifaddr en0"
+alias my-ip-external="curl ifconfig.me"
 alias super-danger-rm="rm -rf"
 #alias l="ls -lah"
 #alias ll='ls -FGlAhp'
@@ -81,9 +83,6 @@ alias bubc='brew upgrade --greedy && brew cleanup'
 alias bubu='bubo && bubc'
 
 # Node
-# alias npm="yarn"
-alias yarndep="yarn add --exact"
-alias yarndev="yarn add -D --exact"
 alias p="pnpm"
 
 # Dev
