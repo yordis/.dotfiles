@@ -214,3 +214,7 @@ function gcomain {
 function git-how-many-time-will-you-google-this {
     git config core.fileMode false
 }
+
+function gen-secret-key-base {
+  openssl rand -base64 64
+}
