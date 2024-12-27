@@ -38,7 +38,7 @@
       }
     }
   },
-  "restore_on_startup": "last_session",
+  "restore_on_startup": "none",
   "ui_font_family": "Fira Code",
   "ui_font_fallbacks": ["Hack Nerd Font"],
   "file_types": {
