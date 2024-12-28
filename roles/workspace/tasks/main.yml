@@ -1,4 +1,6 @@
 - name: ensure directories exist
+  tags:
+    - workspace-symlinks
   file:
     dest: "{{ item }}"
     state: directory
@@ -6,6 +8,8 @@
 
 - name: create symlinks
   loop: "{{ symlinks }}"
+  tags:
+    - workspace-symlinks
   file:
     src: "{{ dotfiles_directory }}/roles/workspace/files/{{ item.src }}"
     dest: "{{ user_home_directory }}/{{ item.dest }}"

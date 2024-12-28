@@ -8,6 +8,7 @@ directories:
   - "{{ user_home_directory }}/Developer/github.com/yordis"
   - "{{ user_home_directory }}/Developer/gitlab.com/straw-hat-team"
   - "{{ user_home_directory }}/.config/zed/snippets"
+  - "{{ user_home_directory }}/.config/ghostty"
   - "{{ user_home_directory }}/.version-fox"
 
 symlinks:
