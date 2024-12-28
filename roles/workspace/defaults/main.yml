@@ -11,6 +11,8 @@ directories:
   - "{{ user_home_directory }}/.version-fox"
 
 symlinks:
+  - src: "ghostty/config"
+    dest: ".config/ghostty/config"
   - src: "version-fox/config.yaml"
     dest: ".version-fox/config.yaml"
   - src: "gitconfig"

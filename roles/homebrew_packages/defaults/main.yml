@@ -228,6 +228,8 @@ brews:
     state: latest
 
 casks:
+  - name: ghostty
+    state: latest
   - name: docker
     state: uninstalled
   - name: emacs
