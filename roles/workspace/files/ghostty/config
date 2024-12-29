@@ -1,2 +1,3 @@
 theme = NightLion v2
 macos-option-as-alt = true
+copy-on-select = clipboard

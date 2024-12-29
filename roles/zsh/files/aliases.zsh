@@ -84,6 +84,8 @@ alias bubu='bubo && bubc'
 
 # Node
 alias p="pnpm"
+alias pt="pnpm turbo"
+alias ptfp="pnpm turbo format:prettier"
 
 # Dev
 alias dev="cd $HOME/Developer"
