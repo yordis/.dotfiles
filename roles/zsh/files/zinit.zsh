@@ -6,3 +6,5 @@ zinit light jirutka/zsh-shift-select
 zinit light zsh-users/zsh-syntax-highlighting
 zinit light zsh-users/zsh-autosuggestions
 zinit light zsh-users/zsh-completions
+zinit ice lucid wait'0'
+zinit light joshskidmore/zsh-fzf-history-search

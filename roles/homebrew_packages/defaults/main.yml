@@ -17,6 +17,8 @@ taps:
     state: present
 
 brews:
+  - name: fzf
+    state: latest
   - name: zoxide
     state: latest
   - name: delta
