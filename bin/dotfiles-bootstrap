@@ -11,4 +11,4 @@ ANSIBLE_NOCOWS=1 ansible-playbook \
   --inventory $HOME/.dotfiles/inventory/localhost.yml \
   --ask-become-pass \
   --tags $tags \
-  $HOME/.dotfiles/dotfiles.yml
+  $HOME/.dotfiles/dotfiles.playbook.yml
