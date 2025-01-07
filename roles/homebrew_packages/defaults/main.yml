@@ -17,6 +17,8 @@ taps:
     state: present
 
 brews:
+  - name: kcl-lang/tap/kcl
+    state: latest
   - name: fzf
     state: latest
   - name: zoxide
