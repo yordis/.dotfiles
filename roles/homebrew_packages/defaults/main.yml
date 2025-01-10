@@ -17,6 +17,8 @@ taps:
     state: present
 
 brews:
+  - name: golang-migrate
+    state: latest
   - name: kcl-lang/tap/kcl
     state: latest
   - name: fzf
