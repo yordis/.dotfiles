@@ -308,8 +308,6 @@ services:
     restart: unless-stopped
     labels:
       - dev.orbstack.http-port=2113
-    ports:
-      - "2113:2113"
     volumes:
       - eventstore-data:/var/lib/eventstore
     environment:
@@ -344,8 +342,6 @@ services:
     container_name: redis
     image: redis/redis-stack:latest
     restart: unless-stopped
-    ports:
-      - "6379:6379"
     volumes:
       - redis-data:/data
 
