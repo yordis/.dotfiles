@@ -102,3 +102,4 @@ alias kcontext="kubectl config current-context"
 
 alias vim="nvim"
 alias vi="nvim"
+alias c="cursor"
