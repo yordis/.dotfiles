@@ -62,3 +62,9 @@ tasks:
     dir: "{{.HOME}}/.dotfiles"
     cmds:
       - git pull
+
+  dns:flush:
+    silent: true
+    cmds:
+      - sudo dscacheutil -flushcache
+      - sudo killall -HUP mDNSResponder
