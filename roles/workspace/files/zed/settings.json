@@ -22,8 +22,8 @@
   "ensure_final_newline_on_save": true,
   "assistant": {
     "default_model": {
-      "provider": "copilot_chat",
-      "model": "claude-3-5-sonnet"
+      "provider": "ollama",
+      "model": "deepseek-r1:latest"
     },
     "version": "2",
     "provider": null

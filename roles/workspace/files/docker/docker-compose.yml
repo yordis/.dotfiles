@@ -27,6 +27,19 @@ volumes:
     driver: local
 
 services:
+  aspire-dashboard:
+    container_name: aspire-dashboard
+    image: mcr.microsoft.com/dotnet/aspire-dashboard:latest
+    restart: unless-stopped
+    labels:
+      - dev.orbstack.http-port=18888
+    ports:
+      - 4317:18889
+    profiles:
+      - o11y
+    environment:
+      - DOTNET_DASHBOARD_UNSECURED_ALLOW_ANONYMOUS=true
+
   maybe-finance:
     container_name: maybe-finance
     profiles:
