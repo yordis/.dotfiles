@@ -34,11 +34,17 @@ services:
     labels:
       - dev.orbstack.http-port=18888
     ports:
-      - 4317:18889
+      - 4318:18890 # http
+      - 4317:18889 # http2
     profiles:
       - o11y
+      - aspire
     environment:
+      - ASPIRE_ALLOW_UNSECURED_TRANSPORT=true
       - DOTNET_DASHBOARD_UNSECURED_ALLOW_ANONYMOUS=true
+      - DOTNET_DASHBOARD_OTLP_ENDPOINT_URL=http://localhost:18889
+      - DOTNET_DASHBOARD_OTLP_HTTP_ENDPOINT_URL=http://localhost:18890
+      - DASHBOARD__OTLP__AUTHMODE=Unsecured
 
   maybe-finance:
     container_name: maybe-finance
