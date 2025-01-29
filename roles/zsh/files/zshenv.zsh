@@ -6,6 +6,8 @@ export SSH_AUTH_SOCK="$HOME/Library/Group Containers/2BUA8C4S2C.com.1password/t/
 
 source "$DOTFILES_ROOT_ZSH_ROOT/__dotfiles.zsh"
 
+export OLLAMA_HOST="0.0.0.0"
+
 __dotfiles_maybe_secret_source "$DOTFILES_ROOT_ZSH_ROOT/secret.zsh"
 
 # Note: figure out how to setup a nicer way to handle the value of $CARGO_TARGET_DIR
