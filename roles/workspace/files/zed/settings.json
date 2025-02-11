@@ -7,6 +7,9 @@
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
 {
+  "features": {
+    "inline_completion_provider": "zed"
+  },
   "language_models": {
     "ollama": {}
   },
@@ -15,15 +18,15 @@
   },
   "theme": "One Dark",
   "ui_font_size": 20,
-  "buffer_font_size": 20,
+  "buffer_font_size": 24.0,
   "autosave": "on_focus_change",
   "load_direnv": "shell_hook",
   "base_keymap": "JetBrains",
   "ensure_final_newline_on_save": true,
   "assistant": {
     "default_model": {
-      "provider": "ollama",
-      "model": "deepseek-r1:latest"
+      "provider": "zed.dev",
+      "model": "claude-3-5-sonnet-latest"
     },
     "version": "2",
     "provider": null
