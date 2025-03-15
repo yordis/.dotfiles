@@ -17,6 +17,8 @@ taps:
     state: present
 
 brews:
+  - name: grpcurl
+    state: latest
   - name: golang-migrate
     state: latest
   - name: kcl-lang/tap/kcl
