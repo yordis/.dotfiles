@@ -12,3 +12,5 @@ yarn-error.log
 .turbo
 .cursorrules
 .trogonai
+.cursor/rules/trogonai/*
+.cursor/rules/internal/*
