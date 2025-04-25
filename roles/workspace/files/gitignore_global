@@ -15,3 +15,8 @@ yarn-error.log
 .cursor/rules/trogonai/*
 .cursor/rules/internal
 .task
+
+Taskfile.dist.yml
+taskfile.dist.yml
+Taskfile.dist.yaml
+taskfile.dist.yaml
