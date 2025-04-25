@@ -14,3 +14,4 @@ yarn-error.log
 .trogonai
 .cursor/rules/trogonai/*
 .cursor/rules/internal
+.task
