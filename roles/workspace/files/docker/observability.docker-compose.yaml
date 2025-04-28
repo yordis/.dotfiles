@@ -4,6 +4,8 @@ name: ubi
 services:
   otel-lgtm:
     container_name: otel-lgtm
+    labels:
+      - dev.orbstack.http-port=3000
     image: grafana/otel-lgtm:latest
     ports:
       - "3000:3000"
