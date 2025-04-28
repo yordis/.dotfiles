@@ -2,6 +2,14 @@ version: "3"
 name: ubi
 
 services:
+  otel-lgtm:
+    container_name: otel-lgtm
+    image: grafana/otel-lgtm:latest
+    ports:
+      - "3000:3000"
+      - "4317:4317"
+      - "4318:4318"
+
   grafana:
     container_name: grafana
     image: grafana/grafana:latest
@@ -43,7 +51,7 @@ services:
   tempo:
     container_name: tempo
     image: grafana/tempo:latest
-    command: [ "-config.file=/etc/tempo.yaml" ]
+    command: ["-config.file=/etc/tempo.yaml"]
     volumes:
       - ./services/tempo/tempo.yaml:/etc/tempo.yaml
       - ./volumes/tempo:/tmp/tempo
