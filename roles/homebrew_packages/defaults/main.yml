@@ -236,6 +236,10 @@ brews:
     state: latest
 
 casks:
+  - name: lens
+    state: latest
+  - name: tableplus
+    state: latest
   - name: ghostty
     state: latest
   - name: docker
