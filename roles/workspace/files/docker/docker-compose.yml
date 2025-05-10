@@ -122,6 +122,8 @@ services:
       RABBITMQ_DEFAULT_PASS: guest
     volumes:
       - rabbitmq-data:/var/lib/rabbitmq
+    ports:
+      - 15672:15672
 
   schema-registry:
     container_name: schema-registry
