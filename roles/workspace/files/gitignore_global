@@ -12,3 +12,11 @@ yarn-error.log
 .turbo
 .cursorrules
 .trogonai
+.cursor/rules/trogonai/*
+.cursor/rules/internal
+.task
+
+Taskfile.dist.yml
+taskfile.dist.yml
+Taskfile.dist.yaml
+taskfile.dist.yaml

@@ -14,7 +14,6 @@ function cgr {
   cursor-open-git-root
 }
 
-
 function get-app-running-on-port {
   local port=$1
   local rstring=$2
@@ -45,7 +44,7 @@ function git-remove-merged-branches {
     return
   fi
 
-  vim /tmp/merged-branches && \
+  vim /tmp/merged-branches &&
     xargs git branch -d </tmp/merged-branches
 }
 
@@ -204,22 +203,28 @@ function print-path {
 }
 
 function github-notification-ghost-fix {
-   curl -X PUT \
-      -H "Accept: application/vnd.github.v3+json" \
-      -H "Authorization: token $GITHUB_TOKEN" \
-       https://api.github.com/notifications \
-      -d '{"last_read_at":"'$(date -u +"%Y-%m-%dT%H:%M:%SZ")'"}'
+  curl -X PUT \
+    -H "Accept: application/vnd.github.v3+json" \
+    -H "Authorization: token $GITHUB_TOKEN" \
+    https://api.github.com/notifications \
+    -d '{"last_read_at":"'$(date -u +"%Y-%m-%dT%H:%M:%SZ")'"}'
 }
 
 function gcomain {
-    local branch_name=$(git rev-parse --abbrev-ref origin/HEAD | xargs basename)
-    git checkout $branch_name
+  local branch_name=$(git rev-parse --abbrev-ref origin/HEAD | xargs basename)
+  git checkout $branch_name
 }
 
 function git-how-many-time-will-you-google-this {
-    git config core.fileMode false
+  git config core.fileMode false
 }
 
 function gen-secret-key-base {
   openssl rand -base64 64
+}
+
+function gh-cache-delete-pr {
+  local pr_number=$1
+
+  gh cache list --ref refs/pull/$pr_number/merge --json key --jq '.[].key' | xargs -n1 gh cache delete
 }

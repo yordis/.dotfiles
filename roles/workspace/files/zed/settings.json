@@ -7,8 +7,9 @@
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
 {
+  "context_servers": {},
   "features": {
-    "inline_completion_provider": "zed"
+    "edit_prediction_provider": "zed"
   },
   "language_models": {
     "ollama": {}
@@ -25,7 +26,7 @@
   "ensure_final_newline_on_save": true,
   "assistant": {
     "default_model": {
-      "provider": "zed.dev",
+      "provider": "anthropic",
       "model": "claude-3-5-sonnet-latest"
     },
     "version": "2",
